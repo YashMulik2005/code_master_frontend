@@ -16,9 +16,11 @@ import { SiCplusplus } from 'react-icons/si'
 import { FaJava, FaPython } from 'react-icons/fa'
 import { VscTriangleRight } from 'react-icons/vsc'
 import themehook from '../components/CodeContext'
+import { ClipLoader } from 'react-spinners'
 
 function onlinecompiler() {
     const { theme, settheme } = themehook()
+    const url = import.meta.env.VITE_BACKEND;
 
     const codedata = {
         "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
@@ -33,6 +35,7 @@ function onlinecompiler() {
     const [output, setoutput] = useState("")
     const [editortheme, seteditortheme] = useState(theme == "light" ? eclipse : dracula)
     const [mode, setmode] = useState(cpp())
+    const [loader, setloader] = useState(false)
 
     const getcode = React.useCallback((value, viewUpdate) => {
         setcode(value)
@@ -49,10 +52,17 @@ function onlinecompiler() {
     }
 
     const handlerun = async () => {
-        const result = await axios.post("http://localhost:3000/compiler", { data: data })
-        console.log(result);
-        setoutput(result.data.data.result.output)
-        setshow(false)
+        setloader(true)
+        try {
+            const result = await axios.post(`${url}/practice/compiler`, { requestdata: data })
+            console.log(result);
+            setoutput(result.data.data.result.output)
+            setshow(false)
+        }
+        catch (err) {
+            console.log(err);
+        }
+        setloader(false)
     }
 
     const handletheme = () => {
@@ -114,7 +124,10 @@ function onlinecompiler() {
                     <button className={` border-2 px-3 font-semibold mx-2 ${show ? "" : "border-green-600"} sm:hidden `} onClick={() => {
                         setshow(false)
                     }}>Output</button>
-                    <button className='  px-3 font-semibold mx-2 text-white bg-green-600 absolute right-2 flex items-center' onClick={handlerun}>run<VscTriangleRight size={20} /></button>
+                    <section className='absolute right-2 flex'>
+                        {loader && <ClipLoader size={25} color='green' />}
+                        <button className='  px-3 font-semibold mx-2 text-white bg-green-600 flex items-center' onClick={handlerun}>run<VscTriangleRight size={20} /></button>
+                    </section>
                 </div>
                 <div className=' hidden sm:flex p-1 py-2 w-[100%] sm:w-[40%] justify-between border-l-[1px]'>
                     <button className=' border-2 px-3 font-semibold mx-2'>Output</button>

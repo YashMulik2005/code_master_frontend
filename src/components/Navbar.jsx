@@ -5,10 +5,14 @@ import { CgProfile } from 'react-icons/cg'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import themehook from './CodeContext'
+import axios from 'axios'
 
 function Navbar() {
     const [navbar, setnavbar] = useState(false)
-    const { theme, settheme, logedin, contextusername } = themehook()
+    const { theme, settheme, logedin, contextusername, setlogedin, setcontextusername } = themehook()
+    axios.defaults.withCredentials = true;
+    const url = import.meta.env.VITE_BACKEND;
+
 
     const handletheme = () => {
         if (theme == "light") {
@@ -19,7 +23,24 @@ function Navbar() {
         }
     }
 
+    const getlogedin = async () => {
+        const result = await axios.get(`${url}/user`);
+        console.log(result.data.data);
+        if (result.data.data.sucess) {
+            // console.log("if");
+            setlogedin(true)
+            setcontextusername(result.data.data.username)
+        }
+        else {
+            // console.log("else");
+            setlogedin(false)
+            setcontextusername("")
+        }
+    }
+
     useEffect(() => {
+        getlogedin()
+
         localStorage.setItem("theme", theme)
         const localtheme = localStorage.getItem("theme")
         document.querySelector('html').setAttribute("data-theme", localtheme)
@@ -45,7 +66,7 @@ function Navbar() {
                     <li className=' inline font-semibold hover:border-b-2 text-black'>Contact</li>
                     <li className=' inline font-semibold hover:border-b-2 text-black'>Help</li>
                     <section >
-                        {theme == "garden" ? <section className=' flex items-center' onClick={handletheme} size={30}>
+                        {theme == "light" ? <section className=' flex items-center' onClick={handletheme} size={30}>
                             <h1 className=' text-black font-semibold'>Dark Mode</h1> <MdDarkMode size={30} className=' text-black' />
                         </section> : <section className=' flex items-center' onClick={handletheme} >
                             <h1 className=' text-black font-semibold'>Light Mode</h1> <MdOutlineLightMode size={30} className=' text-black' />

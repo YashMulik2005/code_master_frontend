@@ -9,7 +9,7 @@ function Auth() {
         <>
             <div className=' flex h-[92vh]'>
                 <div className=' hidden sm:flex w-1/2 justify-center items-center bg-[#609966]'>
-                    <img src={photo} alt="" className='w-[80%] h-[80%]' />
+                    <img src={photo} alt="" className='w-[80%] h-[80%] object-contain' />
                 </div>
                 <div className='flex flex-col w-full sm:w-1/2  justify-center items-center'>
                     <section className=' flex'>

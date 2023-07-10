@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { GiCancel } from 'react-icons/gi'
 import { AiFillGoogleCircle, AiFillGithub, AiFillFacebook } from 'react-icons/ai'
+import { PulseLoader } from 'react-spinners'
 
 function Signup() {
     const [fname, setfname] = useState("")
@@ -12,10 +13,13 @@ function Signup() {
     const [email, setemail] = useState("")
     const [err, seterr] = useState(false)
     const [statement, setstatement] = useState("")
+    const [loader, setloader] = useState(false)
     const navigate = useNavigate()
+    const url = import.meta.env.VITE_BACKEND;
 
     const handlesubmit = async (e) => {
         e.preventDefault()
+        setloader(true)
         const data = {
             "username": username,
             "email": email,
@@ -24,55 +28,58 @@ function Signup() {
             "lname": lname
         }
 
-        const result = await axios.post('http://localhost:3000/sighup', { data: data })
+        const result = await axios.post(`${url}/user/sighup`, { data: data })
         console.log(result);
         if (result.data.data.sucess) {
             setstatement("Account created sucessfully.")
+            seterr(true)
         }
         else {
             setstatement("Username already exist.")
             seterr(true)
         }
+        setloader(false)
         setfname("")
         setlname("")
         setusername("")
         setpassword("")
         setemail("")
     }
-
     return (
         <div className=' sm:p-2'>
-            <section className={` ${err ? "" : "hidden"} p-1 px-3 flex justify-between items-center bg-green-600 text-white rounded-lg `} >
-                <h1 className=' text-center font-semibold text-md'>{statement}</h1>
-                <GiCancel size={20} onClick={() => {
-                    seterr(false)
-                }} />
-            </section>
+            {(loader ? <section className=' text-center'><PulseLoader size={15} color='green' /></section> :
+                <section className={` ${err ? "" : "hidden"} p-1 px-3 flex justify-between items-center bg-green-600 text-white rounded-lg `} >
+                    <h1 className=' text-center font-semibold text-md'>{statement}</h1>
+                    <GiCancel size={20} onClick={() => {
+                        seterr(false)
+                    }} />
+                </section>
+            )}
             <form action="" onSubmit={handlesubmit}>
                 <section className=' flex'>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>First Name:</h1>
-                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2' value={fname} placeholder='Enter first name' onChange={(e) => {
+                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={fname} placeholder='Enter first name' onChange={(e) => {
                             setfname(e.target.value)
                         }} />
                     </section>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>Last Name:</h1>
-                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2' value={lname} placeholder='Enter last name' onChange={(e) => {
+                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={lname} placeholder='Enter last name' onChange={(e) => {
                             setlname(e.target.value)
                         }} />
                     </section>
                 </section>
                 <h1 className=' font-bold text-xl my-1'>Username:</h1>
-                <input type='text' className=' w-[100%] p-2 rounded-2xl border-2' value={username} placeholder='Enter username' onChange={(e) => {
+                <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={username} placeholder='Enter username' onChange={(e) => {
                     setusername(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Password:</h1>
-                <input type='password' className=' w-[100%] p-2 rounded-2xl border-2' value={password} placeholder='Enter password' onChange={(e) => {
+                <input type='password' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={password} placeholder='Enter password' onChange={(e) => {
                     setpassword(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Email:</h1>
-                <input type='email' className=' w-[100%] p-2 rounded-2xl border-2' value={email} placeholder='Enter email' onChange={(e) => {
+                <input type='email' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={email} placeholder='Enter email' onChange={(e) => {
                     setemail(e.target.value)
                 }} /><br />
                 {/* <h1 className=' font-bold text-xl my-1'>Mobile No.:</h1>
