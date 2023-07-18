@@ -4,8 +4,8 @@ const CodeContext = createContext();
 
 export const Codeprovider = ({ children }) => {
     const [theme, settheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
-    const [contextusername, setcontextusername] = useState("")
-    const [logedin, setlogedin] = useState(false)
+    const [contextusername, setcontextusername] = useState(localStorage.getItem("username") ? localStorage.getItem("username") : "")
+    const [logedin, setlogedin] = useState(localStorage.getItem("username") ? true : false)
     const [topic, settopic] = useState("all")
     const [topic_id, settopic_id] = useState()
     const [course_id, setcourse_id] = useState()

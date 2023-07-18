@@ -25,10 +25,12 @@ function Login() {
         }
         try {
             const result = await axios.post(`${url}/user/login`, { data: data })
-            console.log(result.data.data.sucess);
-            if (result.data.data.sucess) {
+            console.log(result);
+            if (result.data.data.success) {
+                localStorage.setItem("username", username);
                 setloader(false)
                 setcontextusername(username)
+                setlogedin(true)
                 navigate("/")
             } else {
                 setlogedin(false)

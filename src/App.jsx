@@ -13,6 +13,9 @@ import Question from './compiler/Question'
 import Coursetopic from './course/Coursetopic'
 import Topicdata from './course/Topicdata'
 import Certificate from './certificate/Certificate'
+import Rules from './certificate/Rules'
+import Dashboard from './certificate/Dashboard'
+import Certifytest from './certificate/Certifytest'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,6 +40,9 @@ function App() {
             </Route>
             <Route path='/compiler' element={<Onlinecompiler />} />
             <Route path='/practice/question/:id' element={<Question />} />
+            <Route path='/certificate/rule/:id' element={<Rules />} />
+            <Route path='/certificate/dashboard/:id' element={<Dashboard />} />
+            <Route path='/certificate/question/:c_id/:t_id' element={<Certifytest />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -18,9 +18,9 @@ function Course() {
             "username": contextusername
         }
         const result = await axios.post(`${url}/course/all`, { data: data })
-        setdata(result.data.data.couse_data.c_data);
-        settrack(result.data.data.couse_data.track)
-        console.log(result.data.data.couse_data);
+        setdata(result.data.data.course_data.c_data);
+        settrack(result.data.data.course_data.track)
+        console.log(result.data.data.course_data);
         setloder(false)
     }
     useEffect(() => {
@@ -53,7 +53,7 @@ function Course() {
                                     <h1 className=''>{item.description}</h1>
                                     {/* <h1>{item.id}</h1> */}
                                     {
-                                        (item.id == track[item.id] ? <button className={` bg-green-600 text-white py-1 px-3 rounded-xl hover:bg-green-800 font-semibold m-2`}><Link to={`/course/${item.id}`}>continue</Link></button> : <button className={` bg-green-600 text-white py-1 px-5 rounded-xl hover:bg-green-800 font-semibold m-2 `}><Link to={`/course/${item.id}`}>start</Link></button>)
+                                        (item._id == track[item._id] ? <button className={` bg-green-600 text-white py-1 px-3 rounded-xl hover:bg-green-800 font-semibold m-2`}><Link to={`/course/${item._id}`}>continue</Link></button> : <button className={` bg-green-600 text-white py-1 px-5 rounded-xl hover:bg-green-800 font-semibold m-2 `}><Link to={`/course/${item._id}`}>start</Link></button>)
                                     }
                                     {/* <button className={` bg-green-600 ${item.id == track[index + 1] ? "hidden" : ""} `}>start</button> */}
                                 </div>

@@ -23,23 +23,7 @@ function Navbar() {
         }
     }
 
-    const getlogedin = async () => {
-        const result = await axios.get(`${url}/user`);
-        console.log(result.data.data);
-        if (result.data.data.sucess) {
-            // console.log("if");
-            setlogedin(true)
-            setcontextusername(result.data.data.username)
-        }
-        else {
-            // console.log("else");
-            setlogedin(false)
-            setcontextusername("")
-        }
-    }
-
     useEffect(() => {
-        getlogedin()
 
         localStorage.setItem("theme", theme)
         const localtheme = localStorage.getItem("theme")

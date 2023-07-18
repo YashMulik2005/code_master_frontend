@@ -9,7 +9,7 @@ import { BarLoader } from 'react-spinners'
 
 function Question() {
     const { theme, settheme, contextusername } = themehook()
-    const [data, setdata] = useState()
+    const [data, setdata] = useState([])
     const [status, setstatus] = useState()
     const [loader, setloader] = useState(false)
     const { id } = useParams();
@@ -23,7 +23,7 @@ function Question() {
         }
         const result = await axios.post(`${url}/practice/question/${id}`, { data: data });
         setdata(result.data.data.r.q_data)
-        console.log(result.data.data.r.q_data);
+        console.log(result.data.data.r);
         setstatus(result.data.data.r.status);
         setloader(false)
     }
@@ -48,22 +48,20 @@ function Question() {
         <div>
             {(loader ? <section className=' flex justify-center items-center w-[100%] h-[100vh]'><BarLoader size={80} color='green' /></section> :
                 <div>
-                    {
-                        data?.map((item, index) => {
-                            return <div className=' flex items-center border-b-2 p-3 py-3 relative' key={index}>
-                                <h1 className=' text-lg sm:text-2xl sm:mx-3 font-bold'>{item.name}</h1>
-                                {theme == "light" ? <MdDarkMode size={26} className='mx-2 sm:mx-3' onClick={handletheme} /> : <MdOutlineLightMode size={26} className='mx-2 sm:mx-3' onClick={handletheme} />}
-                                <h1 className='hidden sm:block sm:mx-3 font-semibold'>{item.topic}</h1>
-                                <h1 className=' font-semibold absolute right-4'>{status}</h1>
-                            </div>
-                        })
-                    }
+
+                    <div className=' flex items-center border-b-2 p-3 py-3 relative'>
+                        <h1 className=' text-lg sm:text-2xl sm:mx-3 font-bold'>{data.name}</h1>
+                        {theme == "light" ? <MdDarkMode size={26} className='mx-2 sm:mx-3' onClick={handletheme} /> : <MdOutlineLightMode size={26} className='mx-2 sm:mx-3' onClick={handletheme} />}
+                        <h1 className='hidden sm:block sm:mx-3 font-semibold'>{data.topic}</h1>
+                        <h1 className=' font-semibold absolute right-4'>{status}</h1>
+                    </div>
+
                     <div className=' flex flex-col sm:flex-row h-[89vh]'>
                         <div className=' w-[100%] sm:w-[50%] border-b-2 sm:border-r-2 sm:border-b-0 p-2 sm:overflow-y-auto'>
-                            <Questiontext maindata={data ? data[0] : ""} />
+                            <Questiontext maindata={data ? data : ""} />
                         </div>
                         <div className=' w-[100%] sm:w-[50%] sm:overflow-y-auto'>
-                            <Questioncompiler maindata={data ? data[0] : ""} />
+                            <Questioncompiler maindata={data ? data : ""} />
                         </div>
                     </div>
 

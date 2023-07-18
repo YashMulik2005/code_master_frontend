@@ -71,10 +71,10 @@ function Practice() {
                             {
                                 output?.map((item, index) => {
                                     return <tr className=' hover:bg-[#edf1d6] border-b border-slate-500' key={index}>
-                                        <td className=' p-3 font-semibold text-left'>{item.id}</td>
-                                        <td className=' p-3 font-semibold text-left text-green-600'><Link to={`/practice/question/${item.id}`}>{item.name}</Link></td>
+                                        <td className=' p-3 font-semibold text-left text-sm'>{item._id}</td>
+                                        <td className=' p-3 font-semibold text-left text-green-600'><Link to={`/practice/question/${item._id}`}>{item.name}</Link></td>
                                         <td className=' p-3 font-semibold text-left'>{item.topic}</td>
-                                        <td className=' p-3 font-semibold text-left'><Link to={`/practice/question/${item.id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link></td>
+                                        <td className=' p-3 font-semibold text-left'><Link to={`/practice/question/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link></td>
                                     </tr>
                                 })
                             }

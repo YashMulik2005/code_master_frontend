@@ -17,7 +17,8 @@ import { BeatLoader } from 'react-spinners'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-function Questioncompiler({ maindata }) {
+function Compiler({ maindata, c_id }) {
+    // console.log(c_id);
     const navigate = useNavigate()
     const url = import.meta.env.VITE_BACKEND;
 
@@ -139,14 +140,16 @@ function Questioncompiler({ maindata }) {
             if (ans == maindata.testcase2_ans) {
                 const data = {
                     "username": contextusername,
-                    "id": maindata._id
+                    "t_id": maindata._id,
+                    "c_id": c_id
                 }
-                const res = await axios.post(`${url}/practice/solved`, { data: data })
+                const res = await axios.post(`${url}/certify/solved`, { data: data })
                 console.log(res);
                 if (res.data.data.success) {
                     setmessage("sucessful")
                     setstatus(true)
                     seterr(true)
+                    window.my_modal_3.showModal()
                 }
                 else {
                     setmessage("Something went wrong submit aagin")
@@ -166,91 +169,101 @@ function Questioncompiler({ maindata }) {
     }
 
     useEffect(() => {
-    }, [contextusername])
+
+    }, [])
 
     return (
-        <div className='  relative sm:static'>
-            <div className={`flex justify-between  items-center p-2`}>
-                <form action="">
-                    <select name="language" className=' py-[2px] px-6' onChange={handlelan} >
-                        <option value="cpp14">C++</option>
-                        <option value="c">c</option>
-                        <option value="java">Java</option>
-                        <option value="python3">Python</option>
-                    </select>
-                </form>
-                {/* <h1>{lan}</h1> */}
-                <MdDarkMode size={30} onClick={handletheme} />
-            </div>
-            <div className=' px-2'>
-                <CodeMirror className=' text-md'
-                    value={code}
-                    options={{
-                        keyMap: "sublime",
-                        mode: cpp(),
-                        lineNumbers: true,
-                        autoCloseBrackets: true,
-                        gutters: ['CodeMirror-linenumbers'],
-                        extraKeys: { 'Ctrl-Space': 'autocomplete' },
-                        indentUnit: 4,
-                        styleSelectedText: true,
-                        matchBrackets: true,
-                        highlightSelectionMatches: { minChars: 2 },
-                        tabSize: 4,
-                        indentWithTabs: false,
-                        lineWrapping: true,
-                        smartIndent: true,
-                        autoCloseTags: true,
-                        closeBrackets: true,
-                        extensions: [basicSetup, closeBrackets(), indentOnInput()],
+        <div>   <dialog id="my_modal_3" className="modal">
+            <form method="dialog" className="modal-box">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                <h3 className="font-bold text-lg">Successful !!!!!</h3>
+                <p className="py-4">move to next question</p>
+            </form>
+        </dialog>
+            <div className='  relative sm:static'>
 
-                    }}
-                    theme={editortheme}
-                    height='52vh'
-                    extensions={[mode]}
-                    onChange={getcode}
-                />
-            </div>
-            <div className=' p-2'>
-                <h1 className='px-4 font-semibold'>Input </h1>
-                <CodeMirror className=''
-                    theme={editortheme}
-                    height='21vh'
-                    onChange={getinput}
-                    value={input}
-                />
-            </div>
-            <div id="output">
-                {(loader ? <section className=' p-2 flex justify-center items-center font-bold'>
-                    <BeatLoader size={15} color='green' />
-                    <h1 className=' text-lg mx-2'>Compiling</h1>
-                </section> :
-                    <div className={`${status ? "" : " hidden"}  p-1 px-7`} >
-                        <section className={`${err ? "bg-green-600" : "bg-red-500"} text-white p-2 flex items-center justify-between rounded`}>
-                            <h1>{message}</h1>
-                            <GiCancel size={20} onClick={() => {
-                                setstatus(false)
-                            }} />
-                        </section>
-                    </div>
-                )}
+                <div className={`flex justify-between  items-center p-2`}>
+                    <form action="">
+                        <select name="language" className=' py-[2px] px-6' onChange={handlelan} >
+                            <option value="cpp14">C++</option>
+                            <option value="c">c</option>
+                            <option value="java">Java</option>
+                            <option value="python3">Python</option>
+                        </select>
+                    </form>
+                    {/* <h1>{lan}</h1> */}
+                    <MdDarkMode size={30} onClick={handletheme} />
+                </div>
+                <div className=' px-2'>
+                    <CodeMirror className=' text-md'
+                        value={code}
+                        options={{
+                            keyMap: "sublime",
+                            mode: cpp(),
+                            lineNumbers: true,
+                            autoCloseBrackets: true,
+                            gutters: ['CodeMirror-linenumbers'],
+                            extraKeys: { 'Ctrl-Space': 'autocomplete' },
+                            indentUnit: 4,
+                            styleSelectedText: true,
+                            matchBrackets: true,
+                            highlightSelectionMatches: { minChars: 2 },
+                            tabSize: 4,
+                            indentWithTabs: false,
+                            lineWrapping: true,
+                            smartIndent: true,
+                            autoCloseTags: true,
+                            closeBrackets: true,
+                            extensions: [basicSetup, closeBrackets(), indentOnInput()],
 
+                        }}
+                        theme={editortheme}
+                        height='52vh'
+                        extensions={[mode]}
+                        onChange={getcode}
+                    />
+                </div>
+                <div className=' p-2'>
+                    <h1 className='px-4 font-semibold'>Input </h1>
+                    <CodeMirror className=''
+                        theme={editortheme}
+                        height='21vh'
+                        onChange={getinput}
+                        value={input}
+                    />
+                </div>
+                <div id="output">
+                    {(loader ? <section className=' p-2 flex justify-center items-center font-bold'>
+                        <BeatLoader size={15} color='green' />
+                        <h1 className=' text-lg mx-2'>Compiling</h1>
+                    </section> :
+                        <div className={`${status ? "" : " hidden"}  p-1 px-7`} >
+                            <section className={`${err ? "bg-green-600" : "bg-red-500"} text-white p-2 flex items-center justify-between rounded`}>
+                                <h1>{message}</h1>
+                                <GiCancel size={20} onClick={() => {
+                                    setstatus(false)
+                                }} />
+                            </section>
+                        </div>
+                    )}
+
+                </div>
+                <div className=' p-2'>
+                    <h1 className='px-4 font-semibold'>Output</h1>
+                    <CodeMirror className=''
+                        value={output}
+                        theme={editortheme}
+                        height='21vh'
+                    />
+                </div>
+                <div className=' p-2 absolute right-4 bottom-2'>
+                    <button onClick={handlerun} className=' bg-green-600 text-white px-6 py-[6px] rounded-lg mx-2 font-semibold'> <a href="#output">run</a></button>
+                    <button onClick={handlesubmit} className=' bg-green-600 text-white px-6 py-[6px] rounded-lg mx-2 font-semibold'><a href='#output'>Submit</a></button>
+                </div>
+                <ToastContainer />
             </div>
-            <div className=' p-2'>
-                <h1 className='px-4 font-semibold'>Output</h1>
-                <CodeMirror className=''
-                    value={output}
-                    theme={editortheme}
-                    height='21vh'
-                />
-            </div>
-            <div className=' p-2 absolute right-4 bottom-2'>
-                <button onClick={handlerun} className=' bg-green-600 text-white px-6 py-[6px] rounded-lg mx-2 font-semibold'> <a href="#output">run</a></button>
-                <button onClick={handlesubmit} className=' bg-green-600 text-white px-6 py-[6px] rounded-lg mx-2 font-semibold'><a href='#output'>Submit</a></button>
-            </div>
-            <ToastContainer />
         </div>
     )
 }
 
-export default Questioncompiler
+export default Compiler
