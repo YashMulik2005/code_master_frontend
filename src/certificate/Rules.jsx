@@ -12,10 +12,10 @@ function Rules() {
     const div2 = useRef(null)
     const div3 = useRef(null)
     const div4 = useRef(null)
-    const isInView1 = useInView(div1, { once: true })
-    const isInView2 = useInView(div2, { once: true })
-    const isInView3 = useInView(div3, { once: true })
-    const isInView4 = useInView(div4, { once: true })
+    const isInView1 = useInView(div1, { once: false })
+    const isInView2 = useInView(div2, { once: false })
+    const isInView3 = useInView(div3, { once: false })
+    const isInView4 = useInView(div4, { once: false })
     // const div1Controls = useAnimation()
     // const div2Controls = useAnimation()
 
@@ -51,19 +51,19 @@ function Rules() {
     // }, [isInView1, isInView2])
 
     return (
-        <div className=' flex'>
-            <div className={`w-[40%] h-[100vh] flex justify-center items-center p-4 flex-col bg-green-800  text-white`}>
+        <div className=' flex flex-col sm:flex-row'>
+            <div className={` w-[100%] sm:w-[40%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-800  text-white`}>
                 <h1 className=' text-3xl font-bold m-2'>yugewfyevguye</h1>
                 <p className=' text-lg m-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem corporis debitis, placeat neque impedit saepe animi ea, vel laboriosam commodi dolorem cupiditate.</p>
             </div>
 
-            <div className=' w-[60%] h-[100vh] p-4 overflow-y-auto py-32' >
-                <motion.div className=' flex justify-end' ref={div1}
+            <div className=' w-[100%] sm:w-[60%] h-[100vh] p-2 sm:overflow-y-auto sm:py-32' >
+                <motion.div className=' flex justify-end px-3' ref={div1}
                     variants={animateleft}
                     initial="hidden"
                     animate={isInView1 ? "visible" : "hidden"}
                     transition={transition}>
-                    <section className=' w-[50%] p-3 m-4 my-6 bg-[#191919] shadow-lg' >
+                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
                         <motion.p
                             variants={animation}
                             initial="hidden"
@@ -73,39 +73,39 @@ function Rules() {
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-start' ref={div2}
+                <motion.div className=' flex justify-start px-3' ref={div2}
                     variants={animateright}
                     initial="hidden"
                     animate={isInView2 ? "visible" : "hidden"}
                     transition={transition}>
-                    <section className=' w-[50%] bg-[#191919] p-3 m-4 my-6'>
+                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-end' ref={div3}
+                <motion.div className=' flex justify-end px-3' ref={div3}
                     variants={animateleft}
                     initial="hidden"
                     animate={isInView3 ? "visible" : "hidden"}
                     transition={transition}
                 >
-                    <section className=' w-[50%] bg-[#191919] p-3 m-4 my-6'>
+                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-start' ref={div4}
+                <motion.div className=' flex justify-start px-3' ref={div4}
                     variants={animateright}
                     initial="hidden"
                     animate={isInView4 ? "visible" : "hidden"}
                     transition={transition}
                 >
-                    <section className=' w-[50%] bg-[#191919] p-3 m-4 my-6'>
+                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
                 <section className=' flex justify-center'>
-                    <button className=' bg-green-600 text-white px-7 py-1 rounded-3xl font-semibold '><Link to={`/certificate/dashboard/${id}`}> start </Link></button>
+                    <button className=' bg-green-600 text-white px-7 py-1 rounded-3xl font-semibold my-4 '><Link to={`/certificate/dashboard/${id}`}> start </Link></button>
                 </section>
             </div>
         </div>

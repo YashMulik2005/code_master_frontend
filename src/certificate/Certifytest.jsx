@@ -4,8 +4,11 @@ import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import axios from 'axios';
 import Questiontext from '../compiler/Questiontext';
 import Compiler from './Compiler';
+import themehook from '../components/CodeContext';
+import { BarLoader } from 'react-spinners'
 
 function Certifytest() {
+    const { theme } = themehook()
     const { c_id, t_id } = useParams()
     let seconds = 1200;
     const [min, setmin] = useState(Math.floor(seconds / 60))
@@ -14,14 +17,17 @@ function Certifytest() {
     const [title, settitle] = useState("")
     const [text, settext] = useState("")
     const [data, setdata] = useState()
+    const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
     const getdata = async () => {
+        setloader(true)
         const rdata = {
             "t_id": t_id
         }
         const result = await axios.post(`${url}/certify/question`, { data: rdata })
         console.log(result);
         setdata(result.data.data.result)
+        setloader(false)
     }
     useEffect(() => {
         getdata()
@@ -52,27 +58,29 @@ function Certifytest() {
                     <button className=' bg-green-700 text-white font-bold py-1 px-4 rounded-3xl'><Link to={`/certificate/dashboard`}>Dashboard</Link></button>
                 </form>
             </dialog>
-            <div className=' h-[13vh] flex items-center shadow-xl justify-between '>
-                <section className=' flex items-center'>
-                    <section className=' bg-[#191919] h-[70%] flex justify-center items-center rounded-md p-3 mx-4'>
-                        <h1 className=' font-bold text-xl'>End in <span id='timer'>{min < 10 ? "0" + min : min}</span>{sec < 10 ? ":0" + sec : ":" + sec}<span></span></h1>
-                    </section>
-                    <section>
-                        <h1>question1</h1>
-                    </section>
-                </section>
-                <section className=' p-4'>
-                    <MdOutlineLightMode size={30} />
-                </section>
-            </div>
-            <div className=' flex flex-col sm:flex-row h-[89vh]'>
-                <div className=' w-[100%] sm:w-[50%] border-b-2 sm:border-r-2 sm:border-b-0 p-2 sm:overflow-y-auto'>
-                    <Questiontext maindata={data ? data : ""} />
+            {(loader ? <section><BarLoader size={30} color='green' /></section> :
+                <div>
+                    <div className=' h-[13vh] flex items-center shadow-xl justify-between '>
+
+                        <section className=' bg-[#191919] h-[70%] flex justify-center items-center rounded-md p-3 mx-4'>
+                            <h1 className={` font-bold text-xl ${theme == "light" ? "text-white" : ""} `}>End in <span id='timer'>{min < 10 ? "0" + min : min}</span>{sec < 10 ? ":0" + sec : ":" + sec}<span></span></h1>
+                        </section>
+
+                        <section className=' mx-4'>
+                            <h1>{data?.name}</h1>
+                        </section>
+                    </div>
+                    <div className=' flex flex-col sm:flex-row h-[89vh]'>
+                        <div className=' w-[100%] sm:w-[50%] border-b-2 sm:border-r-2 sm:border-b-0 p-2 sm:overflow-y-auto'>
+                            <Questiontext maindata={data ? data : ""} />
+                        </div>
+                        <div className=' w-[100%] sm:w-[50%] sm:overflow-y-auto'>
+                            <Compiler maindata={data ? data : ""} c_id={c_id} />
+                        </div>
+                    </div>
                 </div>
-                <div className=' w-[100%] sm:w-[50%] sm:overflow-y-auto'>
-                    <Compiler maindata={data ? data : ""} c_id={c_id} />
-                </div>
-            </div>
+            )}
+
         </div>
     )
 }
