@@ -30,13 +30,13 @@ function Profile() {
         //     "testcase2_ans": `0\n`,
         //     "explanation": `Since 1≤49≤50, answer is 100 percentage scholarship.`,
         // }
-        const data = {
-            "c_id": "64b6786debbb52b171c6b3f3",
-            "u_id": "yash04",
-            "status": "yes"
-        }
-        const res = axios.post(`${url}/user/add`, { data: data })
-        console.log(res);
+        // const data = {
+        //     "c_id": "64b6786debbb52b171c6b3f3",
+        //     "u_id": "yash04",
+        //     "status": "yes"
+        // }
+        // const res = axios.post(`${url}/user/add`, { data: data })
+        // console.log(res);
     }
 
     return (
