@@ -24,7 +24,7 @@ function Login() {
             "password": password
         }
         try {
-            const result = await axios.post(`${url}/user/login`, { data: data })
+            const result = await axios.post(`https://code-master-klc7.onrender.com/user/login`, { data: data })
             console.log(result);
             if (result.data.data.success) {
                 localStorage.setItem("username", username);
