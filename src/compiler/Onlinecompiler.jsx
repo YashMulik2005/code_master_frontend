@@ -75,11 +75,20 @@ function onlinecompiler() {
             seteditortheme(eclipse)
         }
     }
+    const handleBeforeUnload = (event) => {
+        event.preventDefault();
+        event.returnValue = ''; // This is required for Chrome to show a custom message
+    };
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
         const localtheme = localStorage.getItem("theme")
         document.querySelector('html').setAttribute("data-theme", localtheme)
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
     }, [theme])
 
     return (

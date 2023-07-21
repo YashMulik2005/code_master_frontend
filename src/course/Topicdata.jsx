@@ -74,8 +74,18 @@ function Topicdata() {
         }
     }
 
+    const handleBeforeUnload = (event) => {
+        event.preventDefault();
+        event.returnValue = 'If you reload the page will become non-functional.'; // This is required for Chrome to show a custom message
+    };
+
     useEffect(() => {
         getdata()
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
     }, [])
 
     return (
