@@ -35,9 +35,9 @@ function Certificate() {
                     (loader ? <section className=' flex justify-center items-center'><BarLoader size={25} color='green' /></section> :
                         data?.map((item, index) => {
                             return <div className={` h-36 ${theme == "light" ? " bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "shadow-[#000000] bg-[#191919] shadow-lg"} flex justify-center items-center flex-col rounded-md' key={index} `} >
-                                <h1 className=' text-xl text-green-500 font-bold m-3'>{item.name}</h1>
+                                <h1 className=' text-2xl text-green-500 font-bold m-3'>{item.name}</h1>
                                 {
-                                    (item._id == track[item._id] ? <button>Complete</button> :
+                                    (item._id == track[item._id] ? <Link to={`/showceroficate/${item._id}/${contextusername}`}><button className=' font-bold text-md'><u>Complete</u></button></Link> :
                                         <button className=' bg-green-500 text-white  py-1 px-7 rounded-3xl m-3 font-bold'><Link to={`/certificate/rule/${item._id}`}>Certify</Link></button>
                                     )
                                 }

@@ -16,6 +16,7 @@ import Certificate from './certificate/Certificate'
 import Rules from './certificate/Rules'
 import Dashboard from './certificate/Dashboard'
 import Certifytest from './certificate/Certifytest'
+import CertificateDesign from './certificate/CertificateDesign'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +33,7 @@ function App() {
               <Route path='/course/:id' element={<Coursetopic />} />
               <Route path='/course/topic' element={<Topicdata />} />
               <Route path='/certificate' element={<Certificate />} />
+              <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
               <Route path='/auth' element={<Auth />}>
                 <Route index element={<Login />} />
                 <Route path='login' element={<Login />} />

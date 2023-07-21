@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import themehook from '../components/CodeContext'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
@@ -14,8 +14,9 @@ function Dashboard() {
     const url = import.meta.env.VITE_BACKEND;
     const { contextusername, theme, settheme } = themehook()
     const [data, setdata] = useState()
-    const [track, settrack] = useState()
+    const [track, settrack] = useState({})
     const [loader, setloader] = useState(false)
+    const navigate = useNavigate()
 
     const getdata = async () => {
         setloader(true)
@@ -36,6 +37,26 @@ function Dashboard() {
         }
         else {
             settheme("light")
+        }
+    }
+
+    const handlesubmit = async () => {
+        const data = {
+            "username": contextusername,
+            "c_id": id
+        }
+        if (Object.keys(track).length == 2) {
+            const result = await axios.post(`${url}/certify/certified`, { data: data });
+            console.log(result);
+            if (result.data.data.success) {
+                navigate("/certificate")
+            }
+            else {
+                alert("something went wrong try again")
+            }
+        }
+        else {
+            navigate("/certificate")
         }
     }
 
@@ -90,7 +111,7 @@ function Dashboard() {
                     )}
 
                     <section className=' absolute right-1 bottom-0'>
-                        <button className=' px-6 py-1 bg-[#191919] text-semibold text-white mx-2'>Finish</button>
+                        <button className=' px-6 py-1 bg-[#191919] text-semibold text-white mx-2' onClick={handlesubmit}>Finish</button>
                         <button className=' px-6 py-1 bg-[#191919] text-semibold text-white ml-2'>Stop</button>
                     </section>
                 </div>

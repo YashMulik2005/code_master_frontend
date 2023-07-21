@@ -149,7 +149,7 @@ function Compiler({ maindata, c_id }) {
                     setmessage("sucessful")
                     setstatus(true)
                     seterr(true)
-                    window.my_modal_3.showModal()
+                    navigate(`/certificate/dashboard/${c_id}`)
                 }
                 else {
                     setmessage("Something went wrong submit aagin")
