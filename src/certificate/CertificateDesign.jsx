@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import themehook from '../components/CodeContext'
 import { GrCloudComputer } from 'react-icons/gr'
 import photo1 from '../assets/certificate_bg1.jpg'
 import photo2 from '../assets/certificate_bg2.jpg'
+import ClipboardJS from 'clipboard';
 
 function CertificateDesign() {
     const { id } = useParams()
@@ -13,6 +14,7 @@ function CertificateDesign() {
     const url = import.meta.env.VITE_BACKEND;
 
     const [data, setdata] = useState([])
+    const input = useRef(null)
 
     const getdata = async () => {
         const data = {
@@ -29,6 +31,15 @@ function CertificateDesign() {
         }
 
     }
+
+    const handlecopy = () => {
+        const i = input.current;
+        if (i) {
+            i.select();
+            document.execCommand('copy');
+        }
+    }
+
     useEffect(() => {
         getdata()
     }, [])
@@ -60,9 +71,9 @@ function CertificateDesign() {
             <section className=' my-5 '>
                 <section className=' flex justify-between items-center px-3'>
                     <h1 className='text-lg font-semibold'>Share this Certificate</h1>
-                    <button className=' bg-green-600 px-2 py-1 text-white rounded-md font-semibold'>copy link</button>
+                    <button onClick={handlecopy} className=' bg-green-600 px-2 py-1 text-white rounded-md font-semibold'>copy link</button>
                 </section>
-                <input type='text' className={` my-4 w-full p-2 m-1 rounded-md focus:outline-none ${theme == 'light' ? "border-2" : "border-1"}`} value={`http://localhost:5173/showceroficate/${id}/${contextusername}`} />
+                <input ref={input} type='text' className={` my-4 w-full p-2 m-1 rounded-md focus:outline-none ${theme == 'light' ? "border-2" : "border-1"}`} defaultValue={`http://localhost:5173/showceroficate/${id}/${contextusername}`} />
             </section>
         </div>
     )

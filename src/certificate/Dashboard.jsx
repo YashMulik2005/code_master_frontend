@@ -80,7 +80,7 @@ function Dashboard() {
                     // }> */}
                 <div className=' w-[100%] h-[100%] flex flex-col items-center justify-center backdrop-blur-sm relative'>
                     <section className=' absolute right-2 top-2' onClick={handletheme}>
-                        <MdDarkMode size={35} />
+                        {(theme == "light" ? <MdDarkMode size={35} /> : <MdOutlineLightMode size={35} />)}
                     </section>
                     <h1 className=' text-3xl text-green-600 font-bold m-5'>TEST DASHBOARD</h1>
                     {(loader ? <section><BarLoader size={30} color='green' /></section> :
@@ -110,9 +110,9 @@ function Dashboard() {
                         </table>
                     )}
 
-                    <section className=' absolute right-1 bottom-0'>
-                        <button className=' px-6 py-1 bg-[#191919] text-semibold text-white mx-2' onClick={handlesubmit}>Finish</button>
-                        <button className=' px-6 py-1 bg-[#191919] text-semibold text-white ml-2'>Stop</button>
+                    <section className=' absolute right-2 bottom-2'>
+                        <button className=' px-6 py-1 bg-green-700 font-semibold rounded-sm text-white mx-2' onClick={handlesubmit}>Finish</button>
+                        <button className=' px-6 py-1 bg-green-700 font-semibold rounded-sm text-white ml-2'>Stop</button>
                     </section>
                 </div>
             </div>

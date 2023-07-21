@@ -52,12 +52,12 @@ function Rules() {
 
     return (
         <div className=' flex flex-col sm:flex-row'>
-            <div className={` w-[100%] sm:w-[40%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-800  text-white`}>
+            <div className={` w-[100%] sm:w-[35%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-600  text-white`}>
                 <h1 className=' text-3xl font-bold m-2'>yugewfyevguye</h1>
                 <p className=' text-lg m-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem corporis debitis, placeat neque impedit saepe animi ea, vel laboriosam commodi dolorem cupiditate.</p>
             </div>
 
-            <div className=' w-[100%] sm:w-[60%] h-[100vh] p-2 sm:overflow-y-auto sm:py-32' >
+            <div className=' w-[100%] sm:w-[65%] h-[100vh] p-2 sm:overflow-y-auto sm:py-32' >
                 <motion.div className=' flex justify-end px-3' ref={div1}
                     variants={animateleft}
                     initial="hidden"
