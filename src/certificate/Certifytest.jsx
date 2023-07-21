@@ -19,6 +19,8 @@ function Certifytest() {
     const [data, setdata] = useState()
     const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
+
+
     const getdata = async () => {
         setloader(true)
         const rdata = {
@@ -31,6 +33,7 @@ function Certifytest() {
     }
     useEffect(() => {
         getdata()
+
         const interval = setInterval(() => {
             seconds = seconds - 1;
             if (seconds < 0) {
@@ -46,6 +49,7 @@ function Certifytest() {
             }
         }, 1000);
         return () => clearInterval(interval);
+
     }, [])
 
     return (
