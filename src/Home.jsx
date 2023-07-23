@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { GrCloudComputer } from 'react-icons/gr'
 import { CgProfile } from 'react-icons/cg'
 import photo from './assets/home_cover.png'
@@ -12,6 +12,11 @@ function Home() {
     const { theme, logedin, setlogedin, contextusername, setcontextusername } = themehook();
     axios.defaults.withCredentials = true;
     const url = import.meta.env.VITE_BACKEND;
+
+    const scrollToSection = () => {
+        const aboutSection = document.getElementById('course');
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+    };
 
     useEffect(() => {
 
@@ -40,7 +45,7 @@ function Home() {
                     <h1 className={`text-3xl sm:text-5xl font-bold ${theme == 'light' ? "" : "text-white"}`}>Code Master</h1>
                     <p className='text-md sm:text-lg my-2'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                     <section className=' flex'>
-                        <a href="#course"><button className=' bg-green-700 text-white px-3 py-1 rounded-2xl font-semibold'>Start Learning</button></a>
+                        <button onClick={scrollToSection} className=' bg-green-700 text-white px-3 py-1 rounded-2xl font-semibold'>Start Learning</button>
                         <Link to="/compiler"><section className=' flex mx-4 '>
                             <HiCode size={30} className=' text-green-600 mx-1' />
                             <button className=' text-green-600 font-bold text-lg hover:border-b-2 border-green-600'> Compiler</button>
