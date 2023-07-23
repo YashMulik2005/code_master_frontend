@@ -7,7 +7,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BarLoader } from 'react-spinners'
 
 function Practice() {
-    const { topic, settopic, contextusername, logedin } = themehook()
+    const { topic, settopic, contextusername, logedin, setnavbar } = themehook()
     const [output, setoutput] = useState()
     const [loader, setloader] = useState(false)
     const naviagte = useNavigate()
@@ -26,12 +26,16 @@ function Practice() {
         settopic(e.target.textContent)
     }
 
+    const handlenav = () => {
+        setnavbar(false)
+    }
+
     useEffect(() => {
         getdata()
     }, [topic])
 
     return (
-        <div>
+        <div onClick={handlenav}>
             <div>
                 <div className={`p-2 border-b-[1px] relative h-12`}>
                     <div className={`${logedin ? "" : "hidden"} flex absolute right-2`}>

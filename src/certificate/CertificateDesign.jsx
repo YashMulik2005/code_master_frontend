@@ -45,7 +45,7 @@ function CertificateDesign() {
     }, [])
 
     return (
-        <div className='p-4 sm:p-9'>
+        <div className='p-4 sm:p-9 lg:px-48'>
             <div className=' p-4 sm:p-6 rounded-md bg-cover bg-no-repeat'
                 style={{
                     backgroundImage: `url(${photo1})`

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { HiCode } from 'react-icons/hi'
 
 function Home() {
-    const { theme, logedin, setlogedin, contextusername, setcontextusername } = themehook();
+    const { theme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
     axios.defaults.withCredentials = true;
     const url = import.meta.env.VITE_BACKEND;
 
@@ -18,12 +18,16 @@ function Home() {
         aboutSection.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const handlenav = () => {
+        setnavbar(false)
+    }
+
     useEffect(() => {
 
     }, [])
 
     return (
-        <div className=''>
+        <div className='' onClick={handlenav}>
             <div>
                 <ul className=' flex p-4 absolute sm:right-36'>
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="compiler">Compiler</Link></li>

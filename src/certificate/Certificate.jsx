@@ -9,7 +9,7 @@ function Certificate() {
     const [track, settrack] = useState()
     const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
-    const { contextusername, theme } = themehook()
+    const { contextusername, theme, setnavbar } = themehook()
     const getdata = async () => {
         setloader(true)
         const rdata = {
@@ -22,13 +22,16 @@ function Certificate() {
         settrack(result.data.data.course_data.track);
         setloader(false)
     }
+    const handlenav = () => {
+        setnavbar(false)
+    }
 
     useEffect(() => {
         getdata()
     }, [])
 
     return (
-        <div className=''>
+        <div className=' h-[88vh]' onClick={handlenav}>
             <h1 className=' text-center text-2xl m-4 font-bold'>Certify for below courses</h1>
             <div className=' p-7 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5'>
                 {

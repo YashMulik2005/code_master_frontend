@@ -6,7 +6,7 @@ import themehook from './CodeContext'
 
 function Profile() {
     const navigate = useNavigate()
-    const { logedin, setlogedin, setcontextusername } = themehook()
+    const { logedin, setlogedin, setcontextusername, setnavbar } = themehook()
     const url = import.meta.env.VITE_BACKEND;
 
     const handlelogout = async () => {
@@ -14,6 +14,10 @@ function Profile() {
         setlogedin(false)
         setcontextusername("")
         navigate("/")
+    }
+
+    const handlenav = () => {
+        setnavbar(false)
     }
 
     const handleadd = () => {
@@ -40,7 +44,7 @@ function Profile() {
     }
 
     return (
-        <div >
+        <div onClick={handlenav} className=' h-[90vh]'>
             <button onClick={handlelogout}>logout</button>
             <button onClick={handleadd}>add</button>
         </div>

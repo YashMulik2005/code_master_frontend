@@ -9,6 +9,7 @@ export const Codeprovider = ({ children }) => {
     const [topic, settopic] = useState("all")
     const [topic_id, settopic_id] = useState()
     const [course_id, setcourse_id] = useState()
+    const [navbar, setnavbar] = useState(false)
 
     const value = {
         theme,
@@ -22,7 +23,9 @@ export const Codeprovider = ({ children }) => {
         topic_id,
         settopic_id,
         course_id,
-        setcourse_id
+        setcourse_id,
+        navbar,
+        setnavbar
     }
 
     return <CodeContext.Provider value={value}>

@@ -11,10 +11,14 @@ function Login() {
     const [password, setpassword] = useState("")
     const [loader, setloader] = useState(false)
     const [err, seterr] = useState(false)
-    const { theme, setcontextusername, setlogedin } = themehook()
+    const { theme, setcontextusername, setlogedin, setnavbar } = themehook()
     const navigate = useNavigate()
     axios.defaults.withCredentials = true;
     const url = import.meta.env.VITE_BACKEND;
+
+    const handlenav = () => {
+        setnavbar(false)
+    }
 
     const handlesubmit = async (e) => {
         e.preventDefault()
