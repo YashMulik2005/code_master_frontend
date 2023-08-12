@@ -43,7 +43,7 @@ function Navbar() {
                     {navbar ? <GiCancel size={33} className=' text-black' /> : <GiHamburgerMenu size={33} className=' text-black' />}
                 </section>
             </div>
-            <div className={`bg-[#edf1d6] h-[92vh] ${navbar ? 'w-full sm:w-72' : "w-0"} absolute right-0 transition-all ease-linear duration-300 overflow-hidden z-10 ${theme == 'light' ? "" : ""}`}>
+            <div className={`bg-[#edf1d6] h-[93vh] ${navbar ? 'w-full sm:w-72' : "w-0"} absolute right-0 transition-all ease-linear duration-300 overflow-hidden z-10 ${theme == 'light' ? "" : ""}`}>
                 <ul className=" p-3 flex flex-col">
                     <li className=' inline font-semibold hover:border-b-2 text-black' onClick={() => {
                         setnavbar(false)
