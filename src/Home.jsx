@@ -30,7 +30,7 @@ function Home() {
         <div className='' onClick={handlenav}>
             <div>
                 <ul className=' flex p-4 absolute sm:right-36'>
-                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="compiler">Compiler</Link></li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="discuss">Discuss</Link></li>
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="practice">Practice</Link></li>
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="certificate">Certificate</Link></li>
                     <section className={`${logedin ? "" : "hidden"} flex `}>

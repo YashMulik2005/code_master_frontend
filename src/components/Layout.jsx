@@ -7,7 +7,7 @@ import Course from '../course/Course'
 function Layout() {
     return (
         <div>
-            <Topic />
+            {/* <Topic /> */}
             <Home />
             <Compiler />
             <Course />
