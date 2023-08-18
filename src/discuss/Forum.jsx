@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GrCloudComputer } from 'react-icons/gr'
 import { CgProfile } from 'react-icons/cg'
 import QuestionCard from './QuestionCard'
 import UserQuestionCard from './UserQuestionCard'
 import themehook from '../components/CodeContext'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
+import QuestionSkeleton from './QuestionSkeleton'
+import UserQuestionSkeleton from './UserQuestionSkeleton'
+import { BsSearch } from 'react-icons/bs'
+import axios from 'axios'
 
 function Forum() {
 
-    const { theme, settheme } = themehook()
+    const { theme, settheme, logedin, contextusername } = themehook()
+    const [data, setdata] = useState();
 
     const handletheme = () => {
         if (theme == "light") {
@@ -19,10 +24,17 @@ function Forum() {
         }
     }
 
+    const getdata = () => {
+        const result = axios.get("http://localhost:3000/discuss/");
+        console.log(result);
+    }
+
     useEffect(() => {
         localStorage.setItem("theme", theme)
         const localtheme = localStorage.getItem("theme")
         document.querySelector('html').setAttribute("data-theme", localtheme)
+
+        // getdata()
     }, [theme])
 
     return (
@@ -33,21 +45,21 @@ function Forum() {
                     <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
                 </section>
                 <section className='hidden sm:w-[50%] sm:flex justify-center'>
-                    <input type="text" className={`${theme == "dark" ? "border-none focus:outline-none" : "border-2"}  px-4 py-1 w-[80%] rounded-full `} placeholder='search here' />
+                    <input type="text" className={`${theme == "dark" ? "border-none focus:outline-none" : "border-2"}  px-4 py-1 w-[80%] rounded-full focus:outline-none `} placeholder='search here' />
                 </section>
                 <section className=' '>
-                    {/* <section>
+                    {logedin ? <section className=' flex justify-center items-center'>
+                        <CgProfile size={33} className='' />
+                        <h1 className=' font-bold'>{contextusername}</h1>
+                    </section> : <section>
                         <button className=' bg-green-600 text-white px-5 p-1 mx-1sm:mx-2 font-bold rounded-full'>Login</button>
                         <button className=' bg-green-600 text-white px-5 p-1 mx-1 sm:mx-2 font-bold rounded-full'>Sign up</button>
-                    </section> */}
-                    <section className=' flex justify-center items-center'>
-                        <CgProfile size={33} className='' />
-                        <h1 className=' font-bold'>BHSVCGSVXHGSVX</h1>
-                    </section>
+                    </section>}
+
                 </section>
             </div>
             <section className='sm:hidden flex justify-center m-4'>
-                <input type="text" className=' border-2 px-4 py-1 w-[80%] rounded-full' placeholder='search here' />
+                <input type="text" className=' border-2 px-4 py-1 w-[80%] rounded-full' placeholder={<div className=' flex justify-center items-center '><p>Search here</p><BsSearch size={33} color='black' /></div>} />
             </section>
 
             <div className=' flex w-full p-2 sm:p-8'>
@@ -58,8 +70,11 @@ function Forum() {
                         </section>
                         {theme == "light" ? <MdDarkMode size={33} onClick={handletheme} /> : <MdOutlineLightMode size={33} onClick={handletheme} />}
                     </div>
-                    <div className='h-[75vh] overflow-y-auto m-1'>
-                        <QuestionCard />
+                    <div className='h-[80vh] overflow-y-auto m-1'>
+                        <QuestionSkeleton />
+                        <QuestionSkeleton />
+                        <QuestionSkeleton />
+                        <QuestionSkeleton />
                         <QuestionCard />
                         <QuestionCard />
                         <QuestionCard />
@@ -74,6 +89,9 @@ function Forum() {
                     </div>
                     <h1 className=' font-bold m-3'>Your Questions</h1>
                     <div>
+                        <UserQuestionSkeleton />
+                        <UserQuestionSkeleton />
+                        <UserQuestionSkeleton />
                         <UserQuestionCard /><UserQuestionCard /><UserQuestionCard />
                     </div>
                 </div>
