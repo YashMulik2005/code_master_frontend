@@ -105,10 +105,29 @@ function Forum() {
 
         getdata()
         getuserque()
-    }, [theme,])
+    }, [theme])
 
     return (
         <div className=' w-full'>
+            <div className=' sm:hidden bg-green-700 p-2  rounded-xl right-2 bottom-4 fixed' onClick={() => {
+                if (logedin) {
+                    window.my_modal_3.showModal()
+                } else {
+                    toast.warn("Login first to ask a question", {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
+            }}>
+                <h1 className=' text-white font-bold'>Ask Question</h1>
+            </div>
+
             <dialog id="my_modal_3" className="modal">
                 <form method="dialog" className="modal-box">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -130,6 +149,8 @@ function Forum() {
                     </div>
                 </form>
             </dialog>
+
+
             <div className=' shadow-lg py-5 px-2 sm:p-5 flex justify-between sm:justify-between items-center'>
                 <section className=' flex items-center'>
                     <GrCloudComputer size={30} />
@@ -152,6 +173,8 @@ function Forum() {
 
                 </section>
             </div>
+
+
             <section className='sm:hidden flex justify-center m-4'>
                 <input type="text" className=' border-2 px-4 py-1 w-[80%] rounded-full' placeholder="search here" />
             </section>
@@ -173,6 +196,8 @@ function Forum() {
                         }
                     </div>
                 </div>
+
+
                 <div className='hidden sm:block w-[30%] p-5 '>
                     <div className='flex flex-col items-center'>
                         <section onClick={() => {
