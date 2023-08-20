@@ -18,6 +18,7 @@ import Dashboard from './certificate/Dashboard'
 import Certifytest from './certificate/Certifytest'
 import CertificateDesign from './certificate/CertificateDesign'
 import Forum from './discuss/Forum'
+import ForumAns from './discuss/ForumAns'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -47,6 +48,7 @@ function App() {
             <Route path='/certificate/dashboard/:id' element={<Dashboard />} />
             <Route path='/certificate/question/:c_id/:t_id' element={<Certifytest />} />
             <Route path='/discuss' element={<Forum />} />
+            <Route path='/discuss/:id' element={<ForumAns />} />
           </Routes>
         </BrowserRouter>
       </div>
