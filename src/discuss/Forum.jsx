@@ -11,6 +11,7 @@ import { BsSearch } from 'react-icons/bs'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import { Link, useNavigate } from "react-router-dom"
+import image from '../assets/no_data.png'
 
 function Forum() {
 
@@ -187,18 +188,18 @@ function Forum() {
                         </section>
                         {theme == "light" ? <MdDarkMode size={33} onClick={handletheme} /> : <MdOutlineLightMode size={33} onClick={handletheme} />}
                     </div>
-                    <div className='h-[80vh] overflow-y-auto m-1'>
+                    <div className='h-[82vh] overflow-y-auto m-1'>
                         {
                             (loading ? <div><QuestionSkeleton /><QuestionSkeleton /> <QuestionSkeleton /> <QuestionSkeleton /></div>
-                                : data?.map((item, index) => {
+                                : (data?.length == 0 ? <div className=' flex justify-center'><img src={image} alt="" className=' w-[45%] h-[45%]' /></div> : data?.map((item, index) => {
                                     return <QuestionCard key={index} id={item._id} username={item.username} heading={item.heading} desc={item.description} code={item.code} time={item.timestamp} />
-                                }))
+                                })))
                         }
                     </div>
                 </div>
 
 
-                <div className='hidden sm:block w-[30%] p-5 '>
+                <div className='hidden sm:block w-[30%] p-5 overflow-y-auto h-[90vh] '>
                     <div className='flex flex-col items-center'>
                         <section onClick={() => {
                             if (logedin) {
@@ -224,9 +225,9 @@ function Forum() {
                         {
                             (log ? <div className={` p-5 border-[1px] rounded-xl shadow-lg flex justify-center items-center ${theme == 'dark' ? "border-none bg-gray-950 shadow-black shadow-md" : "shadow-lg"}`}><h1 className=' font-bold text-green-600'>login to see post</h1></div> :
                                 (loading2 ? <div><UserQuestionSkeleton /><UserQuestionSkeleton /><UserQuestionSkeleton /></div>
-                                    : userque?.map((item, index) => {
+                                    : (userque?.length == 0 ? <div className=' flex justify-center'><img src={image} alt="" className=' w-[100%] h-[100%]' /></div> : userque?.map((item, index) => {
                                         return <UserQuestionCard key={index} id={item._id} time={item.timestamp} heading={item.heading} />
-                                    })))
+                                    }))))
                         }
                     </div>
                 </div>

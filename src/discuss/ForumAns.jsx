@@ -8,7 +8,11 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 import UserQuestionCard from './UserQuestionCard'
 import QuestionSkeleton from './QuestionSkeleton'
-import QuestionCard from './QuestionCard'
+import AnsSkeleton from './AnsSkeleton'
+import { ToastContainer, toast } from 'react-toastify'
+import AnsCard from './AnsCard'
+import UserQuestionSkeleton from './UserQuestionSkeleton'
+import image from '../assets/no_data.png'
 
 function ForumAns() {
     const { id } = useParams()
@@ -18,24 +22,92 @@ function ForumAns() {
     const [qdata, setqdata] = useState()
     const [desc, setdesc] = useState("")
     const [code, setcode] = useState("")
+    const [loading, setloading] = useState(false)
+    const [loading2, setloading2] = useState(false)
+    const [ans, setans] = useState()
+    const [log, setlog] = useState();
+    const [userans, setuserans] = useState()
 
     const url = import.meta.env.VITE_BACKEND;
 
-    const handleaddans = () => {
+    const handleaddans = async () => {
+        const data = {
+            q_id: id,
+            description: desc,
+            code: code,
+            user: contextusername
+        }
 
+        const result = await axios.post(`${url}/discuss/addans`, { data: data })
+        console.log(result);
+        if (result.data.data.success) {
+            toast.warn("question posted sucessfully !!!", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            getans()
+        }
+        else {
+            toast.warn("Something went wrong.. try again!!!", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
+
+    const getans = async () => {
+        const data = {
+            "q_id": id
+        }
+
+        const result = await axios.post(`${url}/discuss/getans`, { data: data })
+        console.log(result);
+        setans(result.data.data.result)
+        setloading2(false)
+    }
+
+    const getuserans = async () => {
+        const data = {
+            "username": contextusername
+        }
+        const result = await axios.post(`${url}/discuss/userans`, { data: data });
+        console.log(result);
+        if (result.data.data.Notlogin) {
+            setlog(true)
+        }
+        else {
+            setuserans(result.data.data.result)
+        }
     }
 
     const getques = async () => {
+        setloading(true)
+        setloading2(true)
         const data = {
             "id": id
         }
         const result = await axios.post(`${url}/discuss/fullque`, { data: data })
         console.log(result);
         setqdata(result.data.data.result)
+        setloading(false)
     }
 
     useEffect(() => {
         getques()
+        getans()
+        getuserans()
     }, [])
 
     return (
@@ -99,30 +171,32 @@ function ForumAns() {
 
 
             <div className=' flex '>
-                <div className=' w-[100%] sm:w-[75%] '>
-                    {qdata?.map((item, index) => {
-                        return <div className=' p-5 border-[1px] shadow-xl m-4 rounded-lg'>
-                            <section>
-                                <section className=' flex items-center justify-center'>
-                                    <section>
-                                        <CgProfile size={44} />
+                <div className=' w-[100%] sm:w-[75%] overflow-y-auto h-[90vh]'>
+                    {loading ? <AnsSkeleton /> :
+                        qdata?.map((item, index) => {
+                            return <div className={`p-5 border-[1px] shadow-xl m-4 rounded-lg ${theme == "dark" ? "bg-gray-950 border-none shadow-black shadow-sm" : "shadow-lg"}`}>
+                                <section>
+                                    <section className=' flex items-center justify-center'>
+                                        <section>
+                                            <CgProfile size={44} />
+                                        </section>
+                                        <section className='flex flex-col w-[100%] '>
+                                            <h1 className='mx-3 text-lg font-bold'>{contextusername}</h1>
+                                            <h1 className='mx-3 text-sm'>{moment(item.timestamp).fromNow()}</h1>
+                                            <hr className=' w-[100%] h-3 my-1' />
+                                        </section>
                                     </section>
-                                    <section className='flex flex-col w-[100%] '>
-                                        <h1 className='mx-3 text-lg font-bold'>{contextusername}</h1>
-                                        <h1 className='mx-3 text-sm'>{moment(item.timestamp).fromNow()}</h1>
-                                        <hr className=' w-[100%] h-3 my-1' />
-                                    </section>
-                                </section>
 
-                            </section>
-                            <section>
-                                <h1 className=' text-lg font-bold text-green-700'>{item.heading}</h1>
-                                <h1 className=' my-2'>{item.description}</h1>
-                                <pre><span className=' font-bold'>code:-</span>
-                                    {item.code}</pre>
-                            </section>
-                        </div>
-                    })}
+                                </section>
+                                <section>
+                                    <h1 className=' text-lg font-bold text-green-700'>{item.heading}</h1>
+                                    <h1 className=' my-2'>{item.description}</h1>
+                                    <pre><span className=' font-bold'>{item.code ? "code:-" : ""}</span>
+                                        {item.code}</pre>
+                                </section>
+                            </div>
+                        })}
+
 
                     <section className=' px-5 py-2'>
                         <h1 className=' font-bold'>Answers</h1>
@@ -130,13 +204,18 @@ function ForumAns() {
                     </section>
 
                     <div className='px-5'>
-                        <QuestionCard username="vtdv" heading="tysdy" desc="bhxvsyctvsycgvdycgdsc" code="bysvydc" />
+                        {(loading2 ? <div><QuestionSkeleton /> <QuestionSkeleton /> <QuestionSkeleton /></div> :
+                            (ans?.length == 0 ? <div className=' flex justify-center'><img src={image} alt="" className=' w-[45%] h-[45%]' /></div> : ans?.map((item, index) => {
+                                return <AnsCard key={index} id={item._id} username={item.username} desc={item.description} code={item.code} time={item.timestamp} />
+                            }))
+                        )}
+
                     </div>
 
                 </div>
 
 
-                <div className=' hidden sm:block w-[30%] p-5 '>
+                <div className=' hidden sm:block w-[30%] p-5 overflow-y-auto h-[90vh] '>
                     <div className='flex flex-col items-center'>
                         <section onClick={() => {
                             if (logedin) {
@@ -160,10 +239,17 @@ function ForumAns() {
 
                     <h1 className=' font-bold m-3'>Your Answer</h1>
                     <div>
-                        <UserQuestionCard id="1" heading="husbxsh" />
+                        {
+                            (log ? <div className={` p-5 border-[1px] rounded-xl shadow-lg flex justify-center items-center ${theme == 'dark' ? "border-none bg-gray-950 shadow-black shadow-md" : "shadow-lg"}`}><h1 className=' font-bold text-green-600'>login to see post</h1></div> :
+                                (loading2 ? <div><UserQuestionSkeleton /><UserQuestionSkeleton /><UserQuestionSkeleton /></div>
+                                    : userans?.map((item, index) => {
+                                        return <UserQuestionCard key={index} id={item._id} time={item.timestamp} desc={item.description} />
+                                    })))
+                        }
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
