@@ -24,6 +24,8 @@ function Forum() {
     const [heading, setheading] = useState("")
     const [desc, setdesc] = useState("")
     const [code, setcode] = useState("")
+    const [search, setsearch] = useState("")
+    const [suggetion, setsuggetion] = useState()
 
     const navigate = useNavigate()
 
@@ -35,6 +37,39 @@ function Forum() {
         }
         else {
             settheme("light")
+        }
+    }
+
+    const handlesearch = async (e) => {
+        e.preventDefault()
+        setloading(true)
+        const data = {
+            "search": search
+        }
+
+        const result = await axios.post(`${url}/discuss/search`, { data: data });
+        console.log(result);
+        if (result.data.data.msg) {
+            setdata(result.data.data.result)
+        }
+        else {
+            setdata(result.data.data.result)
+        }
+        setloading(false)
+    }
+
+    const handlesearchchange = async (e) => {
+        setsearch(e.target.value)
+        const data = {
+            "search": search
+        }
+        const result = await axios.post(`${url}/discuss/search`, { data: data });
+        console.log(result);
+        if (result.data.data.msg) {
+
+        }
+        else {
+            setsuggetion(result.data.data.result)
         }
     }
 
@@ -157,8 +192,20 @@ function Forum() {
                     <GrCloudComputer size={30} />
                     <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
                 </section>
-                <section className='hidden sm:w-[50%] sm:flex justify-center'>
-                    <input type="text" className={`${theme == "dark" ? "border-none focus:outline-none" : "border-2"}  px-4 py-1 w-[80%] rounded-full focus:outline-none `} placeholder='search here' />
+                <section className='hidden sm:w-[50%] sm:flex justify-center relative'>
+                    <div className="w-[100%]">
+                        <form action="" onSubmit={handlesearch} className=' w-[80%]'>
+                            <input type="text" value={search} onChange={handlesearchchange} required className={`${theme == "dark" ? "border-none focus:outline-none" : "border-2"}  px-4 py-1 w-[100%] rounded-full focus:outline-none `} placeholder='search here' />
+                        </form>
+                        <div className=' hidden absolute max-h-32 border-2 w-[80%] my-3 rounded-lg shadow-lg bg-white overflow-y-auto'>
+                            {suggetion?.map((item, index) => {
+                                return <div className=' p-3'>
+                                    <p>{item.heading}</p>
+                                </div>
+                            })
+                            }
+                        </div>
+                    </div>
                 </section>
                 <section className=' '>
                     {logedin ? <Link to={'/profile'}><section className=' flex justify-center items-center'>
@@ -176,8 +223,10 @@ function Forum() {
             </div>
 
 
-            <section className='sm:hidden flex justify-center m-4'>
-                <input type="text" className=' border-2 px-4 py-1 w-[80%] rounded-full' placeholder="search here" />
+            <section className='sm:hidden m-4'>
+                <form action="" onSubmit={handlesearch} className=' w-[100%] flex justify-center'>
+                    <input type="text" onChange={handlesearchchange} className={` ${theme == "dark" ? "border-none focus:outline-none" : "border-2"} border-2 px-4 py-1 w-[80%] rounded-full `} placeholder="search here" />
+                </form>
             </section>
 
             <div className=' flex w-full p-2 sm:p-8'>
