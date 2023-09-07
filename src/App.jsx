@@ -36,11 +36,7 @@ function App() {
               <Route path='/course/topic' element={<Topicdata />} />
               <Route path='/certificate' element={<Certificate />} />
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
-              <Route path='/auth' element={<Auth />}>
-                <Route index element={<Login />} />
-                <Route path='login' element={<Login />} />
-                <Route path='signup' element={<Signup />} />
-              </Route>
+
             </Route>
             <Route path='/compiler' element={<Onlinecompiler />} />
             <Route path='/practice/question/:id' element={<Question />} />
@@ -49,6 +45,11 @@ function App() {
             <Route path='/certificate/question/:c_id/:t_id' element={<Certifytest />} />
             <Route path='/discuss' element={<Forum />} />
             <Route path='/discuss/:id' element={<ForumAns />} />
+            <Route path='/auth' element={<Auth />}>
+              <Route index element={<Login />} />
+              <Route path='login' element={<Login />} />
+              <Route path='signup' element={<Signup />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </div>

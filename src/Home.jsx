@@ -33,7 +33,7 @@ function Home() {
     return (
         <div className='bgrounded mb-5' onClick={handlenav}>
             <div className=' absolute z-[1]'>
-                <div className='hidden p-1 px-6 sm:flex justify-between '>
+                <div className='hidden p-1 px-6 sm:flex justify-between items-center'>
                     <section className=' flex items-center cursor-pointer'>
                         <GrCloudComputer size={30} />
                         <h1 className=' font-bold text-[#42892c] mx-2'><u>CODE MASTER</u></h1>
@@ -64,11 +64,11 @@ function Home() {
                             </section>
                             :
                             <section className=' cursor-pointer'>
-                                <button className=' bg-green-600 text-white py-1 px-3 rounded-md m-2 font-semibold' onClick={() => {
+                                <button className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate("/auth/login")
                                 }}>Login</button>
-                                <button className=' bg-green-600 text-white py-1 px-3 rounded-md m-2 font-semibold' onClick={() => {
+                                <button className=' mx-3 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate('/auth/signup')
                                 }}>Sighup</button>
@@ -92,8 +92,8 @@ function Home() {
                         <h1 className={` my-1 text-[48px] sm:text-[60px] font-bold ${theme == 'light' ? "" : "text-white"}`}>Code Master</h1>
                         <p className='text-[18px] sm:text-[22px] my-2 text-center'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
-                            <button onClick={scrollToSection} className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-black hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
-                            <Link to="/compiler"><section className=' flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-black hover:bg-[#39a84b] hover:border-none hover:text-white'>
+                            <button onClick={scrollToSection} className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
+                            <Link to="/compiler"><section className=' flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
                                 <HiCode size={25} className='  mx-1' />
                                 <button className='  font-bold  '> Compiler</button>
                             </section>
