@@ -32,7 +32,7 @@ function Navbar() {
 
     return (
         <div className=' overflow-x-hidden '>
-            <div className=' flex justify-between items-center p-2 bg-[#D1FDD8] sm:hidden'>
+            <div className=' max-[666px]:flex justify-between items-center p-2 bg-[#D1FDD8] hidden'>
                 <section className=' flex items-center'>
                     <GrCloudComputer size={30} />
                     <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
@@ -81,11 +81,11 @@ function Navbar() {
                         </section>
                         :
                         <section>
-                            <button className=' bg-green-600 text-white py-1 px-3 rounded-md m-2 font-semibold' onClick={() => {
+                            <button className=' mx-1 font-bold  rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                 setnavbar(false)
                                 navigate("/auth/login")
                             }}>Login</button>
-                            <button className=' bg-green-600 text-white py-1 px-3 rounded-md m-2 font-semibold' onClick={() => {
+                            <button className=' mx-1 font-bold  rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                 setnavbar(false)
                                 navigate('/auth/signup')
                             }}>Sighup</button>

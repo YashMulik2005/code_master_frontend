@@ -31,9 +31,9 @@ function Home() {
     }, [])
 
     return (
-        <div className='bgrounded mb-5' onClick={handlenav}>
+        <div className='bgrounded mb-5 flex justify-center items-center ' onClick={handlenav}>
             <div className=' absolute z-[1]'>
-                <div className='hidden p-1 px-6 sm:flex justify-between items-center'>
+                <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
                     <section className=' flex items-center cursor-pointer'>
                         <GrCloudComputer size={30} />
                         <h1 className=' font-bold text-[#42892c] mx-2'><u>CODE MASTER</u></h1>
@@ -68,7 +68,7 @@ function Home() {
                                     setnavbar(false)
                                     navigate("/auth/login")
                                 }}>Login</button>
-                                <button className=' mx-3 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' mx-2 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate('/auth/signup')
                                 }}>Sighup</button>
@@ -76,21 +76,19 @@ function Home() {
 
                     }
                 </div>
-                <div>
-                    <ul className=' flex p-4 absolute sm:right-36'>
-                        <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="discuss">Discuss</Link></li>
-                        <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="practice">Practice</Link></li>
-                        <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="certificate">Certificate</Link></li>
-                        <section className={`${logedin ? "" : "hidden"} flex `}>
-                            <CgProfile size={30} />
-                            <h1><Link to="/profile">{contextusername}</Link></h1>
-                        </section>
-                    </ul>
-                </div>
-                <div className=' max-[798px]:p-3 px-10 flex flex-col items-center'>
-                    <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center p-5 pt-6'>
-                        <h1 className={` my-1 text-[48px] sm:text-[60px] font-bold ${theme == 'light' ? "" : "text-white"}`}>Code Master</h1>
-                        <p className='text-[18px] sm:text-[22px] my-2 text-center'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
+                <ul className=' flex p-4 absolute sm:right-36'>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="discuss">Discuss</Link></li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="practice">Practice</Link></li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="certificate">Certificate</Link></li>
+                    <section className={`${logedin ? "" : "hidden"} flex `}>
+                        <CgProfile size={30} />
+                        <h1><Link to="/profile">{contextusername}</Link></h1>
+                    </section>
+                </ul>
+                <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%]'>
+                    <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center px-5 pt-6'>
+                        <h1 className={` my-1 text-[48px] sm:text-[55px] font-bold ${theme == 'light' ? "" : "text-white"}`}>Code Master</h1>
+                        <p className='text-[18px] sm:text-[21px] my-2 text-center'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
                             <button onClick={scrollToSection} className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
                             <Link to="/compiler"><section className=' flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
@@ -100,7 +98,7 @@ function Home() {
                             </Link>
                         </section>
                     </div>
-                    <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[75%] flex justify-center items-center'>
+                    <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[75%] flex justify-center items-center '>
                         <img src={photo} alt="" className=' w-[80%] h-[90%] sm:h-[80%]' />
                     </div>
                 </div>
