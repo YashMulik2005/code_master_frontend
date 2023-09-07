@@ -9,7 +9,7 @@ import photo from '../assets/compiler.png'
 function Compiler() {
     const { theme } = themehook()
     return (
-        <div className={` ${theme == "light" ? "bg-[#edf1d6]" : " bg-gray-950"} flex flex-col-reverse sm:flex-row  p-5`}>
+        <div className={` ${theme == "light" ? "bg-[#f7f7f5]" : " bg-gray-950"} flex flex-col-reverse sm:flex-row  p-5`}>
             <div className=' w-[100%] sm:w-1/2 p-2'>
                 <img src={photo} alt="" className=' w-full h-full' />
             </div>

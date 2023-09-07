@@ -31,8 +31,8 @@ function Navbar() {
     }, [theme])
 
     return (
-        <div className=' overflow-x-hidden'>
-            <div className=' flex justify-between items-center p-2 border-2 bg-[#edf1d6]'>
+        <div className=' overflow-x-hidden '>
+            <div className=' flex justify-between items-center p-2 bg-[#D1FDD8] sm:hidden'>
                 <section className=' flex items-center'>
                     <GrCloudComputer size={30} />
                     <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
@@ -43,7 +43,7 @@ function Navbar() {
                     {navbar ? <GiCancel size={33} className=' text-black' /> : <GiHamburgerMenu size={33} className=' text-black' />}
                 </section>
             </div>
-            <div className={`bg-[#edf1d6] h-[93vh] ${navbar ? 'w-full sm:w-72' : "w-0"} absolute right-0 transition-all ease-linear duration-300 overflow-hidden z-10 ${theme == 'light' ? "" : ""}`}>
+            <div className={` bg-white h-[93vh] ${navbar ? 'w-full sm:w-72' : "w-0"} absolute right-0 transition-all ease-linear duration-300 overflow-hidden z-10 ${theme == 'light' ? "" : ""}`}>
                 <ul className=" p-3 flex flex-col">
                     <li className=' inline font-semibold hover:border-b-2 text-black' onClick={() => {
                         setnavbar(false)
