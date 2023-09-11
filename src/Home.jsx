@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom'
 import { HiCode } from 'react-icons/hi'
 import './roundedbg.css'
 import { useNavigate } from 'react-router-dom'
+import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 
 function Home() {
-    const { theme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
+    const { theme, settheme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
     axios.defaults.withCredentials = true;
     const url = import.meta.env.VITE_BACKEND;
 
@@ -21,6 +22,15 @@ function Home() {
         const aboutSection = document.getElementById('course');
         aboutSection.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const handletheme = () => {
+        if (theme == "light") {
+            settheme("dark")
+        }
+        else {
+            settheme("light")
+        }
+    }
 
     const handlenav = () => {
         setnavbar(false)
@@ -64,11 +74,11 @@ function Home() {
                             </section>
                             :
                             <section className=' cursor-pointer'>
-                                <button className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' text-black font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate("/auth/login")
                                 }}>Login</button>
-                                <button className=' mx-2 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' text-black mx-2 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate('/auth/signup')
                                 }}>Sighup</button>
@@ -77,29 +87,27 @@ function Home() {
                     }
                 </div>
                 <ul className=' flex p-4 absolute sm:right-36'>
-                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="discuss">Discuss</Link></li>
-                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="practice">Practice</Link></li>
-                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md'><Link to="certificate">Certificate</Link></li>
-                    <section className={`${logedin ? "" : "hidden"} flex `}>
-                        <CgProfile size={30} />
-                        <h1><Link to="/profile">{contextusername}</Link></h1>
-                    </section>
+                    <li className=" cursor-pointer" onClick={handletheme}>{theme == 'light' ? <MdDarkMode size={27} className=' text-black' /> : <MdOutlineLightMode size={27} className=' text-black' />}</li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="discuss">Discuss</Link></li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="practice">Practice</Link></li>
+                    <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="certificate">Certificate</Link></li>
+
                 </ul>
                 <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%]'>
                     <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center px-5 pt-6'>
-                        <h1 className={` my-1 text-[48px] sm:text-[55px] font-bold ${theme == 'light' ? "" : "text-white"}`}>Code Master</h1>
-                        <p className='text-[18px] sm:text-[21px] my-2 text-center'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
+                        <h1 className={` my-1 text-[48px] sm:text-[55px] font-bold text-black`}>Code Master</h1>
+                        <p className='text-[18px] sm:text-[21px] my-2 text-center text-black'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
-                            <button onClick={scrollToSection} className=' font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
-                            <Link to="/compiler"><section className=' flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
+                            <button onClick={scrollToSection} className='text-black font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
+                            <Link to="/compiler"><section className='text-black flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
                                 <HiCode size={25} className='  mx-1' />
-                                <button className='  font-bold  '> Compiler</button>
+                                <button className='  font-bold'> Compiler</button>
                             </section>
                             </Link>
                         </section>
                     </div>
                     <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[75%] flex justify-center items-center '>
-                        <img src={photo} alt="" className=' w-[80%] h-[90%] sm:h-[80%]' />
+                        <img src={photo} alt="" className=' w-[73%] h-[90%] sm:h-[80%]' />
                     </div>
                 </div>
             </div>
