@@ -41,7 +41,7 @@ function Home() {
     }, [])
 
     return (
-        <div className='bgrounded mb-5 flex justify-center items-center ' onClick={handlenav}>
+        <div className='bgrounded mb-5 flex' onClick={handlenav}>
             <div className=' absolute z-[1]'>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
                     <section className=' flex items-center cursor-pointer'>

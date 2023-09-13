@@ -30,7 +30,6 @@ function App() {
           <Routes>
             <Route path='/' element={<Applayout />} >
               <Route index element={<Layout />} />
-              <Route path='/profile' element={<Profile />} />
               <Route path='/practice' element={<Practice />} />
               <Route path='/course/:id' element={<Coursetopic />} />
               <Route path='/course/topic' element={<Topicdata />} />
@@ -38,6 +37,7 @@ function App() {
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
 
             </Route>
+            <Route path='/profile' element={<Profile />} />
             <Route path='/compiler' element={<Onlinecompiler />} />
             <Route path='/practice/question/:id' element={<Question />} />
             <Route path='/certificate/rule/:id' element={<Rules />} />
