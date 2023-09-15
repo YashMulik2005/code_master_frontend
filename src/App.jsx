@@ -35,7 +35,6 @@ function App() {
               <Route path='/course/topic' element={<Topicdata />} />
               <Route path='/certificate' element={<Certificate />} />
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
-
             </Route>
             <Route path='/profile' element={<Profile />} />
             <Route path='/compiler' element={<Onlinecompiler />} />
