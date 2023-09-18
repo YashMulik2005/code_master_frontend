@@ -91,6 +91,10 @@ function Home() {
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="discuss">Discuss</Link></li>
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="practice">Practice</Link></li>
                     <li className=' mx-2 font-semibold hover:border-b-2 border-green-600 text-md text-black'><Link to="certificate">Certificate</Link></li>
+                    <section className={`${logedin ? "hidden max-[666px]:flex" : "hidden"} text-black`}>
+                        <CgProfile size={30} />
+                        <h1><Link to="/profile">{contextusername}</Link></h1>
+                    </section>
 
                 </ul>
                 <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%]'>

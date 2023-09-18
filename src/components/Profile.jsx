@@ -106,7 +106,7 @@ function Profile() {
                                     <h1 className='text-[#a19999] font-semibold'>80.00%</h1>
                                 </section>
                                 <section className='w-[40%] flex justify-center items-center'>
-                                    <div className="radial-progress bg-green-600  border-4 border-green-600 text-white" style={{ "--value": 70 }}>70%</div>
+                                    <div className="radial-progress bg-green-600  border-4 border-green-600 text-white" style={{ "--value": 5 }}>{fque}%</div>
                                 </section>
                             </div>
                             <div className={`${theme == 'dark' ? " bg-black" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mr-3 flex`}>
