@@ -48,7 +48,7 @@ function Profile() {
     }, [])
 
     return (
-        <div onClick={handlenav} className=' h-[90vh]'>
+        <div onClick={handlenav} className=' h-[95vh]'>
             <div className=' flex items-center justify-between p-3 sm:p-5'>
                 <h1 className=' font-bold sm:mx-12 sm:text-xl'>USER PROFILE</h1>
                 <section className=' flex w-[65%] sm:w-[50%] justify-center items-center '>
@@ -61,7 +61,7 @@ function Profile() {
                 </section>
             </div>
             {user?.map((item, index) => {
-                return <div className=' flex flex-col min-[950px]:flex-row min-[950px]:h-[80vh] p-4 sm:p-5 justify-center'>
+                return <div className=' flex flex-col min-[950px]:flex-row min-[950px]:h-[87vh] p-4 sm:p-5 justify-center'>
 
                     <div className={`${theme == "light" ? "bg-[#f5f1f1] " : "bg-black"}  h-[100%] w-[100%] min-[950px]:w-[30%] rounded-xl flex items-center p-5 mb-4 min-[950px]:mb-0 flex-col`}>
                         <div className=' rounded-full bg-black w-24 h-24 flex justify-center items-center '>
@@ -70,19 +70,19 @@ function Profile() {
                         </div>
                         <h1 className={`${theme == "light" ? " " : "text-white"} font-bold text-xl `}>yash02</h1>
                         <button className=' w-[80%] px-3 py-1 bg-green-600 text-white rounded-3xl font-bold text-lg my-3' onClick={handlelogout}>Logout</button>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : ""} w-[95%] rounded-3xl pl-4 py-[7px] bg-white my-1`}>
+                        <section className={` ${theme == "dark" ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Name:</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.fname}</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : ""} w-[95%] rounded-3xl pl-4 py-[7px] bg-white my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Email:</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.email}</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : ""} w-[95%] rounded-3xl pl-4 py-[7px] bg-white my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Mobile No. :</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>9359515989</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : ""} w-[95%] rounded-3xl pl-4 py-[7px] bg-white my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Mobile No. :</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.lname}</h1>
                         </section>
