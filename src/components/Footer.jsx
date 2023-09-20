@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
     const { theme } = themehook()
     return (
-        <div className={` ${theme == "light" ? "bg-[#f5f1f1]" : "bg-black"}  p-2`}>
+        <div className={` ${theme == "light" ? "bg-[#f5f1f1]" : "bg-[#0c131d]"}  p-2`}>
             <div className=" flex max-[666px]:flex-col flex-row items-center max-[666px]:justify-center justify-between px-4 py-2 my-2">
                 <section className=' flex items-center'>
                     <section className=''>

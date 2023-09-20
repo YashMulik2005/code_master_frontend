@@ -63,33 +63,33 @@ function Profile() {
             {user?.map((item, index) => {
                 return <div className=' flex flex-col min-[950px]:flex-row min-[950px]:h-[87vh] p-4 sm:p-5 justify-center'>
 
-                    <div className={`${theme == "light" ? "bg-[#f5f1f1] " : "bg-black"}  h-[100%] w-[100%] min-[950px]:w-[30%] rounded-xl flex items-center p-5 mb-4 min-[950px]:mb-0 flex-col`}>
+                    <div className={`${theme == "light" ? "bg-[#f5f1f1] " : "bg-[#0c131d]"}  h-[100%] w-[100%] min-[950px]:w-[30%] rounded-xl flex items-center p-5 mb-4 min-[950px]:mb-0 flex-col`}>
                         <div className=' rounded-full bg-black w-24 h-24 flex justify-center items-center '>
                             <CgProfile className='w-[90%] h-[90%]' color='white' />
 
                         </div>
                         <h1 className={`${theme == "light" ? " " : "text-white"} font-bold text-xl `}>yash02</h1>
                         <button className=' w-[80%] px-3 py-1 bg-green-600 text-white rounded-3xl font-bold text-lg my-3' onClick={handlelogout}>Logout</button>
-                        <section className={` ${theme == "dark" ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
+                        <section className={` ${theme == "dark" ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Name:</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.fname}</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Email:</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.email}</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Mobile No. :</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>9359515989</h1>
                         </section>
-                        <section className={` ${theme == 'dark' ? "bg-[#323232]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
+                        <section className={` ${theme == 'dark' ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                             <h1 className='text-sm text-[#a19999] font-semibold'>Mobile No. :</h1>
                             <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.lname}</h1>
                         </section>
                     </div>
                     <div className=' w-[100%] min-[950px]:w-[70%] h-[100%] '>
                         <div className='w-[100%] flex min-[950px]:h-[27%] overflow-x-auto'>
-                            <div className={`${theme == 'dark' ? " bg-black" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mx-3 flex`}>
+                            <div className={`${theme == 'dark' ? " bg-[#0c131d]" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mx-3 flex`}>
                                 <section className=' w-[60%] flex flex-col justify-center items-start p-3'>
                                     <h1 className=' text-3xl font-bold text-green-600'>{quecount}</h1>
                                     <h1 className={`${theme == "dark" ? "text-white" : ""} font-bold sm:text-lg `}>Problems Solved</h1>
@@ -99,7 +99,7 @@ function Profile() {
                                     <div className="radial-progress bg-green-600  border-4 border-green-600 text-white" style={{ "--value": 70 }}>70%</div>
                                 </section>
                             </div>
-                            <div className={`${theme == 'dark' ? " bg-black" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mr-3 flex`}>
+                            <div className={`${theme == 'dark' ? " bg-[#0c131d]" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mr-3 flex`}>
                                 <section className=' w-[60%] flex flex-col justify-center items-start p-3'>
                                     <h1 className=' text-3xl font-bold text-green-600'>{fque}</h1>
                                     <h1 className={`${theme == "dark" ? "text-white" : ""} font-bold sm:text-lg`}>Questions asked</h1>
@@ -109,7 +109,7 @@ function Profile() {
                                     <div className="radial-progress bg-green-600  border-4 border-green-600 text-white" style={{ "--value": 5 }}>{fque}%</div>
                                 </section>
                             </div>
-                            <div className={`${theme == 'dark' ? " bg-black" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mr-3 flex`}>
+                            <div className={`${theme == 'dark' ? " bg-[#0c131d]" : ""} w-[100%] min-[950px]:w-[40%] h-32 bg-[#f5f1f1] rounded-lg mr-3 flex`}>
                                 <section className=' w-[60%] flex flex-col justify-center items-start p-3'>
                                     <h1 className=' text-3xl font-bold text-green-600'>{fans}</h1>
                                     <h1 className={`${theme == "dark" ? "text-white" : ""} font-bold sm:text-lg`}>Answres given</h1>
@@ -121,11 +121,11 @@ function Profile() {
                             </div>
                         </div>
 
-                        <div className={` ${theme == "dark" ? "bg-black" : "bg-[#f5f1f1]"}  w-[100%] sm:w-[96%] sm:h-[70%]  sm:mx-5 rounded-lg my-5 p-2 sm:p-5 overflow-y-auto `}>
+                        <div className={` ${theme == "dark" ? "bg-[#0c131d]" : "bg-[#f5f1f1]"}  w-[100%] sm:w-[96%] sm:h-[70%]  sm:mx-5 rounded-lg my-5 p-2 sm:p-5 overflow-y-auto `}>
                             <h1 className={` font-semibold ${theme == "dark" ? "text-white" : ""} `}>Latest ask questions of users</h1>
                             <div className=' flex flex-col items-center my-2 '>
                                 {que?.map((item, index) => {
-                                    return <section className={` ${theme == "dark" ? " bg-[#323232]" : "bg-white"} w-[90%] rounded-3xl py-[7px] my-[7px] `}>
+                                    return <section className={` ${theme == "dark" ? " bg-[#1c232b]" : "bg-white"} w-[90%] rounded-3xl py-[7px] my-[7px] `}>
                                         <section className=' flex justify-between px-4'>
                                             <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold `}>{item.heading}</h1>
                                             <h1 className={` ${theme == "dark" ? "text-white" : ""} font-semibold `}>{moment(item.timestamp).fromNow()}</h1>
