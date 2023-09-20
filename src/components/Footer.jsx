@@ -3,20 +3,28 @@ import { GrCloudComputer } from 'react-icons/gr'
 import { BsInstagram, BsGithub, BsLinkedin } from 'react-icons/bs'
 import { AiFillInstagram } from 'react-icons/ai'
 import { BiSolidPhoneCall } from 'react-icons/bi'
-import { FaLocationDot } from 'react-icons/fa6'
+import { FaLocationDot, FaFreeCodeCamp } from 'react-icons/fa6'
 import themehook from './CodeContext'
 import { Link } from 'react-router-dom'
 
 function Footer() {
     const { theme } = themehook()
     return (
-        <div className={` ${theme == "light" ? "bg-[#f5f1f1]" : "bg-[#0c131d]"}  p-2`}>
+        <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"}  p-2`}>
             <div className=" flex max-[666px]:flex-col flex-row items-center max-[666px]:justify-center justify-between px-4 py-2 my-2">
-                <section className=' flex items-center'>
-                    <section className=''>
-                        <GrCloudComputer size={30} />
+                <section>
+                    <section className=' flex items-center justify-center'>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Code</h1>
+                        <section>
+                            <FaFreeCodeCamp size={35} className={` ${theme == "light" ? "text-green-700" : "text-green-500"} mx-[2px] font-bold  `} />
+                        </section>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Master</h1>
                     </section>
-                    <h1 className=' font-bold text-green-600 mx-2 text-lg'><u>CODE MASTER</u></h1>
+                    <section className=' flex  items-center justify-center mt-[-7px]'>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                        <h1 className={` ${theme == "light" ? "text-green-700" : "text-green-500"} text-[12px] mx-[2px] font-semibold`}>learn with fun</h1>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                    </section>
                 </section>
                 <ul className=' max-[666px]:my-2'>
                     <li className=' inline font-bold hover:border-b-2  border-green-500 m-2 my-3'><Link to="/">Home</Link></li>
@@ -25,7 +33,7 @@ function Footer() {
                     <li className=' inline font-bold hover:border-b-2 border-green-500 m-2 my-3'><Link to="/">Help</Link></li>
                 </ul>
                 <section className=' flex items-center max-[666px]:my-2'>
-                    <section className={`${theme == "light" ? "bg-white" : " bg-[#323232] text-white"} p-2 rounded-full mx-2`}>
+                    <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
                         <BiSolidPhoneCall size={25} />
                     </section>
                     <h1 className=' mx-1 font-semibold'>4949495959</h1>
@@ -35,13 +43,13 @@ function Footer() {
             </div>
             <div className=" flex max-[666px]:flex-col-reverse flex-row max-[666px]:justify-center items-center justify-between px-4 py-2">
                 <section className=' flex items-center max-[666px]:mt-2'>
-                    <section className={`${theme == "light" ? "bg-white" : " bg-[#323232] text-white"} p-2 rounded-full mx-2`}>
+                    <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
                         <AiFillInstagram size={25} className=' ' />
                     </section>
-                    <section className={`${theme == "light" ? "bg-white" : " bg-[#323232] text-white"} p-2 rounded-full mx-2`}>
+                    <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
                         <BsGithub size={25} className=' ' />
                     </section>
-                    <section className={`${theme == "light" ? "bg-white" : " bg-[#323232] text-white"} p-2 rounded-full mx-2`}>
+                    <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
                         <BsLinkedin size={25} className=' ' />
                     </section>
                 </section>
@@ -51,7 +59,7 @@ function Footer() {
                 </section>
 
                 <section className=' flex max-[666px]:my-2'>
-                    <section className={`${theme == "light" ? "bg-white" : " bg-[#323232] text-white"} p-2 rounded-full mx-2 h-10`}>
+                    <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2 h-10`}>
                         <FaLocationDot size={25} className='' />
                     </section>
                     <section className=' font-semibold'>

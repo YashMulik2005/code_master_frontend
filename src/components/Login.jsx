@@ -60,11 +60,11 @@ function Login() {
             )}
             <form action="" onSubmit={handlesubmit}>
                 <h1 className=' font-bold text-xl my-3'>Username:</h1>
-                <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={username} placeholder='Enter username' onChange={(e) => {
+                <input type='text' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={username} placeholder='Enter username' onChange={(e) => {
                     setusername(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-3'>Password:</h1>
-                <input type='password' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={password} placeholder='Enter password' onChange={(e) => {
+                <input type='password' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={password} placeholder='Enter password' onChange={(e) => {
                     setpassword(e.target.value)
                 }} /><br />
                 <section className=' flex flex-col justify-center items-center'>

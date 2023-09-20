@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { GiCancel } from 'react-icons/gi'
 import { AiFillGoogleCircle, AiFillGithub, AiFillFacebook } from 'react-icons/ai'
 import { PulseLoader } from 'react-spinners'
+import themehook from './CodeContext'
 
 function Signup() {
     const [fname, setfname] = useState("")
@@ -16,6 +17,7 @@ function Signup() {
     const [loader, setloader] = useState(false)
     const navigate = useNavigate()
     const url = import.meta.env.VITE_BACKEND;
+    const { theme } = themehook()
 
     const handlesubmit = async (e) => {
         e.preventDefault()
@@ -59,27 +61,27 @@ function Signup() {
                 <section className=' flex'>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>First Name:</h1>
-                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={fname} placeholder='Enter first name' onChange={(e) => {
+                        <input type='text' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={fname} placeholder='Enter first name' onChange={(e) => {
                             setfname(e.target.value)
                         }} />
                     </section>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>Last Name:</h1>
-                        <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={lname} placeholder='Enter last name' onChange={(e) => {
+                        <input type='text' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={lname} placeholder='Enter last name' onChange={(e) => {
                             setlname(e.target.value)
                         }} />
                     </section>
                 </section>
                 <h1 className=' font-bold text-xl my-1'>Username:</h1>
-                <input type='text' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={username} placeholder='Enter username' onChange={(e) => {
+                <input type='text' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={username} placeholder='Enter username' onChange={(e) => {
                     setusername(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Password:</h1>
-                <input type='password' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={password} placeholder='Enter password' onChange={(e) => {
+                <input type='password' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={password} placeholder='Enter password' onChange={(e) => {
                     setpassword(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Email:</h1>
-                <input type='email' className=' w-[100%] p-2 rounded-2xl border-2 px-4' value={email} placeholder='Enter email' onChange={(e) => {
+                <input type='email' className={` ${theme == "light" ? "" : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none focus:bg-[#f5f1f0] `} value={email} placeholder='Enter email' onChange={(e) => {
                     setemail(e.target.value)
                 }} /><br />
                 {/* <h1 className=' font-bold text-xl my-1'>Mobile No.:</h1>

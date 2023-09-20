@@ -10,6 +10,7 @@ import { HiCode } from 'react-icons/hi'
 import './roundedbg.css'
 import { useNavigate } from 'react-router-dom'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
+import { FaFreeCodeCamp } from 'react-icons/fa6'
 
 function Home() {
     const { theme, settheme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
@@ -44,9 +45,19 @@ function Home() {
         <div className='bgrounded mb-5 flex' onClick={handlenav}>
             <div className=' absolute z-[1]'>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
-                    <section className=' flex items-center cursor-pointer'>
-                        <GrCloudComputer size={30} />
-                        <h1 className=' font-bold text-[#42892c] mx-2'><u>CODE MASTER</u></h1>
+                    <section>
+                        <section className=' flex items-center justify-center'>
+                            <h1 className={` text-black font-bold text-md `}>Code</h1>
+                            <section>
+                                <FaFreeCodeCamp size={30} className={` text-green-700 mx-[2px] font-bold  `} />
+                            </section>
+                            <h1 className={` text-black font-bold text-md `}>Master</h1>
+                        </section>
+                        <section className=' flex  items-center justify-center mt-[-7px]'>
+                            <hr className={` border-black w-8 border-t-2  `} />
+                            <h1 className={` text-green-700 text-[12px] mx-[2px] font-semibold`}>learn with fun</h1>
+                            <hr className={` border-black w-8 border-t-2  `} />
+                        </section>
                     </section>
                     <ul className=" p-3 flex cursor-pointer ">
                         <li className=' inline mx-2 font-semibold hover:border-b-2 border-green-600 text-black' onClick={() => {

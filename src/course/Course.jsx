@@ -41,10 +41,10 @@ function Course() {
                     <h1 className=' font-bold text-green-500 text-2xl'>All courses of code-master are free to enrole.</h1>
                 </section>
                 {(loder ? <section><BarLoader size={25} color='green' /></section> :
-                    <div className=' grid grid-cols-1 w-[100%] md:grid-cols-2 md:w-2/3 gap-3 mt-2 sm:mt-0'>
+                    <div className=' grid grid-cols-1 w-[100%] md:grid-cols-2 md:w-2/3 gap-3 mt-2 sm:mt-0 max-[768px]:place-items-center'>
                         {
                             data?.map((item, index) => {
-                                return <div className={` group hover:bg-[#39A84B]  ${theme == 'light' ? "bg-[#f5f1f1] " : " bg-black border-none"}  border-[1px] rounded-lg bg-cover bg-center bg-blend-lighten p-3 w-[100%] m-2 `} key={index}>
+                                return <div className={` group hover:bg-[#39A84B]  ${theme == 'light' ? "bg-[#f5f1f0] " : " bg-[#0c131d] border-none"}  border-[1px] rounded-lg p-3 w-[100%] m-2 `} key={index}>
                                     <section className=' flex justify-between items-center my-[4px]'>
                                         <div className=' rounded-full bg-[#39A84B] group-hover:bg-[#C5E7CB] p-1'>
                                             <BiCodeAlt size={27} className=' text-white group-hover:text-[#39A84B]' />
