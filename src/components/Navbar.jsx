@@ -42,11 +42,11 @@ function Navbar() {
                         </section>
                         <h1 className={` text-black font-bold text-md `}>Master</h1>
                     </section>
-                    <section className=' flex  items-center justify-center mt-[-7px]'>
+                    {/* <section className=' flex  items-center justify-center mt-[-7px]'>
                         <hr className={` border-black w-8 border-t-2  `} />
                         <h1 className={` text-green-700 text-[12px] mx-[2px] font-semibold`}>learn with fun</h1>
                         <hr className={` border-black w-8 border-t-2  `} />
-                    </section>
+                    </section> */}
                 </section>
                 <section onClick={() => {
                     setnavbar(!navbar)
