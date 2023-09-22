@@ -60,7 +60,7 @@ function Profile() {
                 <h1 className=' font-bold sm:mx-12 sm:text-xl'>USER PROFILE</h1>
                 <section className=' flex w-[65%] sm:w-[50%] justify-center items-center '>
                     <form action="" onSubmit={handlesearch} className=' w-[100%]'>
-                        <input type="text" required className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-1 w-[100%] rounded-full focus:outline-none `} placeholder='search username' />
+                        <input type="text" required className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-[6px] w-[100%] rounded-full focus:outline-none `} placeholder='search username' />
                     </form>
                     <div className=' rounded-full bg-[#39A84B] group-hover:bg-[#C5E7CB] p-1 mx-5'>
                         <BiCodeAlt size={27} className=' text-white group-hover:text-[#39A84B]' />
@@ -77,7 +77,7 @@ function Profile() {
                                 <CgProfile className='w-[90%] h-[90%]' color='white' />
 
                             </div>
-                            <h1 className={`${theme == "light" ? " " : "text-white"} font-bold text-xl `}>yash02</h1>
+                            <h1 className={`${theme == "light" ? " " : "text-white"} font-bold text-xl `}>{item.username}</h1>
                             <button className=' w-[80%] px-3 py-1 bg-green-600 text-white rounded-3xl font-bold text-lg my-3' onClick={handlelogout}>Logout</button>
                             <section className={` ${theme == "dark" ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                                 <h1 className='text-sm text-[#a19999] font-semibold'>First Name:</h1>

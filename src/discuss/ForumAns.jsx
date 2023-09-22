@@ -13,6 +13,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import AnsCard from './AnsCard'
 import UserQuestionSkeleton from './UserQuestionSkeleton'
 import image from '../assets/no_data.png'
+import { FaFreeCodeCamp } from 'react-icons/fa6'
+
 
 function ForumAns() {
     const { id } = useParams()
@@ -136,24 +138,34 @@ function ForumAns() {
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     <h1 className=' font-bold text-green-600 text-xl'>Ask new question</h1>
                     <div>
-                        <textarea cols={10} rows={5} className={`w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " focus:outline-none border-none " : "focus:outline-none"}`} value={desc} placeholder='description'
+                        <textarea cols={10} rows={5} className={`w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " bg-[#0c131d] focus:outline-none border-none " : "bg-[#f5f1f0] focus:outline-none"}`} value={desc} placeholder='description'
                             onChange={(e) => {
                                 setdesc(e.target.value)
                             }}></textarea>
-                        <textarea cols={10} rows={5} className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " focus:outline-none border-none " : "focus:outline-none"}`} value={code} placeholder='code'
+                        <textarea cols={10} rows={5} className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? "bg-[#0c131d] focus:outline-none border-none " : "bg-[#f5f1f0] focus:outline-none"}`} value={code} placeholder='code'
                             onChange={(e) => {
                                 setcode(e.target.value)
                             }}></textarea>
-                        <button className=' bg-green-600 text-white py-1 px-6 font-bold rounded-full' onClick={handleaddans}>Submit</button>
+                        <button className='font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={handleaddans}>Submit</button>
                     </div>
                 </form>
             </dialog>
 
 
             <div className=' shadow-lg py-5 px-2 sm:p-3 flex justify-between sm:justify-between items-center'>
-                <section className=' flex items-center'>
-                    <GrCloudComputer size={30} />
-                    <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
+                <section>
+                    <section className=' flex items-center justify-center'>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Code</h1>
+                        <section>
+                            <FaFreeCodeCamp size={35} className={` ${theme == "light" ? "text-green-700" : "text-green-500"} mx-[2px] font-bold  `} />
+                        </section>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Master</h1>
+                    </section>
+                    {/* <section className=' flex  items-center justify-center mt-[-7px]'>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                        <h1 className={` ${theme == "light" ? "text-green-700" : "text-green-500"} text-[12px] mx-[2px] font-semibold`}>learn with fun</h1>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                    </section> */}
                 </section>
                 <section className=' '>
                     {logedin ? <Link to={'/profile'}><section className=' flex justify-center items-center'>
@@ -163,8 +175,8 @@ function ForumAns() {
                         {/* {
                             contextusername
                         } */}
-                        <button className=' bg-green-600 text-white px-5 p-1 mx-1sm:mx-2 font-bold rounded-full'><Link to={'/auth/login'}>Login</Link></button>
-                        <button className=' bg-green-600 text-white px-5 p-1 mx-1 sm:mx-2 font-bold rounded-full'><Link to={'/auth/signup'}>Sign up</Link></button>
+                        <button className='   font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/login'}>Login</Link></button>
+                        <button className='  mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/signup'}>Sign up</Link></button>
                     </section>}
                 </section>
             </div>
@@ -174,7 +186,7 @@ function ForumAns() {
                 <div className=' w-[100%] sm:w-[75%] overflow-y-auto h-[90vh]'>
                     {loading ? <AnsSkeleton /> :
                         qdata?.map((item, index) => {
-                            return <div className={`p-5 border-[1px] shadow-xl m-4 rounded-lg ${theme == "dark" ? "bg-gray-950 border-none shadow-black shadow-sm" : "shadow-lg"}`}>
+                            return <div className={`p-5 border-[1px]  m-4 rounded-lg ${theme == "dark" ? "bg-[#0c131d] border-none shadow-md shadow-[#090c10] " : " bg-[#f5f1f0] shadow-md"}`}>
                                 <section>
                                     <section className=' flex items-center justify-center'>
                                         <section>
@@ -237,14 +249,14 @@ function ForumAns() {
                         </section>
                     </div>
 
-                    <h1 className=' font-bold m-3'>Your Answer</h1>
+                    <h1 className={`${theme == "light" ? "text-black" : "text-white"} font-bold m-3`}>Your Answer</h1>
                     <div>
                         {
-                            (log ? <div className={` p-5 border-[1px] rounded-xl shadow-lg flex justify-center items-center ${theme == 'dark' ? "border-none bg-gray-950 shadow-black shadow-md" : "shadow-lg"}`}><h1 className=' font-bold text-green-600'>login to see post</h1></div> :
+                            (log ? <div className={` p-5 border-[1px] rounded-xl  flex justify-center items-center ${theme == 'dark' ? "border-none bg-[#0c151d] shadow-md" : "bg-[#f5f1f0] shadow-md"}`}><h1 className=' font-bold text-green-600'>login to see answers you posted.</h1></div> :
                                 (loading2 ? <div><UserQuestionSkeleton /><UserQuestionSkeleton /><UserQuestionSkeleton /></div>
-                                    : userans?.map((item, index) => {
+                                    : (userans?.length == 0 ? <div className={`${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} p-3 rounded-lg flex justify-center`}><h1 className=' font-semibold'>You hasn't post any answer yet.</h1></div> : userans?.map((item, index) => {
                                         return <UserQuestionCard key={index} id={item._id} time={item.timestamp} desc={item.description} />
-                                    })))
+                                    }))))
                         }
                     </div>
                 </div>

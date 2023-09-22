@@ -9,7 +9,7 @@ function QuestionCard({ username, id, heading, desc, code, time }) {
 
     const navigate = useNavigate()
     return (
-        <div onClick={() => { navigate(`/discuss/${id}`) }} className={` w-full flex justify-between p-3  border-[1px] rounded-lg my-4 ${theme == "dark" ? " bg-gray-950 border-none shadow-black shadow-md" : "shadow-lg"}`}>
+        <div onClick={() => { navigate(`/discuss/${id}`) }} className={` w-full flex justify-between p-3 rounded-lg my-4 ${theme == "dark" ? " bg-[#0c131d] border-none " : "bg-[#f5f1f0] shadow-md"}`}>
             <section className='max-[440px]:w-[20%] sm:w-[10%]'>
                 <CgProfile size={50} className='' />
             </section>

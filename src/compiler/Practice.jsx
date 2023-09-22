@@ -6,7 +6,6 @@ import { CgProfile } from 'react-icons/cg'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BarLoader } from 'react-spinners'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
-import QuestionSkeleton from './QuestionSkeleton'
 
 function Practice() {
     const { topic, settopic, contextusername, logedin, setnavbar, theme } = themehook()
@@ -20,7 +19,7 @@ function Practice() {
         setloader(true)
         const result = await axios.get(`${url}/practice/${topic}`);
         setoutput(result.data.data.result);
-        // setloader(false)
+        setloader(false)
         console.log(result.data.data.result);
     }
 
@@ -60,9 +59,9 @@ function Practice() {
 
                     {
                         logedin ?
-                            <section className=' flex items-center m-2 cursor-pointer'>
-                                <CgProfile size={33} className=' text-black' />
-                                <h1 className=' text-black text-lg' onClick={() => {
+                            <section className={` ${theme == "light" ? "text-black" : "text-white"} flex items-center m-2 cursor-pointer`}>
+                                <CgProfile size={33} className='' />
+                                <h1 className=' text-lg' onClick={() => {
                                     setnavbar(false)
                                     naviagte("/profile")
                                 }}>{contextusername}</h1>
@@ -97,7 +96,7 @@ function Practice() {
                             <li className={`${topic == "graph" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>graph</li>
                         </ul>
                     </div>
-                    <div className='py-3 sm:p-6 p-2 flex flex-col justify-center h-[92vh] min-[800px]:w-[82%] w-[100%]'>
+                    <div className='py-3 sm:p-6 p-2 flex flex-col justify-center h-[88vh] min-[800px]:w-[82%] w-[100%]'>
                         <div className='flex justify-between items-center mb-4'>
                             <h1 className={`${theme == "light" ? "" : "text-white"} font-bold`}>Questions</h1>
                             <form action="" onSubmit={handlesearch} className=' w-[50%]'>
@@ -116,7 +115,12 @@ function Practice() {
                                     </tr>
                                 </thead>
                                 {
-                                    loader ? <BarLoader color='green' className=' text-center' /> :
+                                    loader ? <tr className=' h-[60vh]'>
+                                        <td></td>
+                                        <td></td>
+                                        <td><BarLoader color='green' /></td>
+                                        <td></td>
+                                    </tr> :
                                         output?.map((item, index) => {
                                             return <tr className='  border-b border-slate-500' key={index}>
                                                 <td className=' p-3 font-semibold text-left text-sm'>{index + 1}</td>

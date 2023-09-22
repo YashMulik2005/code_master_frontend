@@ -12,6 +12,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import { Link, useNavigate } from "react-router-dom"
 import image from '../assets/no_data.png'
+import { FaFreeCodeCamp } from 'react-icons/fa6'
 
 function Forum() {
 
@@ -169,33 +170,43 @@ function Forum() {
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     <h1 className=' font-bold text-green-600 text-xl'>Ask new question</h1>
                     <div>
-                        <input type='text' className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " focus:outline-none border-none" : ""}`} value={heading} placeholder='heading'
+                        <input type='text' className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? "bg-[#0c131d]  focus:outline-none border-none" : "bg-[#f5f1f0]"}`} value={heading} placeholder='heading'
                             onChange={(e) => {
                                 setheading(e.target.value)
                             }} />
-                        <textarea cols={10} rows={5} className={`w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " focus:outline-none border-none" : ""}`} value={desc} placeholder='description'
+                        <textarea cols={10} rows={5} className={`w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? "bg-[#0c131d] focus:outline-none border-none" : "bg-[#f5f1f0]"}`} value={desc} placeholder='description'
                             onChange={(e) => {
                                 setdesc(e.target.value)
                             }}></textarea>
-                        <textarea cols={10} rows={5} className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " focus:outline-none border-none" : ""}`} value={code} placeholder='code'
+                        <textarea cols={10} rows={5} className={` w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? "bg-[#0c131d] focus:outline-none border-none" : "bg-[#f5f1f0]"}`} value={code} placeholder='code'
                             onChange={(e) => {
                                 setcode(e.target.value)
                             }}></textarea>
-                        <button className=' bg-green-600 text-white py-1 px-6 font-bold rounded-full' onClick={handleaskques}>Ask</button>
+                        <button className=' font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={handleaskques}>Ask</button>
                     </div>
                 </form>
             </dialog>
 
 
             <div className=' shadow-lg py-5 px-2 sm:p-5 flex justify-between sm:justify-between items-center'>
-                <section className=' flex items-center'>
-                    <GrCloudComputer size={30} />
-                    <h1 className=' font-bold text-[#40513b] mx-2'><u>CODE MASTER</u></h1>
+                <section>
+                    <section className=' flex items-center justify-center'>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Code</h1>
+                        <section>
+                            <FaFreeCodeCamp size={35} className={` ${theme == "light" ? "text-green-700" : "text-green-500"} mx-[2px] font-bold  `} />
+                        </section>
+                        <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Master</h1>
+                    </section>
+                    {/* <section className=' flex  items-center justify-center mt-[-7px]'>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                        <h1 className={` ${theme == "light" ? "text-green-700" : "text-green-500"} text-[12px] mx-[2px] font-semibold`}>learn with fun</h1>
+                        <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
+                    </section> */}
                 </section>
                 <section className='hidden sm:w-[50%] sm:flex justify-center relative'>
                     <div className="w-[100%]">
                         <form action="" onSubmit={handlesearch} className=' w-[80%]'>
-                            <input type="text" value={search} onChange={handlesearchchange} required className={`${theme == "dark" ? "border-none focus:outline-none" : "border-2"}  px-4 py-1 w-[100%] rounded-full focus:outline-none `} placeholder='search here' />
+                            <input type="text" value={search} onChange={handlesearchchange} required className={`${theme == "dark" ? "border-none focus:outline-none" : " bg-[#f5f1f0]"}  px-4 py-[6px] w-[100%] rounded-full focus:outline-none `} placeholder='search here' />
                         </form>
                         <div className=' hidden absolute max-h-32 border-2 w-[80%] my-3 rounded-lg shadow-lg bg-white overflow-y-auto'>
                             {suggetion?.map((item, index) => {
@@ -208,15 +219,15 @@ function Forum() {
                     </div>
                 </section>
                 <section className=' '>
-                    {logedin ? <Link to={'/profile'}><section className=' flex justify-center items-center'>
+                    {logedin ? <Link to={'/profile'}><section className={` ${theme == "light" ? "text-black" : "text-white"} font-bold flex justify-center items-center `} >
                         <CgProfile size={33} className='' />
-                        <h1 className=' font-bold'>{contextusername}</h1>
+                        <h1 className="">{contextusername}</h1>
                     </section></Link> : <section>
                         {/* {
                             contextusername
                         } */}
-                        <button className=' bg-green-600 text-white px-5 p-1 mx-1sm:mx-2 font-bold rounded-full'><Link to={'/auth/login'}>Login</Link></button>
-                        <button className=' bg-green-600 text-white px-5 p-1 mx-1 sm:mx-2 font-bold rounded-full'><Link to={'/auth/signup'}>Sign up</Link></button>
+                        <button className='  font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/login'}>Login</Link></button>
+                        <button className='  mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/signup'}>Sign up</Link></button>
                     </section>}
 
                 </section>
@@ -232,8 +243,8 @@ function Forum() {
             <div className=' flex w-full p-2 sm:p-8'>
                 <div className=' w-[100%] sm:w-[72%] '>
                     <div className=' flex justify-between items-center'>
-                        <section className={` w-28 py-1 px-3 border-[1px] rounded-lg  ${theme == "dark" ? "bg-gray-950 border-none shadow-black shadow-md" : "shadow-lg"}`} >
-                            <p className=' font-bold'>Latest First</p>
+                        <section className={` w-28 py-1 px-3  rounded-lg  ${theme == "dark" ? " bg-[#0c131d] border-none shadow-[#0c131d] shadow-md" : "bg-[#f5f1f0]"}`} >
+                            <p className={`${theme == "light" ? "text-black" : "text-white"} font-semibold`}>Latest First</p>
                         </section>
                         {theme == "light" ? <MdDarkMode size={33} onClick={handletheme} /> : <MdOutlineLightMode size={33} onClick={handletheme} />}
                     </div>
@@ -269,12 +280,12 @@ function Forum() {
                             <p>Ask new question</p>
                         </section>
                     </div>
-                    <h1 className=' font-bold m-3'>Your Questions</h1>
+                    <h1 className={`${theme == "light" ? "text-black" : "text-white"} font-bold m-3`}>Your Questions</h1>
                     <div>
                         {
-                            (log ? <div className={` p-5 border-[1px] rounded-xl shadow-lg flex justify-center items-center ${theme == 'dark' ? "border-none bg-gray-950 shadow-black shadow-md" : "shadow-lg"}`}><h1 className=' font-bold text-green-600'>login to see post</h1></div> :
+                            (log ? <div className={` p-5 border-[1px] rounded-xl  flex justify-center items-center ${theme == 'dark' ? "border-none bg-[#0c151d] shadow-md" : "bg-[#f5f1f0] shadow-md"}`}><h1 className=' font-bold text-green-600'>login to see questions you posted.</h1></div> :
                                 (loading2 ? <div><UserQuestionSkeleton /><UserQuestionSkeleton /><UserQuestionSkeleton /></div>
-                                    : (userque?.length == 0 ? <div className=' flex justify-center'><img src={image} alt="" className=' w-[100%] h-[100%]' /></div> : userque?.map((item, index) => {
+                                    : (userque?.length == 0 ? <div className={`${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} p-3 rounded-lg flex justify-center`}><h1 className=' font-semibold'>You hasn't post any question yet.</h1></div> : userque?.map((item, index) => {
                                         return <UserQuestionCard key={index} id={item._id} time={item.timestamp} heading={item.heading} />
                                     }))))
                         }

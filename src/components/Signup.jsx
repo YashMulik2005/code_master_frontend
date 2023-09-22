@@ -87,7 +87,7 @@ function Signup() {
                 {/* <h1 className=' font-bold text-xl my-1'>Mobile No.:</h1>
                 <input type='number' className=' w-[100%] p-2 rounded-2xl border-2' placeholder='  Enter password' /><br /> */}
                 <section className=' flex flex-col justify-center items-center'>
-                    <input type='submit' className=' bg-green-600 p-1 w-[90%] rounded-2xl text-white font-semibold mt-6' />
+                    <input type='submit' className=' bg-green-600 p-1 py-[6px] w-[90%] rounded-2xl text-white font-semibold mt-6' />
                     <h1 className=' font-semibold'>or</h1>
                     <section className=' flex'>
                         <AiFillGoogleCircle size={36} className=' mx-2' />

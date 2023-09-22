@@ -25,7 +25,7 @@ function onlinecompiler() {
     const codedata = {
         "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
         "python": `print("hello world")`,
-        "java": `public class Main{\n  public static main(String []args){\n    System.out.println("hello world");\n  }\n}`,
+        "java": `public class Main{\n  public static void main(String []args){\n    System.out.println("hello world");\n  }\n}`,
         "c": `#include<stdio.h>\nint main(){\n  printf("hello world");\n  return 0;\n}`
     }
     const [show, setshow] = useState(true)
