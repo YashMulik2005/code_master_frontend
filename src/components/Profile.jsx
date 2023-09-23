@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import themehook from './CodeContext'
 import { BiCodeAlt } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
@@ -10,9 +10,13 @@ import qpprofile from '../assets/qpprofile.png'
 import approfile from '../assets/approfile.png'
 import moment from 'moment'
 import Profileskeleton from './Profileskeleton'
+import { MdCancel } from 'react-icons/md'
+import { BiSolidUserCircle } from 'react-icons/bi'
 
 
 function Profile() {
+    const { id } = useParams();
+    console.log(id);
     const navigate = useNavigate()
     const { logedin, setlogedin, setcontextusername, contextusername, setnavbar, theme } = themehook()
     const url = import.meta.env.VITE_BACKEND;
@@ -22,6 +26,10 @@ function Profile() {
     const [que, setque] = useState()
     const [quecount, setquecount] = useState()
     const [loading, setloading] = useState(false)
+    const [search, setsearch] = useState()
+    const [searchdata, setsearchdata] = useState()
+    const [searchloader, setsearchloader] = useState(false)
+    const [searchbox, setsearchbox] = useState(false)
 
     const handlelogout = async () => {
         localStorage.removeItem("username");
@@ -34,35 +42,79 @@ function Profile() {
         setnavbar(false)
     }
 
-    const handlesearch = () => {
-
+    const handlesearch = async (e) => {
+        e.preventDefault()
+        setsearchloader(true)
+        setsearchbox(true)
+        const result = await axios.post(`${url}/user/search`, { search: search })
+        console.log(result.data.data.result)
+        setsearchdata(result.data.data.result)
+        setsearchloader(false)
     }
 
     const getdata = async () => {
+        setsearchbox(false)
         setloading(true)
-        const result = await axios.post(`${url}/user/profile`, { username: contextusername })
-        // setfans(result.data.fans)
-        console.log(result);
-        setfans(result.data.data.fans);
-        setfque(result.data.data.fque);
-        setquecount(result.data.data.quecount)
-        setque(result.data.data.que);
-        setuser(result.data.data.user);
+        setsearch("")
+        if (id == undefined) {
+            const result = await axios.post(`${url}/user/profile`, { username: contextusername })
+            // setfans(result.data.fans)
+            console.log(result);
+            setfans(result.data.data.fans);
+            setfque(result.data.data.fque);
+            setquecount(result.data.data.quecount)
+            setque(result.data.data.que);
+            setuser(result.data.data.user);
+        }
+        else {
+            const result = await axios.post(`${url}/user/profile`, { username: id })
+            // setfans(result.data.fans)
+            console.log(result);
+            setfans(result.data.data.fans);
+            setfque(result.data.data.fque);
+            setquecount(result.data.data.quecount)
+            setque(result.data.data.que);
+            setuser(result.data.data.user);
+        }
         setloading(false)
     }
     useEffect(() => {
         getdata()
-    }, [])
+    }, [id])
 
     return (
         <div onClick={handlenav} className=' h-[95vh]'>
-            <div className=' flex items-center justify-between p-3 sm:p-5'>
+            <div className=' flex flex-col sm:flex-row items-center justify-between p-3 sm:p-5'>
                 <h1 className=' font-bold sm:mx-12 sm:text-xl'>USER PROFILE</h1>
-                <section className=' flex w-[65%] sm:w-[50%] justify-center items-center '>
-                    <form action="" onSubmit={handlesearch} className=' w-[100%]'>
-                        <input type="text" required className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-[6px] w-[100%] rounded-full focus:outline-none `} placeholder='search username' />
-                    </form>
-                    <div className=' rounded-full bg-[#39A84B] group-hover:bg-[#C5E7CB] p-1 mx-5'>
+                <section className=' flex my-2 sm:my-0  w-[100%] sm:w-[50%] justify-center items-center '>
+                    <section className=' relative w-[100%]'>
+                        <form action="" onSubmit={handlesearch} className=' w-[100%]'>
+                            <input type="text" required onChange={(e) => {
+                                setsearch(e.target.value)
+                            }} value={search} className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-[6px] w-[100%] rounded-full focus:outline-none `} placeholder='search username' />
+                        </form>
+                        <section className={` overflow-y-auto p-3 ${searchbox == true ? "block" : "hidden"} ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} border-[1px] absolute h-48 w-[100%] top-12 rounded-md`}>
+                            <section className='flex justify-between'>
+                                <h1>result</h1>
+                                <MdCancel size={20} onClick={() => {
+                                    setsearchbox(false)
+                                }} />
+                            </section>
+                            {
+                                searchloader ? <h1>loading</h1> :
+                                    searchdata?.map((item, index) => {
+                                        return <section key={index} className={` flex ${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md py-1 px-3 my-2`}>
+                                            <Link to={`/profile/${item.username}`} className='flex'>
+                                                <BiSolidUserCircle size={30} />
+                                                <h1 className=' ml-2'>{item.username}</h1>
+                                            </Link>
+                                        </section>
+                                    })
+                            }
+
+                        </section >
+                    </section>
+                    <div className=' hidden sm:block rounded-full bg-[#39A84B] group-hover:bg-[#090909] p-1 mx-5'>
                         <BiCodeAlt size={27} className=' text-white group-hover:text-[#39A84B]' />
                     </div>
                 </section>
@@ -78,7 +130,7 @@ function Profile() {
 
                             </div>
                             <h1 className={`${theme == "light" ? " " : "text-white"} font-bold text-xl `}>{item.username}</h1>
-                            <button className=' w-[80%] px-3 py-1 bg-green-600 text-white rounded-3xl font-bold text-lg my-3' onClick={handlelogout}>Logout</button>
+                            <button className={` ${contextusername == item.username ? "block" : "hidden"} w-[80%] px-3 py-1 bg-green-600 text-white rounded-3xl font-bold text-lg my-3 `} onClick={handlelogout}>Logout</button>
                             <section className={` ${theme == "dark" ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                                 <h1 className='text-sm text-[#a19999] font-semibold'>First Name:</h1>
                                 <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.fname}</h1>
