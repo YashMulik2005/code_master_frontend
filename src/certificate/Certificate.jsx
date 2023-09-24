@@ -6,6 +6,7 @@ import { BarLoader } from 'react-spinners'
 import photo from '../assets/dashboard_bg.png'
 import { BiCodeAlt } from 'react-icons/bi'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
+import CertificateSketeon from './CertificateSketeon';
 
 function Certificate() {
     const [data, setdata] = useState()
@@ -38,7 +39,7 @@ function Certificate() {
             <h1 className=' text-center text-2xl m-4 font-bold'>Certify for below courses</h1>
             <div className=' p-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
                 {
-                    (loader ? <section className=' justify-center items-center'><BarLoader size={25} color='green' /></section> :
+                    (loader ? <section className=" flex"><CertificateSketeon /><CertificateSketeon /><CertificateSketeon /><CertificateSketeon /></section> :
                         data?.map((item, index) => {
                             return <div className={` hover:scale-110 transition-all ease-linear duration-200 relative p-3 flex justify-between items-center rounded-lg h-40 ${theme == "light" ? " bg-[#f5f1f0] border-[1px] " : "bg-[#0c131d] shadow-lg"} `} key={index}  >
                                 <section>

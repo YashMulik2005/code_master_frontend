@@ -71,7 +71,7 @@ function Dashboard() {
     console.log(id);
     return (
         <div className=' flex'>
-            <div className='hidden sm:w-[25%] h-[100vh] bg-green-600 text-white font-semibold sm:flex justify-center items-center p-4'>
+            <div className='hidden sm:w-[25%] h-[100vh] bg-green-700 text-white font-semibold sm:flex justify-center items-center p-4'>
                 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, minima veniam at voluptates magni explicabo assumenda inventore porro expedita, esse id pariatur eaque quasi quo. Quae quod aperiam blanditiis? Aperiam!</h1>
             </div>
             <div className=' w-[100%] sm:w-[75%] h-[100vh]  relative bg-contain bg-center bg-no-repeat'>
@@ -96,7 +96,7 @@ function Dashboard() {
                             </thead>
                             {
                                 data?.map((item, index) => {
-                                    return <tr className=' hover:bg-[#edf1d6] border-b border-slate-500' key={index}>
+                                    return <tr className={` ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} hover:border-b-0 border-b border-slate-500`} key={index}>
                                         <td className=' p-3 font-semibold text-left hover:text-black text-sm'>{index + 1}</td>
                                         <td className=' p-3 font-semibold text-left text-green-600'>{item.name}</td>
                                         <td className=' p-3 font-semibold text-left hover:text-black'>{item.topic}</td>

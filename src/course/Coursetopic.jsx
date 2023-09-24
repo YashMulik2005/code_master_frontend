@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Coursetopic() {
     const { id } = useParams()
     console.log(id);
-    const { contextusername, logedin, settopic_id, setcourse_id, setnavbar } = themehook()
+    const { contextusername, logedin, settopic_id, setcourse_id, setnavbar, theme } = themehook()
     const navigate = useNavigate()
     const [data, setdata] = useState([])
     const [track, settrack] = useState({})
@@ -119,24 +119,24 @@ function Coursetopic() {
     }, [enroll, contextusername])
 
     return (
-        <div onClick={handlenav}>
+        <div onClick={handlenav} className=' min-h-[95vh]'>
             {(loader ? <section className=" flex justify-center h-[75vh] items-center" ><BarLoader size={50} color='green' /></section> :
-                <div>
-                    <div className=' flex p-2 min-[760px]:h-[28vh] justify-center shadow-lg'>
-                        <div className=' hidden  sm:block w-1/3'>
-                            <img src={photo} alt="" className=' w-[100%] h-[100%] ' />
+                <div className="">
+                    <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} flex p-2 min-[760px]:h-[32vh] justify-center items-center shadow-lg`}>
+                        <div className=' hidden  sm:flex w-[25%] h-[100%] pt-3'>
+                            <img src={photo} alt="" className=' w-[100%] h-[90%] ' />
                         </div>
 
 
-                        <div className='w-[100%] sm:w-[65%] sm:p-2' >
+                        <div className='w-[100%] sm:w-[75%] sm:p-2' >
                             <h1 className='text-xl sm:text-3xl text-green-600 font-bold'>{data.name}</h1>
-                            <p className=' text-sm sm:text-md lg:text-lg font-semibold'>{data.description}</p>
+                            <p className=' text-md font-semibold'>{data.description}</p>
                             <h1 className=' font-bold'>modules:{data.modules}</h1>
                             {
 
-                                (Object.keys(topictrack).length == data.modules ? <button className=' bg-green-600 m-2 px-5 py-1 text-white rounded-3xl font-bold'>Complete</button> :
+                                (Object.keys(topictrack).length == data.modules ? <button className={`${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} m-2 ml-0 px-4 py-[6px] rounded-md font-semibold`}>Complete</button> :
                                     (
-                                        (data?._id == track[data._id] ? <button className={` border-b-2 border-green-500 py-[2px] px-3 hover:border-black hover:bg-green-500 hover:text-white font-semibold m-2`}>continue</button> : <button onClick={handleenroll} className={` bg-green-600 text-white py-1 px-5 rounded-xl hover:bg-green-800 font-semibold m-2 `} >Enroll for free</button>)
+                                        (data?._id == track[data._id] ? <button className={`  py-[4px] px-3 bg-green-600 rounded-3xl text-white font-semibold m-2 ml-0`}>continue</button> : <button onClick={handleenroll} className={` border-[1px] py-[6px] px-5 rounded-3xl hover:bg-green-600 hover:text-white hover:border-none font-semibold m-2 ml-0 `} >Enroll for free</button>)
                                     )
                                 )
                             }
@@ -155,7 +155,7 @@ function Coursetopic() {
                             </thead>
                             {
                                 topic?.map((item, index) => {
-                                    return <tr className=' hover:bg-[#edf1d6] border-b border-slate-500' key={index}>
+                                    return <tr className={` ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"}  hover:border-b-0 border-b border-slate-500`} key={index}>
                                         <td className=' p-3 font-semibold text-left text-sm sm:text-md'>{index + 1}</td>
                                         <td className=' p-3 font-semibold text-left text-green-600  text-sm sm:text-md'>{item.name1}</td>
                                         <td className=' p-3 font-semibold text-left  text-sm sm:text-md'>{item.name2}</td>
@@ -179,7 +179,7 @@ function Coursetopic() {
                                                     setcourse_id(id)
                                                     navigate("/course/topic")
                                                 }
-                                            }}><buttton className=" font-bold">Start</buttton> <AiFillCaretRight size={20} className=' mx-1 text-blue-600' /> </section>)}</td>
+                                            }}><buttton className=" font-bold">Start</buttton> <AiFillCaretRight size={20} className=' mx-1 text-green-600' /> </section>)}</td>
                                     </tr>
                                 })
                             }

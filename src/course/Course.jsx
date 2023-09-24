@@ -5,6 +5,7 @@ import bg from '../assets/home_bg.gif'
 import { BarLoader } from 'react-spinners'
 import { Link } from 'react-router-dom'
 import { BiCodeAlt } from 'react-icons/bi'
+import CouseSkeleton from './CouseSkeleton'
 
 function Course() {
     const { contextusername, theme } = themehook()
@@ -40,7 +41,9 @@ function Course() {
                     </ul>
                     <h1 className=' font-bold text-green-500 text-2xl'>All courses of code-master are free to enrole.</h1>
                 </section>
-                {(loder ? <section><BarLoader size={25} color='green' /></section> :
+                {(loder ? <section className=' grid grid-cols-1 w-[100%] md:grid-cols-2 md:w-2/3 gap-3 mt-2 sm:mt-0 max-[768px]:place-items-center'>
+                    <CouseSkeleton /><CouseSkeleton /><CouseSkeleton /><CouseSkeleton />
+                </section> :
                     <div className=' grid grid-cols-1 w-[100%] md:grid-cols-2 md:w-2/3 gap-3 mt-2 sm:mt-0 max-[768px]:place-items-center'>
                         {
                             data?.map((item, index) => {

@@ -52,60 +52,38 @@ function Rules() {
 
     return (
         <div className=' flex flex-col sm:flex-row'>
-            <div className={` w-[100%] sm:w-[35%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-600  text-white`}>
-                <h1 className=' text-3xl font-bold m-2'>yugewfyevguye</h1>
-                <p className=' text-lg m-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem corporis debitis, placeat neque impedit saepe animi ea, vel laboriosam commodi dolorem cupiditate.</p>
+            <div className={` w-[100%] sm:w-[35%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-700  text-white`}>
+                <h1 className=' text-3xl font-bold m-2'>Codemaster Certifiction</h1>
+                <p className=' text-md m-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem corporis debitis, placeat neque impedit saepe animi ea, vel laboriosam commodi dolorem cupiditate.</p>
             </div>
 
-            <div className=' w-[100%] sm:w-[65%] h-[100vh] p-2 sm:overflow-y-auto sm:py-32' >
-                <motion.div className=' flex justify-end px-3' ref={div1}
-                    variants={animateleft}
-                    initial="hidden"
-                    animate={isInView1 ? "visible" : "hidden"}
-                    transition={transition}>
-                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
-                        <motion.p
-                            variants={animation}
-                            initial="hidden"
-                            animate={isInView1 ? "visible" : "hidden"}
-                            transition={transition2}
-                        >aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</motion.p>
+            <div className=' w-[100%] sm:w-[65%] h-[100vh] p-3 sm:overflow-y-auto' >
+                <motion.div className=' flex justify-end px-3' ref={div1}>
+                    <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
+                        <motion.p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</motion.p>
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-start px-3' ref={div2}
-                    variants={animateright}
-                    initial="hidden"
-                    animate={isInView2 ? "visible" : "hidden"}
-                    transition={transition}>
-                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
+                <motion.div className=' flex justify-start px-3' ref={div2}>
+                    <section className={`w-[50%] p-3 m-4 my-3 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-end px-3' ref={div3}
-                    variants={animateleft}
-                    initial="hidden"
-                    animate={isInView3 ? "visible" : "hidden"}
-                    transition={transition}
-                >
-                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
+                <motion.div className=' flex justify-end px-3' ref={div3}>
+                    <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
 
-                <motion.div className=' flex justify-start px-3' ref={div4}
-                    variants={animateright}
-                    initial="hidden"
-                    animate={isInView4 ? "visible" : "hidden"}
-                    transition={transition}
-                >
-                    <section className={`w-[50%] p-3 m-4 my-6 ${theme == "light" ? "bg-[#edf1d6] shadow-[8px_8px_16px_#afafaf,-8px_-8px_16px_#ffffff]" : "bg-[#191919] shadow-lg"}  `}>
+                <motion.div className=' flex justify-start px-3' ref={div4}>
+
+                    <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
                         <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
                     </section>
                 </motion.div>
                 <section className=' flex justify-center'>
-                    <button className=' bg-green-600 text-white px-7 py-1 rounded-3xl font-semibold my-4 '><Link to={`/certificate/dashboard/${id}`}> start </Link></button>
+                    <button className=' border-[1px] hover:bg-green-600 hover:text-white hover:border-none px-6 py-[3px] border-gray-300 rounded-3xl font-semibold my-4 '><Link to={`/certificate/dashboard/${id}`}> start </Link></button>
                 </section>
             </div>
         </div>

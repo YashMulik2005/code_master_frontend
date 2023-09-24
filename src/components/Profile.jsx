@@ -93,7 +93,7 @@ function Profile() {
                                 setsearch(e.target.value)
                             }} value={search} className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-[6px] w-[100%] rounded-full focus:outline-none `} placeholder='search username' />
                         </form>
-                        <section className={` overflow-y-auto p-3 ${searchbox == true ? "block" : "hidden"} ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} border-[1px] absolute h-48 w-[100%] top-12 rounded-md`}>
+                        <section className={` overflow-y-auto p-3 ${searchbox == true ? "block" : "hidden"} z-10 ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} absolute max-h-48 w-[100%] top-12 rounded-md`}>
                             <section className='flex justify-between'>
                                 <h1>result</h1>
                                 <MdCancel size={20} onClick={() => {
@@ -102,14 +102,15 @@ function Profile() {
                             </section>
                             {
                                 searchloader ? <h1>loading</h1> :
-                                    searchdata?.map((item, index) => {
-                                        return <section key={index} className={` flex ${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md py-1 px-3 my-2`}>
-                                            <Link to={`/profile/${item.username}`} className='flex'>
-                                                <BiSolidUserCircle size={30} />
-                                                <h1 className=' ml-2'>{item.username}</h1>
-                                            </Link>
-                                        </section>
-                                    })
+                                    searchdata?.length == 0 ? <section><h1 className=' font-bold text-center m-2'>No such user found</h1></section> :
+                                        searchdata?.map((item, index) => {
+                                            return <section key={index} className={` flex ${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md py-1 px-3 my-2`}>
+                                                <Link to={`/profile/${item.username}`} className='flex'>
+                                                    <BiSolidUserCircle size={30} />
+                                                    <h1 className=' ml-2'>{item.username}</h1>
+                                                </Link>
+                                            </section>
+                                        })
                             }
 
                         </section >
@@ -122,7 +123,7 @@ function Profile() {
 
             {(loading ? <Profileskeleton /> :
                 user?.map((item, index) => {
-                    return <div className=' flex flex-col min-[950px]:flex-row min-[950px]:h-[87vh] p-4 sm:p-5 justify-center'>
+                    return <div className=' relative flex flex-col min-[950px]:flex-row min-[950px]:h-[87vh] p-4 sm:p-5 justify-center'>
 
                         <div className={`${theme == "light" ? "bg-[#f5f1f0] " : "bg-[#0c131d]"}  h-[100%] w-[100%] min-[950px]:w-[30%] rounded-xl flex items-center p-5 mb-4 min-[950px]:mb-0 flex-col`}>
                             <div className=' rounded-full bg-black w-24 h-24 flex justify-center items-center '>
@@ -203,6 +204,8 @@ function Profile() {
                                 </div>
                             </div>
                         </div>
+                        <div className={` ${searchbox == true ? "block" : "hidden"} absolute m-0 left-0 top-0 h-[100%] min-[950px]:h-[90vh] w-[100%] ${theme == "light" ? " bg-gray-400/30" : " bg-black/70"} backdrop:md  `}></div>
+
                     </div>
 
                 }))}
