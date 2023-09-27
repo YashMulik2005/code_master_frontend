@@ -12,6 +12,7 @@ import moment from 'moment'
 import Profileskeleton from './Profileskeleton'
 import { MdCancel } from 'react-icons/md'
 import { BiSolidUserCircle } from 'react-icons/bi'
+import { ClipLoader } from 'react-spinners'
 
 
 function Profile() {
@@ -101,7 +102,7 @@ function Profile() {
                                 }} />
                             </section>
                             {
-                                searchloader ? <h1>loading</h1> :
+                                searchloader ? <section className=' flex justify-center items-center'><ClipLoader size={30} color='green' /></section> :
                                     searchdata?.length == 0 ? <section><h1 className=' font-bold text-center m-2'>No such user found</h1></section> :
                                         searchdata?.map((item, index) => {
                                             return <section key={index} className={` flex ${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md py-1 px-3 my-2`}>
