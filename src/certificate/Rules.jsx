@@ -52,36 +52,39 @@ function Rules() {
 
     return (
         <div className=' flex flex-col sm:flex-row'>
-            <div className={` w-[100%] sm:w-[35%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-700  text-white`}>
-                <h1 className=' text-3xl font-bold m-2'>Codemaster Certifiction</h1>
-                <p className=' text-md m-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem corporis debitis, placeat neque impedit saepe animi ea, vel laboriosam commodi dolorem cupiditate.</p>
+            <div className={` w-[100%] sm:w-[30%] sm:h-[100vh] flex justify-center items-center p-4 flex-col bg-green-700  text-white`}>
+                <h1 className='text-[24px] font-bold'>Codemaster Certify</h1>
+                <h1 className='font-semibold text-[15px] text-center'>Unlock Your Potential with Code Master certification.</h1>
+                <h1 className='font-semibold text-[15px] text-center'> Certify Your Skills, Showcase Your Hard Work, and Validate Your Knowledge. Elevate Your Career with Confidence!</h1>
             </div>
 
-            <div className=' w-[100%] sm:w-[65%] h-[100vh] p-3 sm:overflow-y-auto' >
+            <div className=' w-[100%] sm:w-[70%] h-[100vh] p-3 sm:overflow-y-auto' >
+                <h1 className={`${theme == "light" ? "text-black" : "text-white"} text-xl font-bold text-center`}>Rules for certification</h1>
                 <motion.div className=' flex justify-end px-3' ref={div1}>
                     <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
-                        <motion.p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</motion.p>
+                        <motion.p>Solve both Questions completely and cklick on Finish button to sumbmit test for certfication.</motion.p>
                     </section>
                 </motion.div>
 
                 <motion.div className=' flex justify-start px-3' ref={div2}>
                     <section className={`w-[50%] p-3 m-4 my-3 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
-                        <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
+                        <p>If you not finish test by clicking on finish button then your attempt will not be considered for certification and you will not get certificate for skill.</p>
                     </section>
                 </motion.div>
 
                 <motion.div className=' flex justify-end px-3' ref={div3}>
                     <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
-                        <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
+                        <p>Click on stop button to terminate the skill assesment and then you will not get certificate for skill. Don't press back or refresh page.</p>
                     </section>
                 </motion.div>
 
                 <motion.div className=' flex justify-start px-3' ref={div4}>
 
                     <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
-                        <p>aspernatur eius animi mollitia minus, numquam reprehenderit pariatur perferendis odit doloribus, quo possimus officiis inventore. Laboriosam, perferendis provident.</p>
+                        <p>In assesment you have to solve two question, each question have time limit of 15 minutes to solve and you have to solve both questions in time and finish assesment for certification of perticular skill.</p>
                     </section>
                 </motion.div>
+
                 <section className=' flex justify-center'>
                     <button className=' border-[1px] hover:bg-green-600 hover:text-white hover:border-none px-6 py-[3px] border-gray-300 rounded-3xl font-semibold my-4 '><Link to={`/certificate/dashboard/${id}`}> start </Link></button>
                 </section>

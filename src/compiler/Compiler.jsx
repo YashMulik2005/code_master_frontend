@@ -10,41 +10,43 @@ function Compiler() {
     const { theme } = themehook()
     return (
         <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : " bg-[#0c131d]"} flex flex-col-reverse sm:flex-row  p-5`}>
-            <div className=' w-[100%] sm:w-1/2 p-2'>
+            <div className=' w-[100%] sm:w-[45%] p-2'>
                 <img src={photo} alt="" className=' w-full h-full' />
             </div>
-            <div className=' w-[100%] sm:w-1/2 flex flex-col items-center'>
+            <div className=' w-[100%] sm:w-[55%] flex flex-col justify-center items-center p-2 sm:p-5'>
                 <h1 className=' font-bold text-lg sm:text-2xl text-green-600'>Code master provide online compiler</h1>
-                <p className=' text-md'>It is online compiler which provide various language support like c, c++, java, python. dignissimos consequatur velit nisi tempore mollitia asperiores consectetur numquam inventore repellat cum dolores doloribus!</p>
-                <h1 className=' font-bold text-2xl text-green-600 m-1'>Language support</h1>
-                <div className={`  flex justify-between items-center p-3 m-4 w-[80%] ${theme == "light" ? "shadow-[9px_9px_21px_#868686,-9px_-9px_21px_#ffffff]" : "shadow-lg shadow-gray-800"} `}>
-                    <section className=' flex '>
-                        <SiCplusplus size={30} className=' mx-4 ' />
-                        <h1 className=' font-semibold'>C++ compiler</h1>
-                    </section>
-                    <Link to='/compiler'><AiOutlineArrowRight size={28} className=' text-green-600 ' /></Link>
+                <p className=' text-md sm:mx-5 my-[4px]'>It is online compiler which provide various language support like c, c++, java, python. dignissimos consequatur velit nisi tempore mollitia asperiores consectetur numquam inventore repellat cum dolores doloribus! It is online compiler which provide various language support like c, c++, java, python. dignissimos consequatur</p>
+                <h1 className=' font-bold text-2xl text-green-600 m-1 sm:my-3'>Language support</h1>
+                <div className=' flex flex-col sm:flex-row'>
+                    <div className={`  flex  justify-center items-center m-1 p-3 sm:m-4 sm:w-1/4 rounded-lg ${theme == "light" ? "bg-[#ffffff] border-[1px] " : "bg-[#1c232b]"} `}>
+                        <section className=' flex justify-center items-center '>
+                            <SiCplusplus size={30} className='' />
+                            <h1 className=' font-semibold mx-[2px]'>C++</h1>
+                        </section>
+                    </div>
+                    <div className={` flex justify-center p-3 sm:m-4 m-1 sm:w-1/4 rounded-lg ${theme == "light" ? "bg-[#ffffff] border-[1px] " : "bg-[#1c232b]"} `}>
+                        <section className=' flex justify-center items-center '>
+                            <FaPython size={30} className=' ' />
+                            <h1 className=' font-semibold mx-[2px]'>Python</h1>
+                        </section>
+                    </div>
+                    <div className={` flex justify-center items-center p-3 m-1 sm:m-4 sm:w-1/4 rounded-lg ${theme == "light" ? "bg-[#ffffff] border-[1px] " : "bg-[#1c232b]"} `}>
+                        <section className=' flex justify-center items-center'>
+                            <FaJava size={30} className='' />
+                            <h1 className=' font-semibold mx-[2px]'>java</h1>
+                        </section>
+                    </div>
+                    <div className={` flex justify-center items-center p-3 m-1 sm:m-4 sm:w-1/4 rounded-lg ${theme == "light" ? "bg-[#ffffff] border-[1px] " : "bg-[#1c232b]"} `}>
+                        <section className=' flex justify-center items-center'>
+                            <SiCplusplus size={30} className='' />
+                            <h1 className=' font-semibold mx-[2px]'>C</h1>
+                        </section>
+                    </div>
                 </div>
-                <div className={` flex justify-between items-center p-3 m-4 w-[80%] ${theme == "light" ? "shadow-[9px_9px_21px_#868686,-9px_-9px_21px_#ffffff]" : "shadow-lg shadow-gray-800"} `}>
-                    <section className=' flex '>
-                        <FaPython size={30} className=' mx-4 ' />
-                        <h1 className=' font-semibold'>Python compiler</h1>
-                    </section>
-                    <Link to='/compiler'><AiOutlineArrowRight size={28} className=' text-green-600 ' /></Link>
-                </div>
-                <div className={` flex justify-between items-center p-3 m-4 w-[80%] ${theme == "light" ? "shadow-[9px_9px_21px_#868686,-9px_-9px_21px_#ffffff]" : "shadow-lg shadow-gray-800"} `}>
-                    <section className=' flex '>
-                        <FaJava size={30} className=' mx-4 ' />
-                        <h1 className=' font-semibold'>java compiler</h1>
-                    </section>
-                    <Link to='/compiler'><AiOutlineArrowRight size={28} className=' text-green-600 ' /></Link>
-                </div>
-                <div className={` flex justify-between items-center p-3 m-4 w-[80%] ${theme == "light" ? "shadow-[9px_9px_21px_#868686,-9px_-9px_21px_#ffffff]" : "shadow-lg shadow-gray-800"} `}>
-                    <section className=' flex '>
-                        <SiCplusplus size={30} className=' mx-4 ' />
-                        <h1 className=' font-semibold'>C compiler</h1>
-                    </section>
-                    <Link to='/compiler'><AiOutlineArrowRight size={28} className=' text-green-600 ' /></Link>
-                </div>
+                <section className='flex flex-col justify-center items-center'>
+                    <h1 className=' text-lg text-green-600 font-bold my-2'>Start to compile you code with code master compiler</h1>
+                    <button className=' border-[1px] border-gray-300 rounded-3xl px-5 py-[4px] font-semibold hover:text-white hover:bg-green-700 hover:border-none'><Link to={"/compiler"}>Visit compiler</Link></button>
+                </section>
             </div>
         </div>
     )

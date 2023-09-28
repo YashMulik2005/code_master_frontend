@@ -22,7 +22,7 @@ function Compiler({ maindata, c_id }) {
     const navigate = useNavigate()
     const url = import.meta.env.VITE_BACKEND;
 
-    const { logedin, contextusername, setlogedin, setcontextusername } = themehook()
+    const { logedin, contextusername, setlogedin, setcontextusername, queflag, setqueflag } = themehook()
     const codedata = {
         "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
         "python": `print("hello world")`,
@@ -149,6 +149,8 @@ function Compiler({ maindata, c_id }) {
                     setmessage("sucessful")
                     setstatus(true)
                     seterr(true)
+                    setqueflag(true)
+                    console.log(queflag);
                     navigate(`/certificate/dashboard/${c_id}`)
                 }
                 else {

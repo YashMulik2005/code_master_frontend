@@ -12,14 +12,28 @@ import { BarLoader } from 'react-spinners'
 function Dashboard() {
     const { id } = useParams()
     const url = import.meta.env.VITE_BACKEND;
-    const { contextusername, theme, settheme } = themehook()
+    const { contextusername, theme, settheme, setqueflag, queflag } = themehook()
     const [data, setdata] = useState()
     const [track, settrack] = useState({})
     const [loader, setloader] = useState(false)
     const navigate = useNavigate()
 
+    const cleardata = async () => {
+        console.log(queflag);
+        if (!queflag) {
+            setloader(true)
+            const data = {
+                "c_id": id,
+                "username": contextusername
+            }
+
+            const result = await axios.post(`${url}/certify/clearall`, { data: data });
+            console.log(result);
+        }
+        // setloader(false)
+    }
+
     const getdata = async () => {
-        setloader(true)
         const rdata = {
             "c_id": id,
             "username": contextusername
@@ -28,6 +42,7 @@ function Dashboard() {
         console.log(result);
         setdata(result.data.data.course_data.c_data);
         settrack(result.data.data.course_data.track);
+        setqueflag(false)
         setloader(false)
     }
 
@@ -40,6 +55,7 @@ function Dashboard() {
         }
     }
 
+
     const handlesubmit = async () => {
         const data = {
             "username": contextusername,
@@ -49,6 +65,7 @@ function Dashboard() {
             const result = await axios.post(`${url}/certify/certified`, { data: data });
             console.log(result);
             if (result.data.data.success) {
+                setqueflag(false)
                 navigate("/certificate")
             }
             else {
@@ -56,11 +73,13 @@ function Dashboard() {
             }
         }
         else {
+            setqueflag(false)
             navigate("/certificate")
         }
     }
 
     useEffect(() => {
+        cleardata()
         getdata()
 
         localStorage.setItem("theme", theme)
@@ -71,17 +90,15 @@ function Dashboard() {
     console.log(id);
     return (
         <div className=' flex'>
-            <div className='hidden sm:w-[25%] h-[100vh] bg-green-700 text-white font-semibold sm:flex justify-center items-center p-4'>
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, minima veniam at voluptates magni explicabo assumenda inventore porro expedita, esse id pariatur eaque quasi quo. Quae quod aperiam blanditiis? Aperiam!</h1>
+            <div className='hidden sm:w-[25%] h-[100vh] bg-green-700 text-white sm:flex flex-col justify-center items-center p-4'>
+                <h1 className='text-[22px] font-bold'>Codemaster Certify</h1>
+                <h1 className='font-semibold text-[15px]'>Unlock Your Potential with Code Master: Certify Your Skills, Showcase Your Hard Work, and Validate Your Knowledge. Elevate Your Career with Confidence!</h1>
             </div>
             <div className=' w-[100%] sm:w-[75%] h-[100vh]  relative bg-contain bg-center bg-no-repeat'>
                 {/* // style={
                     //     { backgroundImage: `url(${photo})` }
                     // }> */}
                 <div className=' w-[100%] h-[100%] flex flex-col items-center justify-center backdrop-blur-sm relative'>
-                    <section className=' absolute right-2 top-2' onClick={handletheme}>
-                        {(theme == "light" ? <MdDarkMode size={35} /> : <MdOutlineLightMode size={35} />)}
-                    </section>
                     <h1 className=' text-3xl text-green-600 font-bold m-5'>TEST DASHBOARD</h1>
                     {(loader ? <section><BarLoader size={30} color='green' /></section> :
 
@@ -112,7 +129,7 @@ function Dashboard() {
 
                     <section className=' absolute right-2 bottom-2'>
                         <button className=' px-6 py-1 bg-green-700 font-semibold rounded-sm text-white mx-2' onClick={handlesubmit}>Finish</button>
-                        <button className=' px-6 py-1 bg-green-700 font-semibold rounded-sm text-white ml-2'>Stop</button>
+                        <button className=' px-6 py-1 bg-green-700 font-semibold rounded-sm text-white ml-2'><Link to={"/certificate"}>Stop</Link></button>
                     </section>
                 </div>
             </div>

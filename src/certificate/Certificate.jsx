@@ -65,7 +65,7 @@ function Certificate() {
                                     </div>
                                     <h1 className={` ${theme == "light" ? "text-black" : "text-white"} text-xl font-bold `}>{item.name}</h1>
                                     {
-                                        (item._id == track[item._id] ? <Link to={`/showceroficate/${item._id}/${contextusername}`}><button className=' font-bold text-md'><u>Complete</u></button></Link> :
+                                        (item._id == track[item._id] ? <Link to={`/showceroficate/${item._id}/${contextusername}`}><button className=' font-bold text-sm'><u>See Certificate</u></button></Link> :
                                             <button className=' my-2 border-[1px] border-gray-400 py-[0.5px] px-5 rounded-3xl  font-semibold hover:bg-green-600 hover:font-bold hover:border-none hover:text-white '><Link to={`/certificate/rule/${item._id}`}>Certify</Link></button>
                                         )
                                     }
