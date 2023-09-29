@@ -11,6 +11,7 @@ function Practice() {
     const { topic, settopic, contextusername, logedin, setnavbar, theme } = themehook()
     const [output, setoutput] = useState()
     const [loader, setloader] = useState(false)
+    const [searchtxt, setsearchtxt] = useState("")
     const naviagte = useNavigate()
     console.log(topic);
     const url = import.meta.env.VITE_BACKEND;
@@ -27,8 +28,17 @@ function Practice() {
         settopic(e.target.textContent)
     }
 
-    const handlesearch = () => {
+    const handlesearch = async (e) => {
+        setloader(true)
+        e.preventDefault();
+        const data = {
+            "searchtext": searchtxt
+        }
 
+        const result = await axios.post(`${url}/practice/search`, { data: data });
+        console.log(result);
+        setoutput(result.data.data.result)
+        setloader(false)
     }
     const handlenav = () => {
         setnavbar(false)
@@ -100,15 +110,17 @@ function Practice() {
                         <div className='flex justify-between items-center mb-4'>
                             <h1 className={`${theme == "light" ? "" : "text-white"} font-bold`}>Questions</h1>
                             <form action="" onSubmit={handlesearch} className=' w-[50%]'>
-                                <input type="text" required className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "border-2"}  px-4 py-[7px] w-[100%] rounded-full focus:outline-none `} placeholder='search question' />
+                                <input type="text" required value={searchtxt} onChange={(e) => {
+                                    setsearchtxt(e.target.value);
+                                }} className={`${theme == "dark" ? "border-none focus:outline-none bg-[#0c131d]" : "bg-[#f5f1f0] border-2"}  px-4 py-[7px] w-[100%] rounded-full focus:outline-none `} placeholder='search question' />
                             </form>
                         </div>
 
                         <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} h-[100%] overflow-y-auto w-[100%] pb-2 rounded-lg `}>
                             <table className='border-collapse w-[100%] '>
                                 <thead>
-                                    <tr className=' bg-green-700'>
-                                        <th className='p-3 py-3 text-left text-white text-lg'>Id</th>
+                                    <tr className=' bg-green-600'>
+                                        <th className='p-3 py-3 text-left text-white text-lg'>No.</th>
                                         <th className='p-3 text-left py-3 text-white text-lg'>Name</th>
                                         <th className='p-3 text-left py-3 text-white text-lg'>Topic</th>
                                         <th className='p-3 text-left py-3 text-white text-lg'>Code</th>
@@ -121,14 +133,20 @@ function Practice() {
                                         <td><BarLoader color='green' /></td>
                                         <td></td>
                                     </tr> :
-                                        output?.map((item, index) => {
-                                            return <tr className='  border-b border-slate-500' key={index}>
-                                                <td className=' p-3 font-semibold text-left text-sm'>{index + 1}</td>
-                                                <td className=' p-3 font-semibold text-left text-green-600'><Link to={`/practice/question/${item._id}`}>{item.name}</Link></td>
-                                                <td className=' p-3 font-semibold text-left'>{item.topic}</td>
-                                                <td className=' p-3 font-semibold text-left'><Link to={`/practice/question/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link></td>
-                                            </tr>
-                                        })
+                                        output?.length == 0 ? <tr className=' h-[50vh]'>
+                                            <td className=' w-24 '></td>
+                                            <td className='  w-40 '></td>
+                                            <td className=' w-44 font-bold '>No such question found</td>
+                                            <td className=' w-44'></td>
+                                        </tr> :
+                                            output?.map((item, index) => {
+                                                return <tr className='  border-b border-slate-500' key={index}>
+                                                    <td className=' p-3 font-semibold text-left text-sm'>{index + 1}</td>
+                                                    <td className=' p-3 font-semibold text-left text-green-600'><Link to={`/practice/question/${item._id}`}>{item.name}</Link></td>
+                                                    <td className=' p-3 font-semibold text-left'>{item.topic}</td>
+                                                    <td className=' p-3 font-semibold text-left'><Link to={`/practice/question/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link></td>
+                                                </tr>
+                                            })
                                 }
                             </table>
                         </div>

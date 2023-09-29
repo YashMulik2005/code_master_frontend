@@ -11,6 +11,7 @@ export const Codeprovider = ({ children }) => {
     const [course_id, setcourse_id] = useState()
     const [navbar, setnavbar] = useState(false)
     const [queflag, setqueflag] = useState(false);
+    const [certifyflag, setcertifyflag] = useState(false)
 
     const value = {
         theme,
@@ -28,7 +29,9 @@ export const Codeprovider = ({ children }) => {
         navbar,
         setnavbar,
         queflag,
-        setqueflag
+        setqueflag,
+        certifyflag,
+        setcertifyflag
     }
 
     return <CodeContext.Provider value={value}>

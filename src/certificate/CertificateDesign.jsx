@@ -103,7 +103,7 @@ function CertificateDesign() {
                         <h1 className='text-lg font-semibold'>Share this Certificate</h1>
                         <button onClick={handlecopy} className=' bg-green-600 px-2 py-1 text-white rounded-md font-semibold'>copy link</button>
                     </section>
-                    <input ref={input} type='text' className={` my-4 w-full p-2 m-1 rounded-md focus:outline-none ${theme == 'light' ? "border-2" : "border-1"}`} defaultValue={`http://localhost:5173/showceroficate/${id}/${contextusername}`} />
+                    <input ref={input} type='text' className={` my-4 w-full p-2 m-1 rounded-md focus:outline-none ${theme == 'light' ? "border-2" : "border-1"}`} defaultValue={`${url}/showceroficate/${id}/${contextusername}`} />
                 </section>
             </div>
         </div>

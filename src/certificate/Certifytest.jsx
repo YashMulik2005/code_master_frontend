@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import axios from 'axios';
 import Questiontext from '../compiler/Questiontext';
@@ -8,7 +8,7 @@ import themehook from '../components/CodeContext';
 import { BarLoader } from 'react-spinners'
 
 function Certifytest() {
-    const { theme } = themehook()
+    const { theme, certifyflag, setcertifyflag } = themehook()
     const { c_id, t_id } = useParams()
     let seconds = 1200;
     const [min, setmin] = useState(Math.floor(seconds / 60))
@@ -20,16 +20,23 @@ function Certifytest() {
     const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
 
+    const navigate = useNavigate();
 
     const getdata = async () => {
-        setloader(true)
-        const rdata = {
-            "t_id": t_id
+        console.log(certifyflag);
+        if (certifyflag) {
+            setloader(true)
+            const rdata = {
+                "t_id": t_id
+            }
+            const result = await axios.post(`${url}/certify/question`, { data: rdata })
+            console.log(result);
+            setdata(result.data.data.result)
+            setloader(false)
         }
-        const result = await axios.post(`${url}/certify/question`, { data: rdata })
-        console.log(result);
-        setdata(result.data.data.result)
-        setloader(false)
+        else {
+            navigate("/certificate")
+        }
     }
     useEffect(() => {
         getdata()
@@ -62,7 +69,7 @@ function Certifytest() {
                     <button className=' bg-green-700 text-white font-bold py-1 px-4 rounded-3xl'><Link to={`/certificate/dashboard`}>Dashboard</Link></button>
                 </form>
             </dialog>
-            {(loader ? <section><BarLoader size={30} color='green' /></section> :
+            {(loader ? <section className=' flex justify-center items-center h-[100vh]'><BarLoader size={30} color='green' /></section> :
                 <div>
                     <div className=' h-[13vh] flex items-center shadow-xl justify-between '>
 
@@ -70,7 +77,7 @@ function Certifytest() {
                             <h1 className={` font-bold text-xl ${theme == "light" ? "text-white" : ""} `}>End in <span id='timer'>{min < 10 ? "0" + min : min}</span>{sec < 10 ? ":0" + sec : ":" + sec}<span></span></h1>
                         </section>
 
-                        <section className=' mx-4'>
+                        <section className=' mx-4 font-semibold'>
                             <h1>{data?.name}</h1>
                         </section>
                     </div>

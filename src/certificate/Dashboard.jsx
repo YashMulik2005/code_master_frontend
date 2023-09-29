@@ -12,7 +12,7 @@ import { BarLoader } from 'react-spinners'
 function Dashboard() {
     const { id } = useParams()
     const url = import.meta.env.VITE_BACKEND;
-    const { contextusername, theme, settheme, setqueflag, queflag } = themehook()
+    const { contextusername, theme, settheme, setqueflag, queflag, setcertifyflag, certifyflag } = themehook()
     const [data, setdata] = useState()
     const [track, settrack] = useState({})
     const [loader, setloader] = useState(false)
@@ -43,6 +43,8 @@ function Dashboard() {
         setdata(result.data.data.course_data.c_data);
         settrack(result.data.data.course_data.track);
         setqueflag(false)
+        setcertifyflag(true)
+        console.log(certifyflag);
         setloader(false)
     }
 
