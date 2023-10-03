@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import photo from '../assets/login_img.png'
+import photo from '../assets/authentication.png'
 import { Link, Outlet } from 'react-router-dom'
 import themehook from './CodeContext'
 
@@ -13,7 +13,7 @@ function Auth() {
 
     return (
 
-        <div className=' flex h-[100vh]' onClick={handlenav}>
+        <div className=' flex h-[100vh] bg-[#ffffff]' onClick={handlenav}>
             <div className=' hidden sm:flex w-1/2 justify-center items-center bg-[#609966]'>
                 <img src={photo} alt="" className='w-[80%] h-[80%] object-contain' />
             </div>

@@ -42,8 +42,8 @@ function Home() {
     }, [])
 
     return (
-        <div className='bgrounded mb-5 flex' onClick={handlenav}>
-            <div className=' absolute z-[1]'>
+        <div className='bgrounded mb-5 flex h-screen' onClick={handlenav}>
+            <div className=' absolute z-[1] h-[90%]'>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
                     <section>
                         <section className=' flex items-center justify-center'>
@@ -108,10 +108,10 @@ function Home() {
                     </section>
 
                 </ul>
-                <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%] border-2'>
-                    <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center px-5 pt-6 border-2'>
-                        <h1 className={` my-1 text-[48px]  font-bold text-black`}>Code Master</h1>
-                        <p className='text-[18px]  my-2 text-center text-black'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
+                <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%]'>
+                    <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center px-5 pt-6'>
+                        <h1 className={` my-1 text-[48px] sm:text-[55px]  font-bold text-black`}>Code Master</h1>
+                        <p className='text-[18px] sm:text-[21px]  my-2 text-center text-black'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
                             <button onClick={scrollToSection} className='text-black text-sm font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
                             <Link to="/compiler"><section className='text-black flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
@@ -121,8 +121,8 @@ function Home() {
                             </Link>
                         </section>
                     </div>
-                    <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[75%] flex justify-center items-center border-2'>
-                        <img src={photo} alt="" className=' w-[73%] h-[90%] sm:h-[80%]' />
+                    <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[85%] flex justify-center items-center'>
+                        <img src={photo} alt="" className=' w-[73%] h-[90%] ' />
                     </div>
                 </div>
             </div>
