@@ -43,7 +43,7 @@ function Home() {
 
     return (
         <div className='bgrounded mb-5 flex h-screen' onClick={handlenav}>
-            <div className=' absolute z-[1] h-[90%]'>
+            <div className='z-[1] h-[90%]'>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
                     <section>
                         <section className=' flex items-center justify-center'>
@@ -60,17 +60,17 @@ function Home() {
                         </section> */}
                     </section>
                     <ul className=" p-3 flex cursor-pointer ">
-                        <li className=' inline mx-2 font-semibold hover:border-b-2 border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
                             navigate("/")
                         }}>Home</li>
-                        <li className=' inline mx-2 font-semibold hover:border-b-2 border-green-600 text-black ' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black ' onClick={() => {
                             setnavbar(false)
                         }}>About</li>
-                        <li className=' inline mx-2 font-semibold hover:border-b-2 border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
                         }}>Contact</li>
-                        <li className=' inline mx-2 font-semibold hover:border-b-2 border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
                         }}>Help</li>
                     </ul>
@@ -85,14 +85,14 @@ function Home() {
                             </section>
                             :
                             <section className=' cursor-pointer'>
-                                <button className=' text-black font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' text-black font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate("/auth/login")
                                 }}>Login</button>
-                                <button className=' text-black mx-2 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' text-black mx-2 font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     navigate('/auth/signup')
-                                }}>Sighup</button>
+                                }}>Signup</button>
                             </section>
 
                     }
@@ -113,8 +113,8 @@ function Home() {
                         <h1 className={` my-1 text-[48px] sm:text-[55px]  font-bold text-black`}>Code Master</h1>
                         <p className='text-[18px] sm:text-[21px]  my-2 text-center text-black'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
-                            <button onClick={scrollToSection} className='text-black text-sm font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>Start Learning</button>
-                            <Link to="/compiler"><section className='text-black flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'>
+                            <button onClick={scrollToSection} className='text-black text-sm font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'>Start Learning</button>
+                            <Link to="/compiler"><section className='text-black flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'>
                                 <HiCode size={25} className='  mx-1' />
                                 <button className=' text-sm font-bold'> Compiler</button>
                             </section>

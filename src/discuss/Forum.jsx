@@ -226,8 +226,8 @@ function Forum() {
                         {/* {
                             contextusername
                         } */}
-                        <button className='  font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/login'}>Login</Link></button>
-                        <button className='  mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white'><Link to={'/auth/signup'}>Sign up</Link></button>
+                        <button className='  font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'><Link to={'/auth/login'}>Login</Link></button>
+                        <button className='  mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'><Link to={'/auth/signup'}>Sign up</Link></button>
                     </section>}
 
                 </section>

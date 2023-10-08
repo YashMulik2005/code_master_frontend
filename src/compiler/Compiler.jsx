@@ -45,7 +45,7 @@ function Compiler() {
                 </div>
                 <section className='flex flex-col justify-center items-center'>
                     <h1 className=' text-lg text-green-600 font-bold my-2'>Start to compile you code with code master compiler</h1>
-                    <button className=' border-[1px] border-gray-300 rounded-3xl px-5 py-[4px] font-semibold hover:text-white hover:bg-green-700 hover:border-none'><Link to={"/compiler"}>Visit compiler</Link></button>
+                    <button className=' border-[1px] rounded-3xl px-5 py-[4px] font-semibold hover:text-white border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed]'><Link to={"/compiler"}>Visit compiler</Link></button>
                 </section>
             </div>
         </div>

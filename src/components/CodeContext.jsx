@@ -12,6 +12,8 @@ export const Codeprovider = ({ children }) => {
     const [navbar, setnavbar] = useState(false)
     const [queflag, setqueflag] = useState(false);
     const [certifyflag, setcertifyflag] = useState(false)
+    const [border, setborder] = useState(true)
+
 
     const value = {
         theme,
@@ -31,7 +33,9 @@ export const Codeprovider = ({ children }) => {
         queflag,
         setqueflag,
         certifyflag,
-        setcertifyflag
+        setcertifyflag,
+        border,
+        setborder
     }
 
     return <CodeContext.Provider value={value}>

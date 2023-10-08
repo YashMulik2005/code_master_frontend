@@ -72,8 +72,6 @@ function Login() {
                     <h1 className=' font-semibold'>or</h1>
                     <section className=' flex'>
                         <AiFillGoogleCircle size={36} className=' mx-2' />
-                        <AiFillFacebook size={36} className=' mx-2' />
-                        <AiFillGithub size={36} className=' mx-2' />
                     </section>
                     <h1 className=' font-semibold'>If don't have account then signup</h1>
                 </section>

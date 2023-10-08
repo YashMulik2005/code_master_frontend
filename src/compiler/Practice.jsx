@@ -78,11 +78,11 @@ function Practice() {
                             </section>
                             :
                             <section className=' cursor-pointer'>
-                                <button className={` font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white `} onClick={() => {
+                                <button className={` font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white `} onClick={() => {
                                     setnavbar(false)
                                     naviagte("/auth/login")
                                 }}>Login</button>
-                                <button className=' mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
+                                <button className=' mx-2 font-bold rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white' onClick={() => {
                                     setnavbar(false)
                                     naviagte('/auth/signup')
                                 }}>Sighup</button>

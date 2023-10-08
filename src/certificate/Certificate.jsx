@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import themehook from '../components/CodeContext';
 import { BarLoader } from 'react-spinners'
@@ -7,6 +7,7 @@ import photo from '../assets/dashboard_bg.png'
 import { BiCodeAlt } from 'react-icons/bi'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
 import CertificateSketeon from './CertificateSketeon';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Certificate() {
     const [data, setdata] = useState()
@@ -14,6 +15,7 @@ function Certificate() {
     const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
     const { contextusername, theme, setnavbar } = themehook()
+    const navigate = useNavigate()
     const getdata = async () => {
         setloader(true)
         const rdata = {
@@ -65,8 +67,22 @@ function Certificate() {
                                     </div>
                                     <h1 className={` ${theme == "light" ? "text-black" : "text-white"} text-xl font-bold `}>{item.name}</h1>
                                     {
-                                        (item._id == track[item._id] ? <Link to={`/showceroficate/${item._id}/${contextusername}`}><button className=' font-bold text-sm'><u>See Certificate</u></button></Link> :
-                                            <button className=' my-2 border-[1px] border-gray-400 py-[0.5px] px-5 rounded-3xl  font-semibold hover:bg-green-600 hover:font-bold hover:border-none hover:text-white '><Link to={`/certificate/rule/${item._id}`}>Certify</Link></button>
+                                        (item._id == track[item._id] ? <button className=' font-bold text-sm' onClick={() => {
+                                            if (contextusername?.length == 0) {
+                                                toast.error('Login first');
+                                            }
+                                            else {
+                                                navigate(`/certificate/rule/${item._id}`)
+                                            }
+                                        }}><u>See Certificate</u></button> :
+                                            <button className=' my-2 border-[1px] border-gray-400 py-[0.5px] px-5 rounded-3xl  font-semibold hover:bg-green-600 hover:font-bold hover:border-none hover:text-white ' onClick={() => {
+                                                if (contextusername?.length == 0) {
+                                                    toast.error('Login first');
+                                                }
+                                                else {
+                                                    navigate(`/certificate/rule/${item._id}`)
+                                                }
+                                            }}>Certify</button>
                                         )
                                     }
                                     {/* https://i.ibb.co/5B9j4mf/fdf29691d85e224cc6ddd59f8b6392fb-removebg-preview.png */}
@@ -76,6 +92,7 @@ function Certificate() {
                     )
                 }
             </div>
+            <Toaster />
         </div>
     )
 }

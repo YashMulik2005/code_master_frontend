@@ -4,9 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 import themehook from './CodeContext'
 
 function Auth() {
-    const { setnavbar } = themehook()
-    const [border, setborder] = useState(true)
-
+    const { setnavbar, setborder, border } = themehook()
     const handlenav = () => {
         setnavbar(false)
     }
@@ -19,10 +17,10 @@ function Auth() {
             </div>
             <div className='flex flex-col w-full sm:w-1/2  justify-center items-center'>
                 <section className=' flex'>
-                    <Link to='/auth/login' className={`font-bold text-2xl text-green-600 m-4 my-1 border-green-600 ${border ? "border-b-4" : "border-b-0"}`} onClick={() => {
+                    <Link to='/auth/login' className={`font-bold text-2xl text-green-600 m-4 my-1 border-green-600 `} onClick={() => {
                         setborder(!border)
                     }}>Login</Link>
-                    <Link to='/auth/Signup' className={` font-bold text-2xl text-green-600 m-4 my-1 border-green-600 ${border ? "border-b-0" : "border-b-4"} `} onClick={() => {
+                    <Link to='/auth/Signup' className={` font-bold text-2xl text-green-600 m-4 my-1 border-green-600  `} onClick={() => {
                         setborder(!border)
                     }}>Signup</Link>
                 </section>

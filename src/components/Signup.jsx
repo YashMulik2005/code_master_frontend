@@ -17,7 +17,7 @@ function Signup() {
     const [loader, setloader] = useState(false)
     const navigate = useNavigate()
     const url = import.meta.env.VITE_BACKEND;
-    const { theme } = themehook()
+    const { theme, setborder } = themehook()
 
     const handlesubmit = async (e) => {
         e.preventDefault()
@@ -35,6 +35,8 @@ function Signup() {
         if (result.data.data.success) {
             setstatement("Account created sucessfully.")
             seterr(true)
+            setborder(false)
+            navigate("/auth/login")
         }
         else {
             setstatement("Username already exist.")
@@ -58,7 +60,7 @@ function Signup() {
                 </section>
             )}
             <form action="" onSubmit={handlesubmit}>
-                <section className=' flex'>
+                <section className=' flex '>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>First Name:</h1>
                         <input type='text' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={fname} placeholder='Enter first name' onChange={(e) => {
@@ -87,12 +89,10 @@ function Signup() {
                 {/* <h1 className=' font-bold text-xl my-1'>Mobile No.:</h1>
                 <input type='number' className=' w-[100%] p-2 rounded-2xl border-2' placeholder='  Enter password' /><br /> */}
                 <section className=' flex flex-col justify-center items-center'>
-                    <input type='submit' className=' bg-green-600 p-1 py-[6px] w-[90%] rounded-2xl text-white font-semibold mt-6' />
+                    <input type='submit' className=' bg-green-600 p-1 py-[6px] w-[90%] rounded-2xl text-white font-semibold mt-6 cursor-pointer' />
                     <h1 className=' font-semibold'>or</h1>
                     <section className=' flex'>
-                        <AiFillGoogleCircle size={36} className=' mx-2' />
-                        <AiFillFacebook size={36} className=' mx-2' />
-                        <AiFillGithub size={36} className=' mx-2' />
+                        <AiFillGoogleCircle size={40} className=' mx-2' />
                     </section>
                     <h1 className=' font-semibold'>If already have account then login</h1>
                 </section>
