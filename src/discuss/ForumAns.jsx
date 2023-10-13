@@ -9,7 +9,7 @@ import moment from 'moment'
 import UserQuestionCard from './UserQuestionCard'
 import QuestionSkeleton from './QuestionSkeleton'
 import AnsSkeleton from './AnsSkeleton'
-import { ToastContainer, toast } from 'react-toastify'
+import toast, { Toaster } from 'react-hot-toast'
 import AnsCard from './AnsCard'
 import UserQuestionSkeleton from './UserQuestionSkeleton'
 import image from '../assets/no_data.png'
@@ -43,30 +43,14 @@ function ForumAns() {
         const result = await axios.post(`${url}/discuss/addans`, { data: data })
         console.log(result);
         if (result.data.data.success) {
-            toast.warn("question posted sucessfully !!!", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.success('question posted sucessfully !!!')
             getans()
         }
         else {
-            toast.warn("Something went wrong.. try again!!!", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error("Something went wrong.. try again!!!")
         }
+        setdesc("")
+        setcode("")
     }
 
     const getans = async () => {
@@ -118,16 +102,7 @@ function ForumAns() {
                 if (logedin) {
                     window.my_modal_3.showModal()
                 } else {
-                    toast.warn("Login first to ask a question", {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    toast.error("Login first to ask a question")
                 }
             }}>
                 <h1 className=' text-white font-bold'>Post ANS</h1>
@@ -233,19 +208,12 @@ function ForumAns() {
                             if (logedin) {
                                 window.my_modal_3.showModal()
                             } else {
-                                toast.warn("Login first to ask a question", {
-                                    position: "top-center",
-                                    autoClose: 5000,
-                                    hideProgressBar: false,
-                                    closeOnClick: true,
-                                    pauseOnHover: true,
-                                    draggable: true,
-                                    progress: undefined,
-                                    theme: "light",
+                                toast('Login first to ask a question', {
+                                    icon: '👏',
                                 });
                             }
                         }} className={` flex justify-center bg-green-600 shadow-lg ${theme == 'dark' ? "" : "shadow-green-200"} text-white py-1 px-3 w-[70%] font-bold rounded-lg`}>
-                            <p>Ask new question</p>
+                            <p>Post A Answer</p>
                         </section>
                     </div>
 
@@ -261,7 +229,7 @@ function ForumAns() {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
+            <Toaster />
         </div>
     )
 }

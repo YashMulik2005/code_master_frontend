@@ -4,14 +4,14 @@ import { Link, Outlet } from 'react-router-dom'
 import themehook from './CodeContext'
 
 function Auth() {
-    const { setnavbar, setborder, border } = themehook()
+    const { setnavbar, setborder, border, theme } = themehook()
     const handlenav = () => {
         setnavbar(false)
     }
 
     return (
 
-        <div className=' flex h-[100vh] bg-[#ffffff]' onClick={handlenav}>
+        <div className={`flex h-[100vh] `} onClick={handlenav}>
             <div className=' hidden sm:flex w-1/2 justify-center items-center bg-[#609966]'>
                 <img src={photo} alt="" className='w-[80%] h-[80%] object-contain' />
             </div>
