@@ -60,17 +60,19 @@ function Home() {
                         </section> */}
                     </section>
                     <ul className=" p-3 flex cursor-pointer ">
-                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#c1f8ca] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
                             navigate("/")
                         }}>Home</li>
-                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black ' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#c1f8ca] hover:border-green-600 text-black ' onClick={() => {
                             setnavbar(false)
+                            navigate("/About")
                         }}>About</li>
-                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#c1f8ca] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
+                            navigate("/contact")
                         }}>Contact</li>
-                        <li className=' inline mx-2 font-semibold border-b-2 border-[#D1FDD8] hover:border-green-600 text-black' onClick={() => {
+                        <li className=' inline mx-2 font-semibold border-b-2 border-[#c1f8ca] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
                         }}>Help</li>
                     </ul>

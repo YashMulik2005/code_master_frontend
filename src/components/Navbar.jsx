@@ -62,9 +62,11 @@ function Navbar() {
                     }}>Home</li>
                     <li className=' inline font-semibold hover:border-b-2 ' onClick={() => {
                         setnavbar(false)
+                        navigate("/About")
                     }}>About</li>
                     <li className=' inline font-semibold hover:border-b-2' onClick={() => {
                         setnavbar(false)
+                        navigate("/contact")
                     }}>Contact</li>
                     <li className=' inline font-semibold hover:border-b-2' onClick={() => {
                         setnavbar(false)
@@ -84,8 +86,8 @@ function Navbar() {
                 {
                     logedin ?
                         <section className=' flex items-center m-2'>
-                            <CgProfile size={33} className=' text-black' />
-                            <h1 className=' text-black' onClick={() => {
+                            <CgProfile size={33} className=' ' />
+                            <h1 className=' ' onClick={() => {
                                 setnavbar(false)
                                 navigate("/profile")
                             }}>{contextusername}</h1>

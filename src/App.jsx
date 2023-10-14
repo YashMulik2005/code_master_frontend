@@ -19,6 +19,8 @@ import Certifytest from './certificate/Certifytest'
 import CertificateDesign from './certificate/CertificateDesign'
 import Forum from './discuss/Forum'
 import ForumAns from './discuss/ForumAns'
+import About from './components/About'
+import Conatct from './components/Conatct'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +37,8 @@ function App() {
               <Route path='/course/topic' element={<Topicdata />} />
               <Route path='/certificate' element={<Certificate />} />
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/contact' element={<Conatct />} />
             </Route>
             <Route path='/profile' element={<Profile />} />
             <Route path='/profile/:id' element={<Profile />} />
