@@ -33,7 +33,7 @@ function Navbar() {
 
     return (
         <div className=' overflow-hidden'>
-            <div className=' max-[666px]:flex justify-between items-center p-2 bg-[#D1FDD8] hidden'>
+            <div className=' max-[666px]:flex justify-between items-center p-2 bg-[#c1f8ca] hidden'>
                 <section>
                     <section className=' flex items-center justify-center'>
                         <h1 className={` text-black font-bold text-md `}>Code</h1>
