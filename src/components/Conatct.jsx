@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import photo from '../assets/Conatct.jpeg'
+import photo from '../assets/conatct.jpeg'
 import { useNavigate } from 'react-router-dom'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
