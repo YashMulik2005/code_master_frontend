@@ -48,6 +48,7 @@ function Navbar() {
                         <hr className={` border-black w-8 border-t-2  `} />
                     </section> */}
                 </section>
+                
                 <section onClick={() => {
                     setnavbar(!navbar)
                 }}>
