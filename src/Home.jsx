@@ -45,7 +45,9 @@ function Home() {
         <div className='bgrounded mb-5 flex h-screen' onClick={handlenav}>
             <div className='z-[1] h-[90%]'>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
-                    <section>
+                    <section onClick={() => {
+                        navigate("/")
+                    }} className=' cursor-pointer'>
                         <section className=' flex items-center justify-center'>
                             <h1 className={` text-black font-bold text-md `}>Code</h1>
                             <section>
@@ -74,7 +76,8 @@ function Home() {
                         }}>Contact</li>
                         <li className=' inline mx-2 font-semibold border-b-2 border-[#c1f8ca] hover:border-green-600 text-black' onClick={() => {
                             setnavbar(false)
-                        }}>Help</li>
+                            navigate("/feedback")
+                        }}>Feedback</li>
                     </ul>
                     {
                         logedin ?

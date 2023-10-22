@@ -23,10 +23,10 @@ function onlinecompiler() {
     const url = import.meta.env.VITE_BACKEND;
 
     const codedata = {
-        "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
-        "python": `print("hello world")`,
-        "java": `public class Main{\n  public static void main(String []args){\n    System.out.println("hello world");\n  }\n}`,
-        "c": `#include<stdio.h>\nint main(){\n  printf("hello world");\n  return 0;\n}`
+        "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  //give your input in input section below\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
+        "python": `#give your input in input section below\nprint("hello world")`,
+        "java": `public class Main{\n  //give your input in input section below\n  public static void main(String []args){\n    System.out.println("hello world");\n  }\n}`,
+        "c": `#include<stdio.h>\nint main(){\n  //give your input in input section below\n  printf("hello world");\n  return 0;\n}`
     }
     const [show, setshow] = useState(true)
     const [code, setcode] = useState(codedata.cpp14)
@@ -103,22 +103,22 @@ function onlinecompiler() {
                         setlanguage("cpp14")
                         setcode(codedata.cpp14)
                         setmode(cpp())
-                    }} className=' mx-2 text-black' />
+                    }} className=' mx-2 text-black cursor-pointer' />
                     <FaJava size={28} onClick={() => {
                         setlanguage("java")
                         setcode(codedata.java)
                         setmode(java())
-                    }} className=' mx-2 text-black' />
+                    }} className=' mx-2 text-black cursor-pointer' />
                     <SiCplusplus size={28} onClick={() => {
                         setlanguage("c")
                         setcode(codedata.c)
                         setmode(cpp())
-                    }} className=' mx-2 text-black' />
+                    }} className=' mx-2 text-black cursor-pointer' />
                     <FaPython size={28} onClick={() => {
                         setlanguage("python3")
                         setcode(codedata.python)
                         setmode(python())
-                    }} className=' mx-2 text-black' />
+                    }} className=' mx-2 text-black cursor-pointer' />
                 </section>
             </div>
             <div className=' flex border-t-[1px] border-b-[1px]'>
@@ -174,7 +174,7 @@ function onlinecompiler() {
                         extensions={[mode]}
                         onChange={getcode}
                     />
-                    <CodeMirror className=' border-t-2'
+                    <CodeMirror className=' sm:border-t-2'
                         theme={editortheme}
                         height='17vh'
                         onChange={getinput}
@@ -182,10 +182,12 @@ function onlinecompiler() {
                     />
                 </div>
                 <div className={`${show ? " sm:block hidden" : ""} w-[100%] sm:w-[40%] `}>
-                    <CodeMirror className=' sm:border-l-2'
+
+                    <CodeMirror className=' sm:border-l-2 '
                         value={output}
                         theme={editortheme}
                         height='87vh'
+                        placeholder="output get shown here"
                     />
                 </div>
 

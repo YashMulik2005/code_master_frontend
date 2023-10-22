@@ -21,6 +21,7 @@ import Forum from './discuss/Forum'
 import ForumAns from './discuss/ForumAns'
 import About from './components/About'
 import Conatct from './components/Conatct'
+import Feedback from './components/Feedback'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -39,6 +40,7 @@ function App() {
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
               <Route path='/about' element={<About />} />
               <Route path='/contact' element={<Conatct />} />
+              <Route path='/feedback' element={<Feedback />} />
             </Route>
             <Route path='/profile' element={<Profile />} />
             <Route path='/profile/:id' element={<Profile />} />

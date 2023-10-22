@@ -34,7 +34,9 @@ function Navbar() {
     return (
         <div className=' overflow-hidden'>
             <div className=' max-[666px]:flex justify-between items-center p-2 bg-[#c1f8ca] hidden'>
-                <section>
+                <section onClick={() => {
+                    navigate("/")
+                }} className=' cursor-pointer'>
                     <section className=' flex items-center justify-center'>
                         <h1 className={` text-black font-bold text-md `}>Code</h1>
                         <section>
@@ -48,7 +50,7 @@ function Navbar() {
                         <hr className={` border-black w-8 border-t-2  `} />
                     </section> */}
                 </section>
-                
+
                 <section onClick={() => {
                     setnavbar(!navbar)
                 }}>
@@ -71,7 +73,8 @@ function Navbar() {
                     }}>Contact</li>
                     <li className=' inline font-semibold hover:border-b-2' onClick={() => {
                         setnavbar(false)
-                    }}>Help</li>
+                        navigate("/feedback")
+                    }}>Feedback</li>
                     <section >
                         {theme == "light" ? <section className=' flex items-center' onClick={handletheme} size={30}>
                             <h1 className=' font-semibold'>Dark Mode</h1> <MdDarkMode size={30} className=' ' />

@@ -16,14 +16,24 @@ function Conatct() {
 
     const hadlesubmit = (e) => {
         e.preventDefault();
-        toast.success("message send sucessfully....")
+
+        if (logedin) {
+            toast.success("message send sucessfully....")
+
+        }
+        else {
+            toast.error("login first to send message")
+        }
+
         setemail("")
         setmsg("")
     }
     return (
-        <div>
+        <div className=' sm:min-h-[92vh]'>
             <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center '>
-                <section>
+                <section onClick={() => {
+                    navigate("/")
+                }} className=' cursor-pointer'>
                     <section className=' flex items-center justify-center'>
                         <h1 className={`  font-bold text-md `}>Code</h1>
                         <section>
@@ -52,7 +62,8 @@ function Conatct() {
                     }}>Contact</li>
                     <li className={`inline mx-2 font-semibold border-b-2 ${theme == "light" ? "border-[#ffffff]" : "border-[#1c232b]"}  hover:border-green-600`} onClick={() => {
                         setnavbar(false)
-                    }}>Help</li>
+                        navigate("/feedback")
+                    }}>Feedback</li>
                 </ul>
                 {
                     logedin ?

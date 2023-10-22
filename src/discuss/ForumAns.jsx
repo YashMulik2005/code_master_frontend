@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import themehook from '../components/CodeContext'
 import { GrCloudComputer } from 'react-icons/gr'
@@ -19,6 +19,7 @@ import { FaFreeCodeCamp } from 'react-icons/fa6'
 function ForumAns() {
     const { id } = useParams()
     console.log(id);
+    const navigate = useNavigate()
 
     const { theme, contextusername, logedin } = themehook()
     const [qdata, setqdata] = useState()
@@ -111,7 +112,7 @@ function ForumAns() {
             <dialog id="my_modal_3" className="modal">
                 <form method="dialog" className="modal-box">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    <h1 className=' font-bold text-green-600 text-xl'>Ask new question</h1>
+                    <h1 className=' font-bold text-green-600 text-xl'>Post Answer</h1>
                     <div>
                         <textarea cols={10} rows={5} className={`w-full border-2 p-2 my-2 rounded-lg ${theme == 'dark' ? " bg-[#0c131d] focus:outline-none border-none " : "bg-[#f5f1f0] focus:outline-none"}`} value={desc} placeholder='description'
                             onChange={(e) => {
@@ -128,7 +129,9 @@ function ForumAns() {
 
 
             <div className=' shadow-lg py-5 px-2 sm:p-3 flex justify-between sm:justify-between items-center'>
-                <section>
+                <section onClick={() => {
+                    navigate("/")
+                }} className=' cursor-pointer'>
                     <section className=' flex items-center justify-center'>
                         <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Code</h1>
                         <section>
@@ -208,12 +211,10 @@ function ForumAns() {
                             if (logedin) {
                                 window.my_modal_3.showModal()
                             } else {
-                                toast('Login first to ask a question', {
-                                    icon: '👏',
-                                });
+                                toast.error("Login first to ask a question")
                             }
-                        }} className={` flex justify-center bg-green-600 shadow-lg ${theme == 'dark' ? "" : "shadow-green-200"} text-white py-1 px-3 w-[70%] font-bold rounded-lg`}>
-                            <p>Post A Answer</p>
+                        }} className={` flex justify-center cursor-pointer bg-green-600 shadow-lg ${theme == 'dark' ? "" : "shadow-green-200"} text-white py-1 px-3 w-[70%] font-bold rounded-lg`}>
+                            <p >Post A Answer</p>
                         </section>
                     </div>
 

@@ -52,7 +52,9 @@ function Practice() {
         <div onClick={handlenav}>
             <div>
                 <div className='max-[666px]:hidden p-1 px-6 flex justify-between items-center py-3 '>
-                    <section>
+                    <section onClick={() => {
+                        naviagte("/")
+                    }} className=' cursor-pointer'>
                         <section className=' flex items-center justify-center'>
                             <h1 className={`${theme == "light" ? "text-black" : "text-white"} font-bold text-md `}>Code</h1>
                             <section>
@@ -94,16 +96,16 @@ function Practice() {
                     <div className=' min-[800px]:w-[18%] w-[100%] py-8 px-3 ' >
                         <h1 className={`${theme == "light" ? "" : "text-white"} px-3 font-bold `}>Categories</h1>
                         <ul className='flex flex-row min-[800px]:flex-col  p-1 sm:lg overflow-x-auto  '>
-                            <li className={`${topic == "all" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"}  p-1 px-3 rounded-lg`} onClick={handletopic}>all</li>
-                            <li className={`${topic == "basic programming" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>basic programming</li>
-                            <li className={`${topic == "sorting" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>sorting</li>
-                            <li className={`${topic == "searching" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>searching</li>
-                            <li className={`${topic == "array" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>array</li>
-                            <li className={`${topic == "linked list" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>linked list</li>
-                            <li className={`${topic == "stack" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>stack</li>
-                            <li className={`${topic == "math" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>math</li>
-                            <li className={`${topic == "tree" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>tree</li>
-                            <li className={`${topic == "graph" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg`} onClick={handletopic}>graph</li>
+                            <li className={`${topic == "all" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"}  p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>all</li>
+                            <li className={`${topic == "basic programming" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>basic programming</li>
+                            <li className={`${topic == "sorting" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>sorting</li>
+                            <li className={`${topic == "searching" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>searching</li>
+                            <li className={`${topic == "array" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>array</li>
+                            <li className={`${topic == "linked list" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>linked list</li>
+                            <li className={`${topic == "stack" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>stack</li>
+                            <li className={`${topic == "math" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>math</li>
+                            <li className={`${topic == "tree" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>tree</li>
+                            <li className={`${topic == "graph" ? `${theme == "light" ? "text-black font-semibold" : "text-white font-semibold"} ` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} p-1 px-3 rounded-lg cursor-pointer`} onClick={handletopic}>graph</li>
                         </ul>
                     </div>
                     <div className='py-3 sm:p-6 p-2 flex flex-col justify-center h-[88vh] min-[800px]:w-[82%] w-[100%]'>

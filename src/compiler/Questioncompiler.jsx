@@ -147,6 +147,7 @@ function Questioncompiler({ maindata }) {
                     setmessage("sucessful")
                     setstatus(true)
                     seterr(true)
+                    window.my_modal_3.showModal()
                 }
                 else {
                     setmessage("Something went wrong submit aagin")
@@ -170,6 +171,13 @@ function Questioncompiler({ maindata }) {
 
     return (
         <div className='  relative sm:static'>
+
+            <dialog id="my_modal_3" className="modal">
+                <form method="dialog" className="modal-box">
+                    <h1 className=' font-bold text-green-600 text-xl'>Submited suceesfully</h1>
+                    <button className='my-3 py-[5px] px-5 border-2 font-bold rounded-3xl hover:bg-green-600 hover:text-white hover:border-green-600'><Link to={'/practice'}>Go to Pratice</Link></button>
+                </form>
+            </dialog>
             <div className={`flex justify-between  items-center p-2`}>
                 <form action="">
                     <select name="language" className=' py-[2px] px-6' onChange={handlelan} >

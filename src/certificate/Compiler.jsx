@@ -18,7 +18,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 function Compiler({ maindata, c_id }) {
-    // console.log(c_id);
+    console.log(c_id);
     const navigate = useNavigate()
     const url = import.meta.env.VITE_BACKEND;
 
@@ -26,17 +26,17 @@ function Compiler({ maindata, c_id }) {
     const codedata = {
         "cpp14": `#include<iostream>\nusing namespace std;\nint main(){\n  cout<<"hello world"<<endl;\n  return 0;\n}`,
         "python": `print("hello world")`,
-        "java": `Public class Main{\n  public static main(String []args){\n    System.out.println("hello world");\n  }\n}`,
+        "java": `public class Main{\n  public static void main(String []args){\n    System.out.println("hello world");\n  }\n}`,
         "c": `#include<stdio.h>\nint main(){\n  printf("hello world");\n  return 0;\n}`
     }
-    const [code, setcode] = useState(codedata.cpp14)
+    const [code, setcode] = useState(c_id == '650ee28e9a4eebef9c5fb422' ? codedata.cpp14 : c_id == "650edfd99a4eebef9c5fb3fc" ? codedata.java : c_id == '650ee02b9a4eebef9c5fb3fe' ? codedata.python : codedata.c)
     const [editortheme, seteditortheme] = useState(dracula)
     const [input, setinput] = useState(maindata.testcase1)
     const [mode, setmode] = useState(cpp())
     const [status, setstatus] = useState(false)
     const [message, setmessage] = useState("")
     const [output, setoutput] = useState()
-    const [lan, setlan] = useState("cpp14")
+    const [lan, setlan] = useState(c_id == '650ee28e9a4eebef9c5fb422' ? "cpp14" : c_id == "650edfd99a4eebef9c5fb3fc" ? "java" : c_id == '650ee02b9a4eebef9c5fb3fe' ? "python3" : "c")
     const [err, seterr] = useState(false)
     const [loader, setloader] = useState(false)
     // const history = useHistory();
@@ -58,6 +58,11 @@ function Compiler({ maindata, c_id }) {
             seteditortheme(dracula)
         }
     }
+
+    // if (c_id == '650ee28e9a4eebef9c5fb422') {
+    //     setlan("cpp14");
+    //     setcode(codedata.cpp14)
+    // }
 
     const handlelan = (e) => {
         setlan(e.target.value)
@@ -194,15 +199,16 @@ function Compiler({ maindata, c_id }) {
 
                 <div className={`flex justify-between  items-center p-2`}>
                     <form action="">
-                        <select name="language" className=' py-[2px] px-6' onChange={handlelan} >
+                        {/* <select name="language" className=' py-[2px] px-6' onChange={handlelan} >
                             <option value="cpp14">C++</option>
                             <option value="c">c</option>
                             <option value="java">Java</option>
                             <option value="python3">Python</option>
-                        </select>
+                        </select> */}
+                        <section><h1 className=' font-bold'>language: {lan}</h1></section>
                     </form>
                     {/* <h1>{lan}</h1> */}
-                    <MdDarkMode size={30} onClick={handletheme} />
+                    <MdDarkMode size={28} onClick={handletheme} />
                 </div>
                 <div className=' px-2'>
                     <CodeMirror className=' text-md'

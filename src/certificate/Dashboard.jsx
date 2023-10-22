@@ -116,10 +116,10 @@ function Dashboard() {
                             {
                                 data?.map((item, index) => {
                                     return <tr className={` ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} hover:border-b-0 border-b border-slate-500`} key={index}>
-                                        <td className=' p-3 font-semibold text-left hover:text-black text-sm'>{index + 1}</td>
+                                        <td className=' p-3 font-semibold text-left  text-sm'>{index + 1}</td>
                                         <td className=' p-3 font-semibold text-left text-green-600'>{item.name}</td>
-                                        <td className=' p-3 font-semibold text-left hover:text-black'>{item.topic}</td>
-                                        <td className=' p-3 font-semibold text-left hover:text-black'>{(track[item._id] == item._id) ? <Link className='flex items-center'>complete <IoMdCheckmarkCircle className='' /></Link> :
+                                        <td className=' p-3 font-semibold text-left '>{item.topic}</td>
+                                        <td className=' p-3 font-semibold text-left '>{(track[item._id] == item._id) ? <Link className='flex items-center'>complete <IoMdCheckmarkCircle className='' /></Link> :
                                             <Link to={`/certificate/question/${id}/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link>
                                         }
                                         </td>

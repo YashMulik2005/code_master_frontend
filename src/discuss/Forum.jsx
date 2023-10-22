@@ -165,7 +165,9 @@ function Forum() {
 
 
             <div className=' shadow-lg py-5 px-2 sm:p-5 flex justify-between sm:justify-between items-center'>
-                <section>
+                <section onClick={() => {
+                    navigate("/")
+                }} className=' cursor-pointer'>
                     <section className=' flex items-center justify-center'>
                         <h1 className={` ${theme == "dark" ? "text-white" : ""} font-bold text-lg `}>Code</h1>
                         <section>
@@ -222,7 +224,7 @@ function Forum() {
                         <section className={` w-28 py-1 px-3  rounded-lg  ${theme == "dark" ? " bg-[#0c131d] border-none shadow-[#0c131d] shadow-md" : "bg-[#f5f1f0]"}`} >
                             <p className={`${theme == "light" ? "text-black" : "text-white"} font-semibold`}>Latest First</p>
                         </section>
-                        {theme == "light" ? <MdDarkMode size={33} onClick={handletheme} /> : <MdOutlineLightMode size={33} onClick={handletheme} />}
+                        {theme == "light" ? <MdDarkMode size={30} onClick={handletheme} /> : <MdOutlineLightMode size={30} onClick={handletheme} />}
                     </div>
                     <div className='h-[82vh] overflow-y-auto m-1'>
                         {
@@ -243,7 +245,7 @@ function Forum() {
                             } else {
                                 toast.error("Login first to ask a question")
                             }
-                        }} className={` flex justify-center bg-green-600 shadow-lg ${theme == 'dark' ? "" : "shadow-green-200"} text-white py-1 px-3 w-[70%] font-bold rounded-lg`}>
+                        }} className={` flex justify-center cursor-pointer bg-green-600 shadow-lg ${theme == 'dark' ? "" : "shadow-green-200"} text-white py-1 px-3 w-[70%] font-bold rounded-lg`}>
                             <p>Ask new question</p>
                         </section>
                     </div>
