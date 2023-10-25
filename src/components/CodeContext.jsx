@@ -13,6 +13,7 @@ export const Codeprovider = ({ children }) => {
     const [queflag, setqueflag] = useState(false);
     const [certifyflag, setcertifyflag] = useState(false)
     const [border, setborder] = useState(true)
+    const [index, setindex] = useState()
 
 
     const value = {
@@ -35,7 +36,9 @@ export const Codeprovider = ({ children }) => {
         certifyflag,
         setcertifyflag,
         border,
-        setborder
+        setborder,
+        index,
+        setindex
     }
 
     return <CodeContext.Provider value={value}>

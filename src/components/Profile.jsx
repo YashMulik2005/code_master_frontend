@@ -145,10 +145,10 @@ function Profile() {
                                 <h1 className='text-sm text-[#a19999] font-semibold'>Email:</h1>
                                 <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>{item.email}</h1>
                             </section>
-                            <section className={` ${theme == 'dark' ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
+                            {/* <section className={` ${theme == 'dark' ? "bg-[#1c232b]" : "bg-white"} w-[95%] rounded-3xl pl-4 py-[7px]  my-1`}>
                                 <h1 className='text-sm text-[#a19999] font-semibold'>Mobile No. :</h1>
                                 <h1 className={`text-lg font-bold ${theme == 'dark' ? 'text-white' : ''}`}>9359515989</h1>
-                            </section>
+                            </section> */}
 
                         </div>
                         <div className=' w-[100%] min-[950px]:w-[70%] h-[100%] '>

@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Coursetopic() {
     const { id } = useParams()
     console.log(id);
-    const { contextusername, logedin, settopic_id, setcourse_id, setnavbar, theme } = themehook()
+    const { contextusername, logedin, settopic_id, setcourse_id, setnavbar, theme, index, setindex } = themehook()
     const navigate = useNavigate()
     const [data, setdata] = useState([])
     const [track, settrack] = useState({})
@@ -177,7 +177,8 @@ function Coursetopic() {
                                                 else {
                                                     settopic_id(item._id)
                                                     setcourse_id(id)
-                                                    navigate("/course/topic")
+                                                    setindex(index)
+                                                    navigate(`/course/topic/${id}`)
                                                 }
                                             }}><buttton className=" font-bold">Start</buttton> <AiFillCaretRight size={20} className=' mx-1 text-green-600' /> </section>)}</td>
                                     </tr>

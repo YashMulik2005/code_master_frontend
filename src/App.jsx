@@ -35,7 +35,7 @@ function App() {
               <Route index element={<Layout />} />
               <Route path='/practice' element={<Practice />} />
               <Route path='/course/:id' element={<Coursetopic />} />
-              <Route path='/course/topic' element={<Topicdata />} />
+              <Route path='/course/topic/:id' element={<Topicdata />} />
               <Route path='/certificate' element={<Certificate />} />
               <Route path='/showceroficate/:id/:name' element={<CertificateDesign />} />
               <Route path='/about' element={<About />} />

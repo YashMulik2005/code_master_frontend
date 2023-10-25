@@ -1,0 +1,5 @@
+/* Custom cursor color */
+.CodeMirror-cursors {
+    border-left: 2px solid red !important; /* Change 'red' to your desired color */
+  }
+  

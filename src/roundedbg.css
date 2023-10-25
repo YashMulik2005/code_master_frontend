@@ -16,3 +16,7 @@
     width: 100%;
     height: 92vh;
 }
+
+.custom-cursor {
+    border-left: 2px solid red; /* Change 'red' to your desired color */
+  }

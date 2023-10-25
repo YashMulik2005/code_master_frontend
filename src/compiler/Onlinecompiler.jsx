@@ -17,6 +17,7 @@ import { FaJava, FaPython } from 'react-icons/fa'
 import { VscTriangleRight } from 'react-icons/vsc'
 import themehook from '../components/CodeContext'
 import { ClipLoader } from 'react-spinners'
+import './cursor.css'
 
 function onlinecompiler() {
     const { theme, settheme } = themehook()
@@ -155,7 +156,13 @@ function onlinecompiler() {
                             lineNumbers: true,
                             autoCloseBrackets: true,
                             gutters: ['CodeMirror-linenumbers'],
-                            extraKeys: { 'Ctrl-Space': 'autocomplete' },
+                            extraKeys: {
+                                'Ctrl-Space': 'autocomplete',
+                                'Ctrl-Custom': function (cm) {
+                                    const cursorElement = cm.display.cursorDiv;
+                                    cursorElement.classList.add('custom-cursor');
+                                },
+                            },
                             indentUnit: 4,
                             styleSelectedText: true,
                             matchBrackets: true,
