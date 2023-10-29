@@ -180,7 +180,7 @@ function Topicdata() {
                     </ul>
                 </div>
                 {
-                    loading ? <div className=' flex justify-center items-center w-[100%] '><BarLoader color='green' /></div> :
+                    loading ? <div className=' flex justify-center items-center w-[100%] min-[730px]:w-[75%] '><BarLoader color='green' /></div> :
                         <div className='p-3 sm:p-5 w-[100%] min-[730px]:w-[75%] min-[720px]:h-[92vh] overflow-y-auto '>
                             <h1 className='text-xl sm:text-3xl font-bold text-green-600 my-2'>{data.name1}</h1>
                             <p className=' text-md sm:text-lg'>{data.description1}</p>

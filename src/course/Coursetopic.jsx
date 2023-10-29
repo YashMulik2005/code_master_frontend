@@ -6,8 +6,7 @@ import photo from '../assets/react.svg'
 import { BarLoader } from 'react-spinners'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
 import { AiFillCaretRight } from 'react-icons/ai'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, Toaster } from 'react-hot-toast'
 
 function Coursetopic() {
     const { id } = useParams()
@@ -52,16 +51,7 @@ function Coursetopic() {
 
     const handleenroll = async () => {
         if (!logedin) {
-            toast.warn("Login first to enroll in course.", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error("Login first to enroll in course.");
         }
         else {
             // console.log("enroll");
@@ -75,16 +65,7 @@ function Coursetopic() {
                 setenroll(true)
             }
             else {
-                toast.warn("Something went wrong try again.", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+                toast.error("Something went wrong try again.");
             }
         }
     }
@@ -163,16 +144,7 @@ function Coursetopic() {
                                             : <section className=" flex items-center" onClick={() => {
                                                 console.log("topic");
                                                 if (data._id != track[data._id]) {
-                                                    toast.warn("First enroll to the course.", {
-                                                        position: "top-center",
-                                                        autoClose: 5000,
-                                                        hideProgressBar: false,
-                                                        closeOnClick: true,
-                                                        pauseOnHover: true,
-                                                        draggable: true,
-                                                        progress: undefined,
-                                                        theme: "light",
-                                                    });
+                                                    toast.error("First enroll to the course");
                                                 }
                                                 else {
                                                     settopic_id(item._id)
@@ -189,7 +161,7 @@ function Coursetopic() {
 
                 </div>
             )}
-            <ToastContainer />
+            <Toaster />
         </div>
     )
 }

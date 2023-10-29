@@ -11,6 +11,8 @@ import './roundedbg.css'
 import { useNavigate } from 'react-router-dom'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function Home() {
     const { theme, settheme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
@@ -127,7 +129,7 @@ function Home() {
                         </section>
                     </div>
                     <div className=' max-[798px]:w-[100%] max-[798px]:h-[30vh] h-auto w-[85%] flex justify-center items-center'>
-                        <img src={photo} alt="" className=' w-[73%] h-[90%] ' />
+                        <LazyLoadImage src={photo} alt="" className=' w-[100%] xl:w-[75%] h-[90%]' width="100%" height="100%" />
                     </div>
                 </div>
             </div>

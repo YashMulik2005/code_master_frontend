@@ -8,11 +8,12 @@ import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { GrCloudComputer } from 'react-icons/gr'
 import photo from '../assets/dashboard_bg.png'
 import { BarLoader } from 'react-spinners'
+import { toast, Toaster } from 'react-hot-toast'
 
 function Dashboard() {
     const { id } = useParams()
     const url = import.meta.env.VITE_BACKEND;
-    const { contextusername, theme, settheme, setqueflag, queflag, setcertifyflag, certifyflag } = themehook()
+    const { contextusername, theme, settheme, setqueflag, queflag, setcertifyflag, certifyflag, timeout, settimeout, first, second } = themehook()
     const [data, setdata] = useState()
     const [track, settrack] = useState({})
     const [loader, setloader] = useState(false)
@@ -80,7 +81,16 @@ function Dashboard() {
         }
     }
 
+    const secondtry = () => {
+        toast.error("Can solve only once.")
+    }
+
     useEffect(() => {
+
+        if (timeout) {
+            toast.error("Time out for question")
+            settimeout(false)
+        }
         cleardata()
         getdata()
 
@@ -120,7 +130,9 @@ function Dashboard() {
                                         <td className=' p-3 font-semibold text-left text-green-600'>{item.name}</td>
                                         <td className=' p-3 font-semibold text-left '>{item.topic}</td>
                                         <td className=' p-3 font-semibold text-left '>{(track[item._id] == item._id) ? <Link className='flex items-center'>complete <IoMdCheckmarkCircle className='' /></Link> :
-                                            <Link to={`/certificate/question/${id}/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link>
+                                            first == item._id ? <Link onClick={secondtry} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link>
+                                                : second == item._id ? <Link onClick={secondtry} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link>
+                                                    : <Link to={`/certificate/question/${id}/${item._id}`} className='flex items-center'>solve <AiOutlineArrowRight className='' /></Link>
                                         }
                                         </td>
                                     </tr>
@@ -135,7 +147,7 @@ function Dashboard() {
                     </section>
                 </div>
             </div>
-
+            <Toaster />
             {/*<button className=' bg-green-500 text-white py-1 px-3'><Link to={`/certificate/question`}>start</Link></button> */}
         </div>
     )

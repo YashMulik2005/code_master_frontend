@@ -2,6 +2,8 @@ import React from 'react'
 import photo from '../assets/discuss.png'
 import themehook from '../components/CodeContext'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function Discuss() {
     const { theme } = themehook()
@@ -9,7 +11,7 @@ function Discuss() {
     return (
         <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} flex flex-col items-center justify-center p-3`}>
             <section className='h-[50%]'>
-                <img src={photo} alt="" className=' w-[100%] h-[50%]' />
+                <LazyLoadImage src={photo} alt="" className=' w-[100%] h-[50%]' effect='blur' />
             </section>
             <section className='h-[50%] flex flex-col justify-center items-center p-5'>
                 <h1 className={`${theme == "light" ? "text-black" : "text-white"} text-xl font-bold`}>Code-Master Discuss</h1>

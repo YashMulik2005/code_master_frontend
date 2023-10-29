@@ -14,11 +14,18 @@ export const Codeprovider = ({ children }) => {
     const [certifyflag, setcertifyflag] = useState(false)
     const [border, setborder] = useState(true)
     const [index, setindex] = useState()
+    const [timeout, settimeout] = useState(false)
+    const [first, setfirst] = useState("")
+    const [second, setsecond] = useState("")
 
 
     const value = {
         theme,
         settheme,
+        first,
+        setfirst,
+        second,
+        setsecond,
         contextusername,
         setcontextusername,
         logedin,
@@ -38,7 +45,9 @@ export const Codeprovider = ({ children }) => {
         border,
         setborder,
         index,
-        setindex
+        setindex,
+        timeout,
+        settimeout
     }
 
     return <CodeContext.Provider value={value}>

@@ -8,9 +8,9 @@ import themehook from '../components/CodeContext';
 import { BarLoader } from 'react-spinners'
 
 function Certifytest() {
-    const { theme, certifyflag, setcertifyflag } = themehook()
+    const { theme, certifyflag, setcertifyflag, settimeout, setfirst, setsecond, first, second } = themehook()
     const { c_id, t_id } = useParams()
-    let seconds = 1200;
+    let seconds = 30;
     const [min, setmin] = useState(Math.floor(seconds / 60))
     const [sec, setsec] = useState(Math.floor(seconds % 60))
     const [status, setstatus] = useState(false)
@@ -47,7 +47,14 @@ function Certifytest() {
                 clearInterval(interval)
                 settitle("Time up!!!!")
                 settext("time given for this question is finish.")
-                window.my_modal_3.showModal();
+                settimeout(true)
+                if (first.length > 0) {
+                    setsecond(t_id)
+                } else {
+                    setfirst(t_id)
+                }
+                navigate(`/certificate/dashboard/${c_id}`)
+                console.log("timeup");
             } else {
                 const mins = Math.floor(seconds / 60);
                 const secs = Math.floor(seconds % 60);

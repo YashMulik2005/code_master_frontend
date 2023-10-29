@@ -6,6 +6,8 @@ import { FaFreeCodeCamp } from 'react-icons/fa6'
 import themehook from '../components/CodeContext'
 import { CgProfile } from 'react-icons/cg'
 import toast, { Toaster } from 'react-hot-toast'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function Conatct() {
 
@@ -90,8 +92,8 @@ function Conatct() {
             </div>
 
             <div className={` flex flex-col sm:flex-row m-auto w-[95%] rounded-md sm:w-[90%] md:w-[80%] my-10 ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"}`}>
-                <div className='w-[100%] sm:w-[35%] '>
-                    <img src={photo} alt="" className=' w-[100%] h-[100%]' />
+                <div className='w-[100%] sm:w-[35%]  '>
+                    <LazyLoadImage src={photo} alt="" className=' w-[100%] h-[100%]' width="100%" height='100%' effect='blur' />
                 </div>
                 <div className=' w-[100%] sm:w-[65%] p-2 sm:p-4 flex flex-col justify-center items-center '>
                     <h1 className=' font-bold text-xl text-center'>Contact Us</h1>

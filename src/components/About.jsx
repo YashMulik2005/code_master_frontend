@@ -5,6 +5,8 @@ import { FaFreeCodeCamp } from 'react-icons/fa6'
 import themehook from '../components/CodeContext'
 import { CgProfile } from 'react-icons/cg'
 import photo from '../assets/home_cover.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function About() {
     const { theme, settheme, logedin, setlogedin, contextusername, setcontextusername, setnavbar } = themehook();
@@ -72,7 +74,7 @@ function About() {
 
             <div className={` flex sm:flex-row flex-col w-[80%] m-auto my-5 ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} rounded-md sm:p-5`}>
                 <div className='w-[100%] sm:w-[40%] flex justify-center items-center p-3'>
-                    <img src={photo} alt="" />
+                    <LazyLoadImage src={photo} alt="" effect='blur' />
                 </div>
                 <div className='w-[100%] sm:w-[60%] flex flex-col justify-center items-center p-3'>
                     <h1 className=' font-bold text-xl sm:text-3xl text-center'>About</h1>

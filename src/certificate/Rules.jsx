@@ -62,7 +62,7 @@ function Rules() {
                 <h1 className={`${theme == "light" ? "text-black" : "text-white"} text-xl font-bold text-center`}>Rules for certification</h1>
                 <motion.div className=' flex justify-end px-3' ref={div1}>
                     <section className={`w-[50%] p-3 m-4 my-2 ${theme == "light" ? "bg-[#f5f1f0] border-[1px]" : "bg-[#0c131d]"} rounded-sm `}>
-                        <motion.p>Solve both Questions completely and cklick on Finish button to sumbmit test for certfication.</motion.p>
+                        <motion.p>Solve both Questions completely and click on Finish button to submit test for certfication.</motion.p>
                     </section>
                 </motion.div>
 

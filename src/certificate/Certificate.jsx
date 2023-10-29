@@ -8,13 +8,15 @@ import { BiCodeAlt } from 'react-icons/bi'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
 import CertificateSketeon from './CertificateSketeon';
 import toast, { Toaster } from 'react-hot-toast';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function Certificate() {
     const [data, setdata] = useState()
     const [track, settrack] = useState()
     const [loader, setloader] = useState(false)
     const url = import.meta.env.VITE_BACKEND;
-    const { contextusername, theme, setnavbar } = themehook()
+    const { contextusername, theme, setnavbar, setfirst, setsecond } = themehook()
     const navigate = useNavigate()
     const getdata = async () => {
         setloader(true)
@@ -34,6 +36,8 @@ function Certificate() {
 
     useEffect(() => {
         getdata()
+        setfirst("")
+        setsecond("")
     }, [])
 
     return (
@@ -58,8 +62,8 @@ function Certificate() {
                                         <hr className={` ${theme == "light" ? "border-black" : "border-white"} w-8 border-t-2  `} />
                                     </section> */}
                                 </section>
-                                <div className={`${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md w-[50%] h-[100%] p-2 m-1`}>
-                                    <img src={item.link} alt="" className=' w-[100%] h-[100%]' />
+                                <div className={`${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} rounded-md w-[50%] h-[100%] p-2 m-1 flex items-center`}>
+                                    <LazyLoadImage src={item.link} alt="" className=' w-[100%] h-full' effect='blur' />
                                 </div>
                                 <div className=' w-[50%] flex flex-col items-start justify-center p-3'>
                                     <div className=' rounded-full bg-[#39A84B] group-hover:bg-[#C5E7CB] p-1 w-6 m-1 ml-0'>

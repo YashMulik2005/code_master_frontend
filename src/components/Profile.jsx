@@ -13,6 +13,8 @@ import Profileskeleton from './Profileskeleton'
 import { MdCancel } from 'react-icons/md'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import { ClipLoader } from 'react-spinners'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 
 function Profile() {
@@ -160,7 +162,7 @@ function Profile() {
                                         <h1 className='text-[#a19999] font-semibold'>80.00%</h1>
                                     </section>
                                     <section className='w-[50%] flex justify-center items-center '>
-                                        <img src={psprofile} alt="" className=' w-full h-full' />
+                                        <LazyLoadImage src={psprofile} alt="" className=' w-full h-full' effect='blur' />
                                     </section>
                                 </div>
                                 <div className={`${theme == 'dark' ? " bg-[#0c131d]" : "bg-[#f5f1f0]"} w-[100%] min-[950px]:w-[40%] h-32 min-[950px]:my-0 my-4 rounded-lg mr-3 flex`}>
@@ -170,7 +172,7 @@ function Profile() {
                                         <h1 className='text-[#a19999] font-semibold'>80.00%</h1>
                                     </section>
                                     <section className='w-[50%] flex justify-center items-center'>
-                                        <img src={qpprofile} alt="" className=' w-full h-full' />
+                                        <LazyLoadImage src={qpprofile} alt="" className=' w-full h-full' effect='blur' />
                                     </section>
                                 </div>
                                 <div className={`${theme == 'dark' ? " bg-[#0c131d]" : "bg-[#f5f1f0]"} w-[100%] min-[950px]:w-[40%] h-32 min-[950px]:my-0 my-4  rounded-lg mr-3 flex`}>
@@ -180,7 +182,7 @@ function Profile() {
                                         <h1 className='text-[#a19999] font-semibold'>80.00%</h1>
                                     </section>
                                     <section className='w-[50%] flex justify-center items-center'>
-                                        <img src={approfile} alt="" className=' w-full h-full' />
+                                        <LazyLoadImage src={approfile} alt="" className=' w-full h-full' effect='blur' />
                                     </section>
                                 </div>
                             </div>

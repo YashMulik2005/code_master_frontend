@@ -171,7 +171,7 @@ function ForumAns() {
                                             <CgProfile size={44} />
                                         </section>
                                         <section className='flex flex-col w-[100%] '>
-                                            <h1 className='mx-3 text-lg font-bold'>{contextusername}</h1>
+                                            <h1 className='mx-3 text-lg font-bold'>{item.user}</h1>
                                             <h1 className='mx-3 text-sm'>{moment(item.timestamp).fromNow()}</h1>
                                             <hr className=' w-[100%] h-3 my-1' />
                                         </section>

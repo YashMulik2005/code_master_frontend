@@ -8,6 +8,8 @@ import photo2 from '../assets/certificate_bg2.jpg'
 import ClipboardJS from 'clipboard';
 import { FaFreeCodeCamp } from 'react-icons/fa6'
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 function CertificateDesign() {
     const { id } = useParams()
