@@ -167,8 +167,8 @@ function Topicdata() {
             <div className='flex max-[730px]:flex-col flex-row '>
 
                 <div className='w-[100%] min-[730px]:w-[25%] min-[730px]:h-[92vh] p-3 flex flex-col max-[730px]:flex-row'>
-                    <h1 className={` font-bold text-xl ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} inline-block min-[720px]:inline max-[730px]:w-32 max-[730px]:h-16 p-[6px] rounded-lg`}>Topic list</h1>
-                    <ul className=' flex flex-col max-[730px]:flex-row'>
+                    <h1 className={` max-[730px]:hidden font-bold text-xl ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} inline-block min-[720px]:inline max-[730px]:w-32 max-[730px]:h-16 p-[6px] rounded-lg`}>Topic list</h1>
+                    <ul className=' flex flex-col max-[730px]:flex-row max-[730px]:overflow-x-auto'>
                         {
                             topicdata?.map((item, index) => {
                                 return <li key={index} className={`${item._id == selectedtopic ? `font-bold ${theme == "light" ? "text-black" : "text-white"}` : ""} ${theme == "light" ? "hover:bg-[#f5f1f0]" : "hover:bg-[#0c131d]"} py-[5px] px-[6px] my-2 rounded-md flex items-center justify-between`} onClick={() => {

@@ -58,13 +58,13 @@ function Footer() {
             <div className=" flex max-[666px]:flex-col-reverse flex-row max-[666px]:justify-center items-center justify-between px-4 py-2">
                 <section className=' flex items-center max-[666px]:mt-2'>
                     <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
-                        <AiFillInstagram size={25} className=' ' />
+                        <a href='https://www.instagram.com/' target='black'><AiFillInstagram size={25} className=' ' /></a>
                     </section>
                     <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
-                        <BsGithub size={25} className=' ' />
+                        <a href='https://github.com/' target='black'><BsGithub size={25} className=' ' /></a>
                     </section>
                     <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>
-                        <BsLinkedin size={25} className=' ' />
+                        <a href='https://www.linkedin.com/' target='black'><BsLinkedin size={25} className=' ' /></a>
                     </section>
                 </section>
                 <section className=' max-[666px]:my-2'>
