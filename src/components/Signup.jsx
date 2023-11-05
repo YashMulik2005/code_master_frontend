@@ -63,27 +63,27 @@ function Signup() {
                 <section className=' flex '>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>First Name:</h1>
-                        <input type='text' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={fname} placeholder='Enter first name' onChange={(e) => {
+                        <input type='text' name='fname' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={fname} placeholder='Enter first name' onChange={(e) => {
                             setfname(e.target.value)
                         }} />
                     </section>
                     <section className=' mx-2'>
                         <h1 className=' font-bold text-xl my-1'>Last Name:</h1>
-                        <input type='text' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={lname} placeholder='Enter last name' onChange={(e) => {
+                        <input type='text'  name='lname' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={lname} placeholder='Enter last name' onChange={(e) => {
                             setlname(e.target.value)
                         }} />
                     </section>
                 </section>
                 <h1 className=' font-bold text-xl my-1'>Username:</h1>
-                <input type='text' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={username} placeholder='Enter username' onChange={(e) => {
+                <input type='text' name='username' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={username} placeholder='Enter username' onChange={(e) => {
                     setusername(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Password:</h1>
-                <input type='password' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={password} placeholder='Enter password' onChange={(e) => {
+                <input type='password' name='password' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={password} placeholder='Enter password' onChange={(e) => {
                     setpassword(e.target.value)
                 }} />
                 <h1 className=' font-bold text-xl my-1'>Email:</h1>
-                <input type='email' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={email} placeholder='Enter email' onChange={(e) => {
+                <input type='email' name='email' className={` ${theme == "light" ? "focus:bg-[#f5f1f0] " : "bg-[#0c131d] border-none focus:bg-[#0c131d]"} w-[100%] p-2 rounded-2xl border-2 px-4 focus:outline-none `} value={email} placeholder='Enter email' onChange={(e) => {
                     setemail(e.target.value)
                 }} /><br />
                 {/* <h1 className=' font-bold text-xl my-1'>Mobile No.:</h1>
