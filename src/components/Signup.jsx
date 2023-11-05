@@ -91,9 +91,6 @@ function Signup() {
                 <section className=' flex flex-col justify-center items-center'>
                     <input type='submit' className=' bg-green-600 p-1 py-[6px] w-[90%] rounded-2xl text-white font-semibold mt-6 cursor-pointer' />
                     <h1 className=' font-semibold'>or</h1>
-                    <section className=' flex'>
-                        <AiFillGoogleCircle size={40} className=' mx-2' />
-                    </section>
                     <h1 className=' font-semibold'>If already have account then login</h1>
                 </section>
             </form>
