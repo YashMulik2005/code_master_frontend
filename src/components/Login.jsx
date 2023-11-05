@@ -70,9 +70,6 @@ function Login() {
                 <section className=' flex flex-col justify-center items-center'>
                     <input type='submit' className='bg-green-600 p-1 py-[6px] w-[90%] cursor-pointer rounded-2xl text-white font-semibold mt-6' />
                     <h1 className=' font-semibold'>or</h1>
-                    <section className=' flex'>
-                        <AiFillGoogleCircle size={36} className=' mx-2' />
-                    </section>
                     <h1 className=' font-semibold'>If don't have account then signup</h1>
                 </section>
             </form>
