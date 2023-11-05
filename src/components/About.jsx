@@ -4,7 +4,7 @@ import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { FaFreeCodeCamp } from 'react-icons/fa6'
 import themehook from '../components/CodeContext'
 import { CgProfile } from 'react-icons/cg'
-import photo from '../assets/home_cover.png'
+import photo from '../assets/about.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
@@ -78,14 +78,18 @@ function About() {
                 </div>
                 <div className='w-[100%] sm:w-[60%] flex flex-col justify-center items-center p-3'>
                     <h1 className=' font-bold text-xl sm:text-3xl text-center'>About</h1>
-                    <p className=' text-center'>Lorem ipsum dolor sit amet consectetu elit.esciunt! Assumenda  facere incidunt eveniet mollitia nemo, praesentium quod nulla maxime consectetur eum non illum odio atque adipisci tempore beatae perspiciatis aut dolor. Obcaecati repellendus ullam tempore suscipit fugiat impedit dignissimos molestias molestiae libero magni aperiam autem earum nobis laboriosam.</p>
+                    <p className=' text-center'>Welcome to Code-Master our platform is designed for coding enthusiasts.
+
+                        Discover a world of coding possibilities with our diverse programming courses and validate your expertise through our certification tests. Practice your coding skills with our versatile online code compiler, supporting multiple languages, and participate in engaging discussions on our forums.
+
+                        Challenge yourself with a variety of coding questions, and stay updated with our latest content and events through our social media and newsletter. Your feedback and queries are important to us, so feel free to contact us at [your email address]. Join our community on [social media links] and embark on your coding journey with Code-Master.</p>
                 </div>
             </div>
 
             <div className={`${theme == "light" ? "bg-[#f5f1f0]" : " bg-[#0c131d]"} flex flex-col sm:flex-row my-5 p-5 `}>
                 <div className='w[100%] sm:w-[25%]  p-3 sm:border-r-2'>
                     <h1 className=' text-center font-bold text-xl'>Our Team</h1>
-                    <p className=' text-center'>moh cvc hvgvcygwvg vdygewvxgwe dgvwgx </p>
+                    <p className=' text-center'>jdndjdncj dbdjcb cdhv</p>
                 </div>
                 <div className=' w-[100%]  sm:w-[75%]  flex flex-col sm:flex-row justify-center items-center'>
                     <section className={`${theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"} hover:bg-green-600 hover:text-white inline-block p-3 px-5 rounded-md m-2`}>
@@ -109,7 +113,9 @@ function About() {
             <div className={` flex w-[80%] m-auto my-5 ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} rounded-md p-5`}>
                 <div className=' flex flex-col justify-center items-center p-3'>
                     <h1 className=' font-bold text-xl sm:text-3xl text-center'>Why choose us ?</h1>
-                    <p className=' text-center'>Lorem ipsum dolor sit amet consectetu elit.esciunt! Assumenda  facere incidunt eveniet mollitia nemo, praesentium quod nulla maxime consectetur eum non illum odio atque adipisci tempore beatae perspiciatis aut dolor. Obcaecati repellendus ullam tempore suscipit fugiat impedit dignissimos molestias molestiae libero magni aperiam autem earum nobis laboriosam.</p>
+                    <p className=' text-center'>Choose Code-Master for your coding journey because we offer an all-encompassing platform designed to meet your coding needs. Our robust tools, diverse courses, and official certifications provide a comprehensive learning experience. With our online compiler, engaging forums, and challenging coding questions, you can sharpen your skills and connect with a vibrant community of like-minded individuals.
+
+                        We stay at the forefront of coding trends, ensuring you're always updated. Your input matters, and we're committed to providing you with exceptional support. Join us at Code-Master, where your coding aspirations find the perfect home, and your path to success is our top priority.</p>
                 </div>
             </div>
         </div>

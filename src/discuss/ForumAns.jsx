@@ -161,7 +161,7 @@ function ForumAns() {
 
 
             <div className=' flex '>
-                <div className=' w-[100%] sm:w-[75%] overflow-y-auto h-[90vh]'>
+                <div className=' max-[775px]:w-[100%] w-[75%] overflow-y-auto h-[90vh]'>
                     {loading ? <AnsSkeleton /> :
                         qdata?.map((item, index) => {
                             return <div className={`p-5 border-[1px]  m-4 rounded-lg ${theme == "dark" ? "bg-[#0c131d] border-none shadow-md shadow-[#090c10] " : " bg-[#f5f1f0] shadow-md"}`}>
@@ -181,8 +181,10 @@ function ForumAns() {
                                 <section>
                                     <h1 className=' text-lg font-bold text-green-700'>{item.heading}</h1>
                                     <h1 className=' my-2'>{item.description}</h1>
-                                    <pre><span className=' font-bold'>{item.code ? "code:-" : ""}</span>
-                                        {item.code}</pre>
+                                    <section className=' overflow-x-auto'>
+                                        <pre><span className=' font-bold'>{item.code ? "code:-" : ""}</span><br />
+                                            {item.code}</pre>
+                                    </section>
                                 </section>
                             </div>
                         })}
@@ -205,7 +207,7 @@ function ForumAns() {
                 </div>
 
 
-                <div className=' hidden sm:block w-[30%] p-5 overflow-y-auto h-[90vh] '>
+                <div className=' max-[775px]:hidden block w-[30%] p-5 overflow-y-auto h-[90vh] '>
                     <div className='flex flex-col items-center'>
                         <section onClick={() => {
                             if (logedin) {

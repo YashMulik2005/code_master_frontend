@@ -5,10 +5,12 @@ import { AiFillInstagram } from 'react-icons/ai'
 import { BiSolidPhoneCall } from 'react-icons/bi'
 import { FaLocationDot, FaFreeCodeCamp } from 'react-icons/fa6'
 import themehook from './CodeContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Footer() {
-    const { theme } = themehook()
+    const { theme, setnavbar } = themehook()
+
+    const navigate = useNavigate()
     return (
         <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"}  p-2`}>
             <div className=" flex max-[666px]:flex-col flex-row items-center max-[666px]:justify-center justify-between px-4 py-2 my-2">
@@ -27,10 +29,22 @@ function Footer() {
                     </section>
                 </section>
                 <ul className=' max-[666px]:my-2'>
-                    <li className=' inline font-bold hover:border-b-2  border-green-500 m-2 my-3'><Link to="/">Home</Link></li>
-                    <li className=' inline font-bold hover:border-b-2  border-green-500 m-2 my-3'><Link to="/">About</Link></li>
-                    <li className=' inline font-bold hover:border-b-2 border-green-500 m-2 my-3'><Link to="/">Contact</Link></li>
-                    <li className=' inline font-bold hover:border-b-2 border-green-500 m-2 my-3'><Link to="/">Help</Link></li>
+                    <li className=' inline font-bold hover:border-b-2  border-green-500 m-2 my-3' onClick={() => {
+                        setnavbar(false)
+                        navigate("/")
+                    }}>Home</li>
+                    <li className=' inline font-bold hover:border-b-2  border-green-500 m-2 my-3' onClick={() => {
+                        setnavbar(false)
+                        navigate("/About")
+                    }}>About</li>
+                    <li className=' inline font-bold hover:border-b-2 border-green-500 m-2 my-3' onClick={() => {
+                        setnavbar(false)
+                        navigate("/contact")
+                    }}>Contact</li>
+                    <li className=' inline font-bold hover:border-b-2 border-green-500 m-2 my-3' onClick={() => {
+                        setnavbar(false)
+                        navigate("/feedback")
+                    }}>FeedBack</li>
                 </ul>
                 <section className=' flex items-center max-[666px]:my-2'>
                     <section className={`${theme == "light" ? "bg-white" : " bg-[#1c232b] text-white"} p-2 rounded-full mx-2`}>

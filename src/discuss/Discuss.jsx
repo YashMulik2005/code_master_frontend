@@ -15,7 +15,7 @@ function Discuss() {
             </section>
             <section className='h-[50%] flex flex-col justify-center items-center p-5'>
                 <h1 className={`${theme == "light" ? "text-black" : "text-white"} text-xl font-bold`}>Code-Master Discuss</h1>
-                <p className=' text-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae delectus mollitia doloremque nesciunt corporis commodi porro atque nobis? Cumque iste nostrum veritatis nobis fugiat voluptatem et ea. Consequuntur, adipisci illo?</p>
+                <p className=' text-center'>Introducing "Code-Master Discuss" – Your go-to platform for collaborative learning and problem-solving! Have a coding conundrum or a tech query? Dive into a vibrant community of fellow Code-Masters who are eager to share their knowledge and help you unravel the mysteries of programming. Ask questions, share insights, and engage in insightful discussions. Whether you're a seasoned developer or just starting your coding journey, this is the place to connect, learn, and grow together. Get ready to unlock the power of collective expertise at Code-Master Discuss!</p>
                 <button className=' border-[1px] border-gray-400 rounded-3xl px-6 py-[3px] m-2 font-semibold hover:bg-green-600 hover:text-white hover:border-green-600 '><Link to={"/discuss"}>Start</Link></button>
             </section>
         </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import themehook from '../components/CodeContext'
 import axios from 'axios'
-import photo from '../assets/react.svg'
+import photo from '../assets/course.png'
 import { BarLoader } from 'react-spinners'
 import { IoMdCheckmarkCircle } from 'react-icons/io'
 import { AiFillCaretRight } from 'react-icons/ai'
@@ -105,7 +105,7 @@ function Coursetopic() {
                 <div className="">
                     <div className={` ${theme == "light" ? "bg-[#f5f1f0]" : "bg-[#0c131d]"} flex p-2 min-[760px]:h-[32vh] justify-center items-center shadow-lg`}>
                         <div className=' hidden  sm:flex w-[25%] h-[100%] pt-3'>
-                            <img src={photo} alt="" className=' w-[100%] h-[90%] ' />
+                            <img src={photo} alt="" className=' w-[100%] h-[100%] ' />
                         </div>
 
 

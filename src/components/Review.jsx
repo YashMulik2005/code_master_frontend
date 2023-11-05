@@ -16,7 +16,7 @@ function Review() {
                 </div>
                 <div className=' w-[100%] sm:w-[55%] p-3 sm:px-5 flex flex-col justify-center items-center'>
                     <h1 className={`${theme == "light" ? "text-black" : "text-white"} my-[2px] font-bold text-lg sm:text-xl `}>Certify yourself with various skills </h1>
-                    <p className=' text-md sm:text-lg text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repellat excepturi ducimus quis vitae repellendus, maxime amet libero nemo explicabo ea maiores odio quo ratione possimus molestiae reprehenderit enim voluptatum cupiditate praesentium veritatis!</p>
+                    <p className=' text-md sm:text-lg text-center'>Introducing "Code-Master Certify" – Elevate your programming skills and earn official certifications! Explore a diverse range of programming courses, put your knowledge to the test, and emerge as a certified Code-Master. Whether you're looking to validate your expertise or enhance your career prospects, our carefully curated tests and certificates are your passport to success. With Code-Master Certify, you'll have the opportunity to showcase your mastery in various programming domains and stand out in the tech world. Start your certification journey today and let your skills shine!</p>
                     <button className=' font-bold border-[1px] rounded-3xl px-5 py-[2px] m-2 hover:bg-green-600 hover:text-white hover:border-green-600'><Link to={'/certificate'}>certify</Link></button>
                 </div>
             </div>
