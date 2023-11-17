@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+jiimport React, { useEffect, useState } from 'react'
 import { GiHamburgerMenu, GiCancel } from 'react-icons/gi'
 import { GrCloudComputer } from 'react-icons/gr'
 import { CgProfile } from 'react-icons/cg'
@@ -105,7 +105,7 @@ function Navbar() {
                             <button className=' mx-1 font-bold  rounded-3xl border-[1px] px-3 sm:px-5 py-[4px] border-gray-400 hover:bg-[#39a84b] hover:border-none hover:text-white' onClick={() => {
                                 setnavbar(false)
                                 navigate('/auth/signup')
-                            }}>Sighup</button>
+                            }}>Signup</button>
                         </section>
 
                 }
