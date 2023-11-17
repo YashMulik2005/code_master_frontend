@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+okimport React, { useEffect, useRef } from 'react'
 import { GrCloudComputer } from 'react-icons/gr'
 import { CgProfile } from 'react-icons/cg'
 import photo from './assets/home_cover.png'
@@ -118,7 +118,7 @@ function Home() {
                 <div className=' max-[798px]:p-3 px-10 flex flex-col items-center h-[100%]'>
                     <div className=' max-[798px]:w-[100%]  w-[75%] flex flex-col justify-center items-center px-5 pt-6'>
                         <h1 className={` my-1 text-[48px] sm:text-[55px]  font-bold text-black`}>Code Master</h1>
-                        <p className='text-[18px] sm:text-[21px]  my-2 text-center text-black'>Code master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code mater also provide set of questions to test your coding skills.</p>
+                        <p className='text-[18px] sm:text-[21px]  my-2 text-center text-black'>Code-Master is platform to leran fundamentals of coding.It also provide online compiler for various languages like c++, java, python etc. Code-Master also provide set of questions to test your coding skills.</p>
                         <section className=' flex my-3'>
                             <button onClick={scrollToSection} className='text-black text-sm font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'>Start Learning</button>
                             <Link to="/compiler"><section className='text-black flex mx-4  font-bold bg-[#e9ffed] rounded-3xl border-[1px] px-3 sm:px-5 py-[2px] border-gray-400 hover:bg-[#39a84b] hover:border-[#e9ffed] hover:text-white'>
