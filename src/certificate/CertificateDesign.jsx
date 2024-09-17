@@ -105,13 +105,7 @@ function CertificateDesign() {
         >
           <div className=" p-4 rounded-md">
             <section className=" flex items-center justify-center">
-              <h1
-                className={` ${
-                  theme == "dark" ? "text-white" : ""
-                } font-bold text-lg `}
-              >
-                Code
-              </h1>
+              <h1 className={` text-black font-bold text-lg `}>Code</h1>
               <section>
                 <FaFreeCodeCamp
                   size={35}
@@ -120,13 +114,7 @@ function CertificateDesign() {
                   } mx-[2px] font-bold  `}
                 />
               </section>
-              <h1
-                className={` ${
-                  theme == "dark" ? "text-white" : ""
-                } font-bold text-lg `}
-              >
-                Master
-              </h1>
+              <h1 className={` text-black font-bold text-lg `}>Master</h1>
             </section>
             <h1 className=" text-center text-[50px] font-semibold text-black">
               Certificate
