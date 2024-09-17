@@ -108,12 +108,13 @@ function Compiler({ maindata, c_id }) {
         requestdata: data,
       });
       console.log(result);
-      setoutput(result?.data?.data);
-      let ans = result.data.data;
+      let ans = String(result.data.data).trim();
+      setoutput(String(result.data.data));
+
       // if ("100\n" == maindata.testcase1_ans) {
       //     console.log("true");
       // }
-      if (ans == maindata.testcase1_ans) {
+      if (ans == maindata.testcase1_ans.trim()) {
         setmessage("sucessful");
         setstatus(true);
         seterr(true);
@@ -151,11 +152,11 @@ function Compiler({ maindata, c_id }) {
         requestdata: data,
       });
       console.log(result);
-      let ans = result.data.data.result.output;
+      let ans = String(result?.data?.data).trim();
       // if (maindata.testcase2_ans == "0\n") {
       //     console.log("yes");
       // }
-      if (ans == maindata.testcase2_ans) {
+      if (ans == maindata.testcase2_ans.trim()) {
         const data = {
           username: contextusername,
           t_id: maindata._id,

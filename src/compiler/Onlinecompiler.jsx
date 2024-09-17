@@ -63,7 +63,7 @@ function onlinecompiler() {
         requestdata: data,
       });
       console.log(result);
-      if (result?.data?.data) setoutput(result?.data?.data);
+      if (result?.data?.data) setoutput(String(result?.data?.data));
       setshow(false);
     } catch (err) {
       console.log(err);
