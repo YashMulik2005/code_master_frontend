@@ -93,7 +93,7 @@ function Questioncompiler({ maindata }) {
         requestdata: data,
       });
       console.log(result);
-      setoutput(result.data.data);
+      setoutput(String(result.data.data));
       let ans = result.data.data;
       // if ("100\n" == maindata.testcase1_ans) {
       //     console.log("true");
@@ -136,7 +136,7 @@ function Questioncompiler({ maindata }) {
         requestdata: data,
       });
       console.log(result);
-      let ans = result.data.data.result.output;
+      let ans = result.data.data;
       // if (maindata.testcase2_ans == "0\n") {
       //     console.log("yes");
       // }
