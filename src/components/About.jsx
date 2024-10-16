@@ -187,6 +187,14 @@ function About() {
             <h1 className=" font-bold text-xl">Yash Mulik</h1>
             {/* <p className=' text-sm'>Web Developer</p> */}
           </section>
+          <section
+            className={`${
+              theme == "light" ? "bg-[#ffffff]" : "bg-[#1c232b]"
+            } hover:bg-green-600 hover:text-white inline-block p-3 px-5 rounded-md m-2`}
+          >
+            <h1 className=" font-bold text-xl">Mohit Sharma</h1>
+            {/* <p className=' text-sm'>Web Developer</p> */}
+          </section>
         </div>
       </div>
       <div
