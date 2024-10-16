@@ -272,7 +272,7 @@ function Profile() {
                       >
                         Problems Solved
                       </h1>
-                      <h1 className="text-[#a19999] font-semibold">80.00%</h1>
+                      <h1 className="text-[#a19999] font-semibold"></h1>
                     </section>
                     <section className="w-[50%] flex justify-center items-center ">
                       <LazyLoadImage
@@ -299,7 +299,7 @@ function Profile() {
                       >
                         Questions Posted
                       </h1>
-                      <h1 className="text-[#a19999] font-semibold">80.00%</h1>
+                      <h1 className="text-[#a19999] font-semibold"></h1>
                     </section>
                     <section className="w-[50%] flex justify-center items-center">
                       <LazyLoadImage
@@ -326,7 +326,7 @@ function Profile() {
                       >
                         Answers Posted
                       </h1>
-                      <h1 className="text-[#a19999] font-semibold">80.00%</h1>
+                      <h1 className="text-[#a19999] font-semibold"></h1>
                     </section>
                     <section className="w-[50%] flex justify-center items-center">
                       <LazyLoadImage
