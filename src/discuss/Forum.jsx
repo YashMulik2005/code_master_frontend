@@ -71,24 +71,30 @@ function Forum() {
   };
 
   const handleaskques = async () => {
-    const data = {
-      heading: heading,
-      description: desc,
-      code: code,
-      user: contextusername,
-    };
-
-    const result = await axios.post(`${url}/discuss/add`, { data: data });
-    console.log(result);
-    if (result.data.data.success) {
-      toast.success("question posted sucessfully !!!");
-      getdata();
+    if (heading == "") {
+      toast.error("heading is required");
+    } else if (desc == "") {
+      toast.error("Description is required");
     } else {
-      toast.error("Something went wrong.. try again!!!");
+      const data = {
+        heading: heading,
+        description: desc,
+        code: code,
+        user: contextusername,
+      };
+
+      const result = await axios.post(`${url}/discuss/add`, { data: data });
+      console.log(result);
+      if (result.data.data.success) {
+        toast.success("question posted sucessfully !!!");
+        getdata();
+      } else {
+        toast.error("Something went wrong.. try again!!!");
+      }
+      setheading("");
+      setcode("");
+      setdesc("");
     }
-    setheading("");
-    setcode("");
-    setdesc("");
   };
 
   const getdata = async () => {
@@ -140,7 +146,14 @@ function Forum() {
 
       <dialog id="my_modal_3" className="modal">
         <form method="dialog" className="modal-box">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+          <button
+            onClick={() => {
+              setheading("");
+              setdesc("");
+              setcode("");
+            }}
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
             ✕
           </button>
           <h1 className=" font-bold text-green-600 text-xl">
@@ -326,9 +339,17 @@ function Forum() {
               </p>
             </section>
             {theme == "light" ? (
-              <MdDarkMode size={30} onClick={handletheme} />
+              <MdDarkMode
+                size={30}
+                className=" cursor-pointer"
+                onClick={handletheme}
+              />
             ) : (
-              <MdOutlineLightMode size={30} onClick={handletheme} />
+              <MdOutlineLightMode
+                size={30}
+                className=" cursor-pointer"
+                onClick={handletheme}
+              />
             )}
           </div>
           <div className="h-[82vh] overflow-y-auto m-1">

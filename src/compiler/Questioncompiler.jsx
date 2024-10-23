@@ -196,7 +196,11 @@ function Questioncompiler({ maindata }) {
           </select>
         </form>
         {/* <h1>{lan}</h1> */}
-        <MdDarkMode size={30} onClick={handletheme} />
+        <MdDarkMode
+          size={30}
+          className=" cursor-pointer"
+          onClick={handletheme}
+        />
       </div>
       <div className=" px-2">
         <CodeMirror
