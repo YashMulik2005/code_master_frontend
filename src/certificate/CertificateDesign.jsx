@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import themehook from "../components/CodeContext";
 import { GrCloudComputer } from "react-icons/gr";
@@ -16,6 +16,7 @@ function CertificateDesign() {
   const { name } = useParams();
   const { contextusername, theme, settheme } = themehook();
   const url = import.meta.env.VITE_BACKEND;
+  const navigate = useNavigate();
 
   const [data, setdata] = useState([]);
   const input = useRef(null);
@@ -58,7 +59,12 @@ function CertificateDesign() {
     <div className="">
       <div className=" hidden p-2 px-4 sm:flex justify-between items-center shadow-md">
         <section>
-          <section className=" flex items-center justify-center">
+          <section
+            className=" flex items-center justify-center cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <h1
               className={` ${
                 theme == "dark" ? "text-white" : ""
